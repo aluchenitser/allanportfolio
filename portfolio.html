@@ -11,7 +11,7 @@
 </head>
 
 <body>
-<div class="header__scene">
+<div id="header" class="header__scene">
 	<div class="header-sleeve"></div>
 	<div class="header">
 		<div class="allan">
@@ -95,18 +95,47 @@
 
 <script type="text/javascript">
 
-let header_el = document.querySelector(".header__scene")
-let header_span_el = header_el.querySelector("span")
-let nav_el = header_el.querySelector(".nav")
+// let headerVue = new Vue({
+// 	el: '#header',
+// 	components: {
+// 		'blog-post': BlogPostComponent,
+// 		'dyno-component': DynoComponent,
+// 		'fader-component': FaderComponent
+// 	}
+// })
+
+
+let header_scene_el = document.querySelector(".header__scene")
+let header_el = header_scene_el.querySelector(".header")
+let header_span_el = header_scene_el.querySelector("span")
+let header_sleeve_el = header_scene_el.querySelector(".header-sleeve")
+let nav_el = header_scene_el.querySelector(".nav")
 
 console.log(document.body.scrollTop, document.documentElement.scrollTop)
 
-if(document.body.scrollTop == 0 && document.documentElement.scrollTop == 0) {
-	header_span_el.style.animation = "fadeInUp 1s ease-out";
-}
+window.addEventListener("DOMContentLoaded", () => {
+	if(document.body.scrollTop == 0 && document.documentElement.scrollTop == 0) {
+		header_span_el.style.animation = "fadeInUp 1s ease-out";
+	} 
+	else {
+		header_el.style.transition = "none"
+		header_sleeve_el.style.transition = "none"
 
-nav_el.addEventListener("mouseover", () => { header_el.classList.add("darken") })
-nav_el.addEventListener("mouseout", () => {	header_el.classList.remove("darken") })
+		header_scene_el.classList.toggle('shrink', true)
+
+		setTimeout(()=> {
+			header_el.style.transition = 
+			"transform var(--transition-length) linear, height var(--transition-length) linear, line-height var(--transition-length) linear";
+			header_sleeve_el.style.transition = "height var(--transition-length) linear"
+		}, 0)
+
+	}
+
+
+
+
+})
+
 
 window.onscroll = function() {
 	scrollFunction()
@@ -117,9 +146,9 @@ function scrollFunction() {
 	console.log("scrollFunction")
 
   if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
-    header_el.classList.toggle('shrink', true)
+    header_scene_el.classList.toggle('shrink', true)
   } else {
-	header_el.classList.toggle('shrink', false)
+	header_scene_el.classList.toggle('shrink', false)
 
   }
 }

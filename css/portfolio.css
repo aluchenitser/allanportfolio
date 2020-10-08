@@ -47,10 +47,6 @@ body * {
   position: relative;
   top: -1px;
 }
-.header__scene.darken {
-  background-color: darkgrey;
-  color: white;
-}
 .header__scene .header {
   z-index: 2;
   display: flex;
@@ -60,7 +56,7 @@ body * {
   font-weight: 400;
   font-family: "IBM Plex Mono", monospace;
   transform-origin: top left;
-  transition: transform var(--transition-length) linear, height var(--transition-length) linear, line-height var(--transition-length) linear, background 1s, color 1s;
+  transition: transform var(--transition-length) linear, height var(--transition-length) linear, line-height var(--transition-length) linear;
   transform: rotate3d(0, 0, 0, 0);
   position: relative;
 }

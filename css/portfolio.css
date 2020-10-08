@@ -2,7 +2,8 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500&family=Source+Sans+Pro&display=swap");
 :root {
   --readable-text-color: #252525;
-  --readable-text-weight: 200 ;
+  --readable-text-weight: 200;
+  --transition-length: 0.2s;
 }
 
 body {
@@ -10,96 +11,74 @@ body {
   font-weight: var(--readable-text-weight);
   color: var(--readable-text-color);
   padding-top: 70px;
-  display: grid;
-  grid-template-rows: auto 1fr;
+  transition: padding var(--transition-length);
 }
 body * {
   box-sizing: border-box;
-}
-body #about-toggle {
-  position: absolute;
-  opacity: 0;
 }
 
 /* -------- HEADER ------- */
 /* -------- HEADER ------- */
 /* -------- HEADER ------- */
 .header__scene {
-  perspective: 50px;
-  perspective-origin: 50% 50%;
-  margin-top: -70px;
-}
-.header {
-  transform-origin: right top;
-  font-family: "IBM Plex Mono", monospace;
-  background: linear-gradient(135deg, #F2F7F2, #F7F2F7);
   position: fixed;
+  margin-top: -70px;
   z-index: 999;
   width: 100%;
-  display: flex;
-  justify-content: space-between;
+  line-height: 70px;
+  /* --- header accessories --- */
+}
+.header__scene .header-sleeve {
   height: 70px;
-}
-.header .allan {
-  flex: 5 1 0;
-  font-size: 2.6rem;
-  margin: 0;
-  font-weight: 400;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 70px;
-}
-.header .allan span, .header .allan label {
-  padding-left: 20px;
-  display: inline-block;
-}
-.header .allan span.derdo, .header .allan label.derdo {
-  animation: fadeInUp 1.3s ease-out;
-}
-@keyframes fadeInUp {
-  0% {
-    transform: translateY(10px);
-    opacity: 0;
-  }
-  75% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-.header .header-front .nav {
-  font-size: 1.6rem;
-  flex: 1.15 1 0;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  font-weight: 200;
-  transition: flex 0.2s, background 0.2s;
-}
-.header .header-front .nav .about-wrap {
-  flex: 1 1 0;
-}
-.header .header-front .nav label {
-  text-decoration: none;
-  transition: font 0.15s linear;
-  position: relative;
-  cursor: pointer;
-  user-select: none;
-}
-.header .header-front .nav label:after {
-  background: none repeat scroll 0 0 transparent;
-  bottom: 0;
-  content: "";
-  display: block;
-  height: 2px;
-  left: 50%;
+  background: linear-gradient(135deg, #F2F7F2, #F7F2F7);
   position: absolute;
-  background: #fff;
-  transition: width 0.2s ease 0s, left 0.2s ease 0s;
-  width: 0;
-  bottom: -2px;
+  z-index: 1;
+  width: 100%;
+  transition: height var(--transition-length) linear;
+}
+.header__scene.shrink .header-sleeve {
+  height: 40px;
+}
+.header__scene.shrink .header {
+  height: 40px;
+  line-height: 40px;
+}
+.header__scene.shrink .header span {
+  position: relative;
+  top: -1px;
+}
+.header__scene.darken {
+  background-color: darkgrey;
+  color: white;
+}
+.header__scene .header {
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  font-size: 2.6rem;
+  font-weight: 400;
+  font-family: "IBM Plex Mono", monospace;
+  transform-origin: top left;
+  transition: transform var(--transition-length) linear, height var(--transition-length) linear, line-height var(--transition-length) linear, background 1s, color 1s;
+  transform: rotate3d(0, 0, 0, 0);
+  position: relative;
+}
+.header__scene .header .allan {
+  flex: 5 1 0;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+.header__scene .header .nav {
+  flex: 1.15 1 0;
+  font-weight: 200;
+  font-size: 1.6rem;
+  font-weight: 200;
+  text-align: center;
+}
+.header__scene .header .nav:hover {
+  cursor: pointer;
 }
 
 /* -------- BODY ------- */
@@ -149,7 +128,6 @@ body #about-toggle {
   transition: opacity 0.2s;
 }
 .container .sidebar-right .sidebar-right-content-wrapper {
-  position: fixed;
   display: flex;
   justify-content: center;
 }
@@ -174,16 +152,6 @@ body #about-toggle {
   padding-right: 25px;
   padding-left: 25px;
   text-align: center;
-}
-
-/* --------- ABOUT ANIMATION ------- */
-/* --------- ABOUT ANIMATION ------- */
-/* --------- ABOUT ANIMATION ------- */
-#about-toggle:checked + .header .header-front {
-  transform: rotateX(-90deg);
-}
-#about-toggle:checked + .header .header-bottom {
-  transform: rotateX(0);
 }
 
 /* --------- UTIL ------- */
@@ -1257,14 +1225,15 @@ body #about-toggle {
 .scene__cube {
   width: 200px;
   height: 200px;
-  perspective: 600px;
-  margin: 0 auto;
+  perspective: 200px;
+  margin: 20px auto;
 }
 .scene__cube .cube {
   width: 100%;
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
+  transform: translateZ(-100px);
 }
 .scene__cube .cube .cube__face {
   position: absolute;
@@ -1275,13 +1244,45 @@ body #about-toggle {
   font-size: 1.6em;
   line-height: 200px;
   text-align: center;
+  border: 1px solid var(--readable-text-color);
   background: linear-gradient(135deg, #F2F7F2db, #F7F2F7db);
 }
-.scene__cube .cube .cube__face--back {
-  transform: rotateY(180deg);
+.scene__cube .cube .cube__face--front {
+  transform: rotateY(0deg) translateZ(100px);
 }
+.scene__cube .cube .cube__face--right {
+  transform: rotateY(90deg) translateZ(100px);
+}
+.scene__cube .cube .cube__face--back {
+  transform: rotateY(180deg) translateZ(100px);
+}
+.scene__cube .cube .cube__face--left {
+  transform: rotateY(-90deg) translateZ(100px);
+}
+.scene__cube .cube .cube__face--top {
+  transform: rotateX(90deg) translateZ(100px);
+}
+.scene__cube .cube .cube__face--bottom {
+  transform: rotateX(-90deg) translateZ(100px);
+}
+
 /* --------- RESPONSIVE ------- */
 /* --------- RESPONSIVE ------- */
 /* --------- RESPONSIVE ------- */
+/* --------- KEYFRAMES ------- */
+/* --------- KEYFRAMES ------- */
+/* --------- KEYFRAMES ------- */
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 
 /*# sourceMappingURL=portfolio.css.map */

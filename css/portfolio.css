@@ -7,6 +7,7 @@
 }
 
 body {
+  overflow-x: hidden;
   margin: 0;
   font-weight: var(--readable-text-weight);
   color: var(--readable-text-color);
@@ -16,6 +17,28 @@ body {
 body * {
   box-sizing: border-box;
 }
+body.about-page .container {
+  transform: translateY(calc(-300vh - 70px));
+  transition: transform 1.4s cubic-bezier(0.99, 0, 1, 1);
+}
+
+/* -------- ABOUT ------- */
+/* -------- ABOUT ------- */
+/* -------- ABOUT ------- */
+.about.about-left {
+  position: absolute;
+  width: 100%;
+  height: calc(100vh - 70px);
+  transform: translateX(-50%);
+  background: lightgrey;
+}
+.about.about-right {
+  position: absolute;
+  width: 100%;
+  height: calc(100vh - 70px);
+  transform: translateX(50%);
+  background: grey;
+}
 
 /* -------- HEADER ------- */
 /* -------- HEADER ------- */
@@ -23,32 +46,12 @@ body * {
 .header__scene {
   position: fixed;
   margin-top: -70px;
-  z-index: 999;
+  z-index: 3;
   width: 100%;
   line-height: 70px;
-  /* --- header accessories --- */
-}
-.header__scene .header-sleeve {
-  height: 70px;
-  background: linear-gradient(135deg, #F2F7F2, #F3F3F3);
-  position: absolute;
-  z-index: 1;
-  width: 100%;
-  transition: height var(--transition-length) linear;
-}
-.header__scene.shrink .header-sleeve {
-  height: 40px;
-}
-.header__scene.shrink .header {
-  height: 40px;
-  line-height: 40px;
-}
-.header__scene.shrink .header .allan span {
-  position: relative;
-  top: -1px;
+  /* --- header --- */
 }
 .header__scene .header {
-  z-index: 2;
   display: flex;
   justify-content: space-between;
   height: 70px;
@@ -59,6 +62,8 @@ body * {
   transition: transform var(--transition-length) linear, height var(--transition-length) linear, line-height var(--transition-length) linear;
   transform: rotate3d(0, 0, 0, 0);
   position: relative;
+  background: linear-gradient(135deg, #f8f8f8, #F3F3F3);
+  /* --- header accessories --- */
 }
 .header__scene .header .allan {
   flex: 5 1 0;
@@ -83,20 +88,24 @@ body * {
 .header__scene .header .nav:hover {
   cursor: pointer;
 }
-
-/* -------- BODY ------- */
-/* -------- BODY ------- */
-/* -------- BODY ------- */
-hr {
-  height: 1px;
-  border: none;
-  border-top: 2px dotted #F7F2F7;
-  width: 50%;
-  margin: 40px auto;
+.header__scene.shrink .header-sleeve {
+  height: 40px;
+}
+.header__scene.shrink .header {
+  height: 40px;
+  line-height: 40px;
+}
+.header__scene.shrink .header .allan span {
+  position: relative;
+  top: -1px;
 }
 
+/* -------- BODY ------- */
+/* -------- BODY ------- */
+/* -------- BODY ------- */
 .container {
   display: flex;
+  z-index: 1;
 }
 .container .sidebar-left {
   flex: 1 1 0;
@@ -112,20 +121,16 @@ hr {
   padding-top: 80px;
 }
 .container .main-wrapper .main .entry {
-  /* section colors #ffeefd70
-
-  #faffee70
-
-
-  */
+  position: relative;
 }
 .container .main-wrapper .main .entry h1 {
-  padding: 10px 0 10px 50px;
-  margin: 0 -25px 0.67em -25px;
+  padding: 10px 25px 10px 50px;
+  margin: 0 -25px 15px -25px;
   left: -25px;
   position: relative;
   font-family: "IBM Plex Mono", monospace;
   font-size: 1.6em;
+  display: inline-block;
 }
 .container .main-wrapper .main .entry p {
   overflow: hidden;
@@ -137,15 +142,41 @@ hr {
   font-size: 21px;
   line-height: 29.5px;
   color: #333;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.container .main-wrapper .main .entry .meta {
+  font-family: "IBM Plex Mono", monospace;
+  position: absolute;
+  text-align: right;
+  width: 100%;
+  color: #969696;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  bottom: 3px;
+  font-style: italic;
+}
+.container .main-wrapper .main .entry hr {
+  height: 2px;
+  border: none;
+  border-top: 1px dotted #d8d8d8;
+  margin: 38.5px auto 70px auto;
 }
 .container .main-wrapper .main .entry:nth-child(3n-2) h1 {
   background-color: #ffeefd70;
+  border-bottom: 1px solid #c3b7c270;
+  border-right: 1px solid #c3b7c270;
 }
 .container .main-wrapper .main .entry:nth-child(3n-1) h1 {
   background-color: #e2f0f994;
+  border-bottom: 1px solid #c9d5dc94;
+  border-right: 1px solid #c9d5dc94;
 }
 .container .main-wrapper .main .entry:nth-child(3n) h1 {
   background-color: #f9f2e294;
+  border-bottom: 1px solid #d4cdbe94;
+  border-right: 1px solid #d4cdbe94;
 }
 .container .sidebar-right {
   flex: 1.15 1 0;

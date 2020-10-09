@@ -11,16 +11,21 @@
 </head>
 
 <body>
+
+<!-- 
+	<div class="about about-left">
+
+	</div>
+	<div class="about about-right">
+		
+	</div> -->
 <div id="header" class="header__scene">
-	<div class="cube--front">
-		<div class="header-sleeve"></div>
-		<div class="header">
-			<div class="allan">
-				<span>Allan Luchenitser</span>
-			</div>
-			<div class="nav">
-				<span>about</span>
-			</div>
+	<div class="header">
+		<div class="allan">
+			<span class="no-wipe">Allan Luchenitser</span>
+		</div>
+		<div class="nav">
+			<span>about</span>
 		</div>
 	</div>
 	<div class="cube--top">
@@ -49,6 +54,9 @@
 </script> -->
 
 <div class="container">
+
+
+
 	<div class="sidebar-left">
 	</div>
 
@@ -62,6 +70,7 @@
 					<br /></br />
 					Shall we begin. First off, have you acquired the correct equipment? Without it, you may as well go on facebook and waste your life.
 				</p>
+				<div class="meta">Sept 2, 2020</div>
 				<hr>
 			</div>
 			<div class="entry">
@@ -139,11 +148,9 @@ let header_sleeve_el = header_scene_el.querySelector(".header-sleeve")
 let nav_el = header_scene_el.querySelector(".nav")
 let aboutme_el = document.getElementById("aboutme")
 
-// aboutme_el.addEventListener("click", () => {
-// 	header_el.classList.toggle('abouted')
-// })
-
-console.log(document.body.scrollTop, document.documentElement.scrollTop)
+nav_el.addEventListener("click", () => {
+	document.body.classList.add('about-page')
+})
 
 window.addEventListener("DOMContentLoaded", () => {
 	if(document.body.scrollTop == 0 && document.documentElement.scrollTop == 0) {
@@ -151,14 +158,12 @@ window.addEventListener("DOMContentLoaded", () => {
 	} 
 	else {
 		header_el.style.transition = "none"
-		header_sleeve_el.style.transition = "none"
 
 		header_scene_el.classList.toggle('shrink', true)
 
 		setTimeout(()=> {
 			header_el.style.transition = 
 			"transform var(--transition-length) linear, height var(--transition-length) linear, line-height var(--transition-length) linear";
-			header_sleeve_el.style.transition = "height var(--transition-length) linear"
 		}, 0)
 
 	}
@@ -171,8 +176,6 @@ window.onscroll = function() {
 
 
 function scrollFunction() {
-	console.log("scrollFunction")
-	console.log(document.body.scrollTop, document.documentElement.scrollTop)
 
   if (document.body.scrollTop > 120 || document.documentElement.scrollTop > 120) {
     header_scene_el.classList.toggle('shrink', true)

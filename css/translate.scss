@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500&family=Source+Sans+Pro&display=swap');
+
+.preload * {
+    transition: none !important;
+  }
+
+body {
+    margin: 0;
+    max-width: 100%;
+    overflow: hidden;
+    
+    
+    .about {
+        position: absolute;
+        height: 100vh;
+        width: 100%;
+        // opacity: 0.4;
+
+        transition: transform .4s cubic-bezier(.99, 0, 1, 1);
+
+       
+
+        &.about-left {
+            background: white;
+            // background: url("/img/geometric-leaves.png");
+            // background: url("/img/hotel-wallpaper.png");
+
+            transform: translateX(-100%);
+
+            @at-root body.launch .about-left {
+                transform: translateX(0) !important;
+            }
+        }
+    
+        &.about-right {
+            height: 100vh;
+            width: 100%;
+
+            transform: translateX(100%);
+
+            @at-root body.launch .about-right {
+                transform: translateX(50%) !important;
+            }
+
+            display: flex;
+            align-items: center;
+            
+
+            .picture-matte-wrap {
+                width: 48%;
+                height: 95%;
+                
+                .picture-matte {
+                    height: 100%;
+                    width: 100%;
+                    border-radius: 25px;
+                    background: url("/img/hotel-wallpaper-black.png");
+                    
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+
+                    // .897 ratio
+                    img {
+                        filter: grayscale(100%);
+                        border-radius: 25px;
+                        width: 500px;
+                        max-width: 95%;
+                        max-height: 95%;
+                        margin: 20px;
+                        border-radius: 25px;
+                    }
+                }
+
+
+            }
+        }
+    }
+
+    .filler {
+        p {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 20px;
+        }
+    }
+}

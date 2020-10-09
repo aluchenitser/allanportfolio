@@ -30,7 +30,7 @@ body * {
 }
 .header__scene .header-sleeve {
   height: 70px;
-  background: linear-gradient(135deg, #F2F7F2, #F7F2F7);
+  background: linear-gradient(135deg, #F2F7F2, #F3F3F3);
   position: absolute;
   z-index: 1;
   width: 100%;
@@ -43,7 +43,7 @@ body * {
   height: 40px;
   line-height: 40px;
 }
-.header__scene.shrink .header span {
+.header__scene.shrink .header .allan span {
   position: relative;
   top: -1px;
 }
@@ -65,6 +65,13 @@ body * {
   display: flex;
   align-items: center;
   padding-left: 20px;
+  position: relative;
+}
+.header__scene .header .allan span {
+  transition: width 1s;
+  white-space: nowrap;
+  width: 100%;
+  position: relative;
 }
 .header__scene .header .nav {
   flex: 1.15 1 0;
@@ -80,6 +87,14 @@ body * {
 /* -------- BODY ------- */
 /* -------- BODY ------- */
 /* -------- BODY ------- */
+hr {
+  height: 1px;
+  border: none;
+  border-top: 2px dotted #F7F2F7;
+  width: 50%;
+  margin: 40px auto;
+}
+
 .container {
   display: flex;
 }
@@ -93,11 +108,27 @@ body * {
   justify-content: center;
 }
 .container .main-wrapper .main {
-  flex: 0.6 1 0;
+  flex: 0.65 1 0;
+  padding-top: 80px;
 }
-.container .main-wrapper .main p {
+.container .main-wrapper .main .entry {
+  /* section colors #ffeefd70
+
+  #faffee70
+
+
+  */
+}
+.container .main-wrapper .main .entry h1 {
+  padding: 10px 0 10px 50px;
+  margin: 0 -25px 0.67em -25px;
+  left: -25px;
+  position: relative;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.6em;
+}
+.container .main-wrapper .main .entry p {
   overflow: hidden;
-  padding: 15px 0;
   border-radius: 5px;
   font-weight: 400;
   line-height: 1.4;
@@ -107,11 +138,14 @@ body * {
   line-height: 29.5px;
   color: #333;
 }
-.container .main-wrapper .main hr {
-  height: 1px;
-  border: none;
-  border-top: 2px dotted #F7F2F7;
-  width: 50%;
+.container .main-wrapper .main .entry:nth-child(3n-2) h1 {
+  background-color: #ffeefd70;
+}
+.container .main-wrapper .main .entry:nth-child(3n-1) h1 {
+  background-color: #e2f0f994;
+}
+.container .main-wrapper .main .entry:nth-child(3n) h1 {
+  background-color: #f9f2e294;
 }
 .container .sidebar-right {
   flex: 1.15 1 0;
@@ -1218,53 +1252,73 @@ body * {
   transform: rotateY(180deg);
 }
 
-.scene__cube {
-  width: 200px;
-  height: 200px;
-  perspective: 200px;
-  margin: 20px auto;
-}
-.scene__cube .cube {
-  width: 100%;
-  height: 100%;
+.triangle-prism {
+  width: 33.3333333333px;
+  width: 300px;
+  height: 50px;
   position: relative;
-  transform-style: preserve-3d;
-  transform: translateZ(-100px);
+  perspective: 1000px;
+  margin: 0 auto;
 }
-.scene__cube .cube .cube__face {
+.triangle-prism #prism-slider {
+  width: 300px;
+  height: 100%;
   position: absolute;
-  font-family: "IBM Plex Mono", monospace;
-  width: 200px;
-  height: 200px;
-  font-weight: 400;
-  font-size: 1.6em;
-  line-height: 200px;
+  transform-style: preserve-3d;
+  animation: cycle 9s linear infinite;
+  animation-direction: normal;
+}
+.triangle-prism #prism-slider .side {
+  width: 300px;
+  height: 48px;
+  display: block;
+  position: absolute;
+  background: #f77663;
+  color: #fff;
   text-align: center;
-  border: 1px solid var(--readable-text-color);
-  background: linear-gradient(135deg, #F2F7F2db, #F7F2F7db);
+  line-height: 48px;
 }
-.scene__cube .cube .cube__face--front {
-  transform: rotateY(0deg) translateZ(100px);
+.triangle-prism #prism-slider .side.one {
+  transform: rotateX(0deg) translateZ(14px);
 }
-.scene__cube .cube .cube__face--right {
-  transform: rotateY(90deg) translateZ(100px);
+.triangle-prism #prism-slider .side.two {
+  transform: rotateX(120deg) translateZ(14px);
 }
-.scene__cube .cube .cube__face--back {
-  transform: rotateY(180deg) translateZ(100px);
-}
-.scene__cube .cube .cube__face--left {
-  transform: rotateY(-90deg) translateZ(100px);
-}
-.scene__cube .cube .cube__face--top {
-  transform: rotateX(90deg) translateZ(100px);
-}
-.scene__cube .cube .cube__face--bottom {
-  transform: rotateX(-90deg) translateZ(100px);
+.triangle-prism #prism-slider .side.three {
+  transform: rotateX(240deg) translateZ(14px);
 }
 
+@keyframes cycle {
+  0% {
+    transform: rotateX(0deg);
+  }
+  28.5714% {
+    transform: rotateX(0deg);
+  }
+  33.3333% {
+    transform: rotateX(-120deg);
+  }
+  61.9047% {
+    transform: rotateX(-120deg);
+  }
+  66.6666% {
+    transform: rotateX(-240deg);
+  }
+  95.238% {
+    transform: rotateX(-240deg);
+  }
+  100% {
+    transform: rotateX(-360deg);
+  }
+}
 /* --------- RESPONSIVE ------- */
 /* --------- RESPONSIVE ------- */
 /* --------- RESPONSIVE ------- */
+@media (max-width: 1500px) {
+  .container .main {
+    flex: 0.7 1 0 !important;
+  }
+}
 /* --------- KEYFRAMES ------- */
 /* --------- KEYFRAMES ------- */
 /* --------- KEYFRAMES ------- */
@@ -1278,6 +1332,50 @@ body * {
   }
   100% {
     transform: translateY(0);
+  }
+}
+@keyframes tdHingeFlipIn {
+  0% {
+    opacity: 0;
+    transform: perspective(600px) rotateX(0deg);
+    transform-origin: center top;
+    -webkit-animation-timing-function: cubic-bezier(0, 0.59, 0.375, 1);
+    animation-timing-function: cubic-bezier(0, 0.59, 0.375, 1);
+  }
+  50% {
+    transform: perspective(600px) rotateX(-10deg);
+    transform-origin: center top;
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(600px) rotateX(0deg);
+    transform-origin: center top;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+}
+@keyframes tdHingeFlipOut {
+  0% {
+    opacity: 1;
+    transform: perspective(600px) rotateX(0deg);
+    transform-origin: center top;
+    -webkit-animation-timing-function: cubic-bezier(0, 0.59, 0.375, 1);
+    animation-timing-function: cubic-bezier(0, 0.59, 0.375, 1);
+  }
+  50% {
+    transform: perspective(600px) rotateX(-10deg);
+    transform-origin: center top;
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  100% {
+    opacity: 0;
+    transform: perspective(600px) rotateX(0deg);
+    transform-origin: center top;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
 }
 

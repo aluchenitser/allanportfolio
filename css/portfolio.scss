@@ -1,5 +1,8 @@
+@use "sass:math";
+
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500&family=Source+Sans+Pro&display=swap');
+
 
 :root {
 	--readable-text-color: #252525;
@@ -28,6 +31,10 @@ body {
 
 // wrapper
 .header__scene {
+	// animation: tdHingeFlipIn 0.3s 0.3s;
+	// animation: tdHingeFlipOut 0.3s;
+	
+
 	position: fixed;
 	margin-top: -70px;
 	z-index: 999;
@@ -38,7 +45,8 @@ body {
 
 	.header-sleeve {
 		height: 70px;
-		background: linear-gradient(135deg, #F2F7F2, #F7F2F7);
+		// background: linear-gradient(135deg, #F2F7F2, #F7F2F7);
+		background: linear-gradient(135deg, #F2F7F2, #F3F3F3);
 		position: absolute;
 		z-index: 1;
 		width: 100%;
@@ -55,7 +63,7 @@ body {
 			height: 40px;
 			line-height: 40px;
 	
-			span {
+			.allan span {
 				position :relative;
 				top: -1px;
 			}
@@ -87,7 +95,15 @@ body {
 			display: flex;
 			align-items: center;
 			padding-left: 20px;
-
+			position: relative;
+			
+			
+			span {
+				transition: width 1s;
+				white-space: nowrap;
+				width: 100%;
+				position: relative;
+			}
 		}
 
 		.nav {
@@ -111,6 +127,15 @@ body {
 /* -------- BODY ------- */
 /* -------- BODY ------- */
 
+
+hr {
+	height: 1px;
+	border: none;
+	border-top: 2px dotted #F7F2F7;
+	width: 50%;
+	margin: 40px auto;
+}
+
 .container {
 	display: flex;
 
@@ -125,30 +150,63 @@ body {
 		justify-content: center;
 
 		.main {
-			flex: .6 1 0;
+			flex: .65 1 0;
+			padding-top: 80px;
 
-			p {
-				overflow: hidden;
-				padding: 15px 0;
-				border-radius: 5px;
-				font-weight: 400;
-				line-height: 1.4;
-				font-size: 1.3rem;
+			.entry {
 
-				// font-family: 'Roboto', sans-serif;
-				font-family: 'Source Sans Pro', sans-serif;
 
-				font-size: 21px;
-				line-height: 29.5px;
-				color: #333;
+				h1 {
+					padding: 10px 0 10px 50px;
+					margin: 0 -25px .67em -25px;
+					left: -25px;
+					
+					position: relative;
+					
+					font-family: "IBM Plex Mono", monospace;
+					font-size: 1.6em;
+					
+					// outline: 1px dotted grey;
+				}
+
+				p {
+					overflow: hidden;
+					// padding: 15px 0;
+					border-radius: 5px;
+					font-weight: 400;
+					line-height: 1.4;
+					font-size: 1.3rem;
+	
+					// font-family: 'Roboto', sans-serif;
+					font-family: 'Source Sans Pro', sans-serif;
+	
+					font-size: 21px;
+					line-height: 29.5px;
+					color: #333;
+				}
+	
+
+
+  /* section colors #ffeefd70
+
+  #faffee70
+
+
+  */
+
+				&:nth-child(3n - 2) h1 {
+					background-color: #ffeefd70;
+				}
+
+				&:nth-child(3n - 1) h1 {
+					background-color: #e2f0f994;
+				}
+
+				&:nth-child(3n) h1 {
+					background-color: #f9f2e294;
+				}
 			}
 
-			hr {
-				height: 1px;
-				border: none;
-				border-top: 2px dotted #F7F2F7;
-				width: 50%;
-			}
 		}
 	}
 
@@ -309,48 +367,79 @@ body {
 	}
 }
 
-.scene__cube {
-	width: 200px;
-	height: 200px;
-	perspective: 200px;
-	margin: 20px auto;
 	
-	.cube {
-		width: 100%;
+
+$prism-side: 50;
+$prism-from-center: #{2 * $prism-side / 3}px;
+
+.triangle-prism{
+	width: $prism-from-center;
+
+	width: 300px;
+	height: 50px;
+	position: relative;
+	perspective: 1000px;
+	margin: 0 auto;
+	
+	#prism-slider{
+		width: 300px;
 		height: 100%;
-		position: relative;
+		position: absolute;
 		transform-style: preserve-3d;
-		transform: translateZ(-100px);
+		animation: cycle 9s linear infinite;
+		animation-direction: normal;
+		// transform: rotateY(45deg);
 
-	  	.cube__face {
+		.side{
+			width: 300px;
+			height: 48px;
+			display: block;
 			position: absolute;
-			font-family: 'IBM Plex Mono', monospace;
-
-			width: 200px;
-			height: 200px;
-			font-weight: 400;
-			font-size: 1.6em;
-
-			line-height: 200px;
+			// border: 1px solid #d46555;
+			background: #f77663;
+			color: #fff;
 			text-align: center;
-			border: 1px solid var(--readable-text-color);
+			line-height: 48px;
+		  }
 
-			background: linear-gradient(135deg, #F2F7F2db, #F7F2F7db);
-			// opacity: 0.7;
+		.side.one{
+			transform: rotateX(0deg) translateZ(14px);
 		}
-
-		.cube__face--front  { transform: rotateY(  0deg) translateZ(100px); }
-		.cube__face--right  { transform: rotateY( 90deg) translateZ(100px); }
-		.cube__face--back   { transform: rotateY(180deg) translateZ(100px); }
-		.cube__face--left   { transform: rotateY(-90deg) translateZ(100px); }
-		.cube__face--top    { transform: rotateX( 90deg) translateZ(100px); }
-		.cube__face--bottom { transform: rotateX(-90deg) translateZ(100px); }
-
-
-	}
+		
+		.side.two{
+			transform: rotateX(120deg) translateZ(14px);
+		}
+		
+		.side.three{
+			transform: rotateX(240deg) translateZ(14px);
+		}
+   }
 }
-	
-
+  
+  
+  @keyframes cycle{
+	0%{
+	  transform: rotateX(0deg); 
+	}
+	28.5714%{
+	  transform: rotateX(0deg);
+	}
+	33.3333%{
+	  transform: rotateX(-120deg);
+	}
+	61.9047%{
+	  transform: rotateX(-120deg);
+	}
+	66.6666%{
+	  transform: rotateX(-240deg);
+	}
+	95.238%{
+	  transform: rotateX(-240deg);
+	}
+	100%{
+	  transform: rotateX(-360deg);
+	}
+  }
 
 
 
@@ -370,7 +459,6 @@ body {
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) { 
-
 }
 
 // Extra large devices (large desktops, 1200px and up)
@@ -378,6 +466,11 @@ body {
 
 }
 
+@media (max-width: 1500px) {
+	.container .main {
+		flex: .7 1 0 !important;
+	}
+}
 /* --------- KEYFRAMES ------- */
 /* --------- KEYFRAMES ------- */
 /* --------- KEYFRAMES ------- */
@@ -394,3 +487,55 @@ body {
 		transform: translateY(0);
 	}
 }
+
+
+
+
+
+
+@keyframes tdHingeFlipIn {
+	0% {
+	  opacity: 0;
+	  transform: perspective(600px) rotateX(0deg);
+	  transform-origin: center top;
+	  -webkit-animation-timing-function: cubic-bezier(0, 0.59, 0.375, 1);
+			  animation-timing-function: cubic-bezier(0, 0.59, 0.375, 1);
+	}
+	50% {
+	  transform: perspective(600px) rotateX(-10deg);
+	  transform-origin: center top;
+	  -webkit-animation-timing-function: ease-in;
+			  animation-timing-function: ease-in;
+	}
+	100% {
+	  opacity: 1;
+	  transform: perspective(600px) rotateX(0deg);
+	  transform-origin: center top;
+	  -webkit-animation-timing-function: ease-out;
+			  animation-timing-function: ease-out;
+	}
+  }
+
+  @keyframes tdHingeFlipOut {
+	0% {
+	  opacity: 1;
+	  transform: perspective(600px) rotateX(0deg);
+	  transform-origin: center top;
+	  -webkit-animation-timing-function: cubic-bezier(0, 0.59, 0.375, 1);
+			  animation-timing-function: cubic-bezier(0, 0.59, 0.375, 1);
+	}
+	50% {
+	  transform: perspective(600px) rotateX(-10deg);
+	  transform-origin: center top;
+	  -webkit-animation-timing-function: ease-in;
+			  animation-timing-function: ease-in;
+	}
+	100% {
+	  opacity: 0;
+	  transform: perspective(600px) rotateX(0deg);
+	  transform-origin: center top;
+	  -webkit-animation-timing-function: ease-out;
+			  animation-timing-function: ease-out;
+	}
+  }
+

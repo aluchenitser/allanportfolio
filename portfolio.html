@@ -11,6 +11,7 @@
 </head>
 
 <body class="preload">
+<div class="white-overlay"></div>
 
 
 <div class="about about-left">
@@ -125,8 +126,7 @@ let header_scene_el 		= document.querySelector(".header__scene"),
 	header_span_el 			= header_scene_el.querySelector("span"),
 	header_sleeve_el		= header_scene_el.querySelector(".header-sleeve"),
 	nav_el 					= header_scene_el.querySelector(".nav"),
-	aboutme_el 				= document.getElementById("aboutme"),
-	return_arrow_el 		= document.getElementById("aboutme")
+	return_arrow_el 		= document.querySelector(".return-arrow")
 
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -147,6 +147,10 @@ window.addEventListener("DOMContentLoaded", () => {
 			"transform var(--transition-length) linear, height var(--transition-length) linear, line-height var(--transition-length) linear";
 		}, 0)
 	}
+})
+
+return_arrow_el.addEventListener("click", ()=> {
+	document.body.classList.add('launch-return')
 })
 
 nav_el.addEventListener("click", () => {

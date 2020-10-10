@@ -26,6 +26,23 @@ body {
 	padding-top: 70px;
 	transition: padding var(--transition-length);
 
+	.white-overlay {
+		position: fixed;
+		top: 0;
+		right: 0;
+		height: 100vh;
+		width: 100%;
+		background-color: white;
+		opacity: 0;
+		z-index: -1;
+		transition: opacity .5s 0.3s;
+
+		@at-root body.launch-return .white-overlay {
+			transform: rotate(-90deg);
+			z-index: 5;
+			opacity: 1;
+		}
+	}
 
 	&.launch-about {
 
@@ -34,6 +51,7 @@ body {
 			transition: transform 0.5s cubic-bezier(.99, 0, 1, 1);
 		}
 	}
+
 }
 
 /* -------- ABOUT ------- */
@@ -45,10 +63,10 @@ body {
 	position: fixed;
 	
 	top: 0;
-	transition: transform .4s cubic-bezier(.99, 0, 1, 1);
+	transition: transform .4s cubic-bezier(.99, 0, 1, 1), opacity 1s .3s;
 	
 	width: 100%;
-	z-index: 999;
+	z-index: 4;
 
 	@at-root body.launch-about .about {
 		transform: translateX(0) !important;
@@ -63,6 +81,8 @@ body {
 		display: flex;
 
 		transform: translateX(100%);
+
+
 		
 		.picture-matte-wrap {
 			height: 95%;
@@ -118,10 +138,10 @@ body {
 					top: 18px;
 					left: -95px;
 					cursor: pointer;
-					transition: transform .3s;
+					transition: transform .3s linear;
 					transform-origin: top right;
 
-					&.returning {
+					@at-root body.launch-return .return-arrow {
 						transform: rotate(-90deg);
 					}
 				}

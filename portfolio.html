@@ -10,15 +10,51 @@
 
 </head>
 
-<body>
+<body class="preload">
 
-<!-- 
-	<div class="about about-left">
 
+<div class="about about-left">
+
+</div>
+<div class="about about-right">
+	<div class="picture-matte-wrap">
+		<div class="picture-matte">
+			
+			<img class="return-arrow" src="/img/return_arrow.svg" width="100" />
+			<div class="description">
+				<div class="description-row">
+					<div class="left">Allan Luchenitser</div>
+					<div class="right">
+
+					</div>
+				</div>
+				<div class="description-row">
+					<div class="left">Front End Developer</div>
+					<div class="right">
+
+					</div>
+				</div>
+				<div class="description-row">
+					<div class="left">Affable Chap</div>
+					<div class="right">
+
+					</div>
+				</div>
+			</div>
+			<div class="picture">
+				<img src="/img/al3.jpeg" alt=""/>
+			</div>
+			<div class="skills">
+				I got acronyms: VueJS, SASS, Javascript / ES6, HTML, <br />
+				NodeJS, .NET, C#, SQL, Git, ExpressJS, Linux, Affinity Designer, <br />
+				Affinity Photo, Zeplin, jQuery, Agile, Scrum,<br />
+				KnockoutJS, unit testing, plenty more..<br /><br />
+				I like to think of myself as a designer friendly dev. <br />
+				I enjoy bringing other peoples' visions to life.
+			</div>
+		</div>
 	</div>
-	<div class="about about-right">
-		
-	</div> -->
+</div>
 <div id="header" class="header__scene">
 	<div class="header">
 		<div class="allan">
@@ -28,38 +64,12 @@
 			<span>about</span>
 		</div>
 	</div>
-	<div class="cube--top">
-
-	</div>
-	<div class="cube--bottom">
-		
-	</div>
 </div>
-
-<!-- <div class="mt-20">
-	<button id="aboutme">about</button>
-</div>
-
-<section class="triangle-prism">
-	<div id="prism-slider">
-	  <div class="side one">Side 1</div>
-	  <div class="side two">Side 2</div>
-	  <div class="side three">Side 3</div>
-	</div>
-</section>
-
-<script type="text/javascript">
-
-
-</script> -->
 
 <div class="container">
 
-
-
 	<div class="sidebar-left">
 	</div>
-
 
 	<div class="main-wrapper">
 		<div class="main">
@@ -103,88 +113,54 @@
 		</div>
 	</div>
 	<div class="sidebar-right">
-		<!-- <div class="sidebar-right-content-wrapper">
-			<div class="sidebar-right-content">
-				<div class="about-name mt-25">
-					it's Allan Luchenitser:
-				</div>
-				<div class="about-image">
-					<div class="moving-zone">
-						<div class="frame">
-							<img class="popup" src="img/al4.jpeg" />
-						</div>
-					</div>
-
-				</div>
-	
-
-				<p class="mt-0">
-					Front end developer, <br />person of interest.
-					<img class="left" src="img/al3.jpeg" />
-
-				</p>
-			</div>				
-		</div> -->
+		
 	</div>
 </div>
 
 
 <script type="text/javascript">
 
-// let headerVue = new Vue({
-// 	el: '#header',
-// 	components: {
-// 		'blog-post': BlogPostComponent,
-// 		'dyno-component': DynoComponent,
-// 		'fader-component': FaderComponent
-// 	}
-// })
+let header_scene_el 		= document.querySelector(".header__scene"),
+	header_el 				= header_scene_el.querySelector(".header"),
+	header_span_el 			= header_scene_el.querySelector("span"),
+	header_sleeve_el		= header_scene_el.querySelector(".header-sleeve"),
+	nav_el 					= header_scene_el.querySelector(".nav"),
+	aboutme_el 				= document.getElementById("aboutme"),
+	return_arrow_el 		= document.getElementById("aboutme")
 
-
-let header_scene_el = document.querySelector(".header__scene")
-let header_el = header_scene_el.querySelector(".header")
-let header_span_el = header_scene_el.querySelector("span")
-let header_sleeve_el = header_scene_el.querySelector(".header-sleeve")
-let nav_el = header_scene_el.querySelector(".nav")
-let aboutme_el = document.getElementById("aboutme")
-
-nav_el.addEventListener("click", () => {
-	document.body.classList.add('about-page')
-})
 
 window.addEventListener("DOMContentLoaded", () => {
+
+	// prevents initial launch of transitions
+	document.body.classList.remove("preload")
+
+	// prevent squash css transition when partially scrolled at load
 	if(document.body.scrollTop == 0 && document.documentElement.scrollTop == 0) {
 		header_span_el.style.animation = "fadeInUp 1s ease-out";
 	} 
 	else {
 		header_el.style.transition = "none"
-
 		header_scene_el.classList.toggle('shrink', true)
 
 		setTimeout(()=> {
 			header_el.style.transition = 
 			"transform var(--transition-length) linear, height var(--transition-length) linear, line-height var(--transition-length) linear";
 		}, 0)
-
 	}
+})
+
+nav_el.addEventListener("click", () => {
+	document.body.classList.add('launch-about')
 })
 
 
 window.onscroll = function() {
-	scrollFunction()
-}
-
-
-function scrollFunction() {
-
-  if (document.body.scrollTop > 120 || document.documentElement.scrollTop > 120) {
+	if (document.body.scrollTop > 120 || document.documentElement.scrollTop > 120) {
     header_scene_el.classList.toggle('shrink', true)
   } else {
 	header_scene_el.classList.toggle('shrink', false)
-
   }
 }
-
 
 
 </script>

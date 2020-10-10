@@ -10,23 +10,28 @@
 	--transition-length: 0.2s;
 }
 
+// prevents initial transitions from firing (this gets removed upon page load)
+.preload * {
+	transition: none !important;
+}
+
 body {
-	overflow-x: hidden;
-	
-	margin: 0;
 	* {	box-sizing: border-box; }
 	
-	font-weight: var(--readable-text-weight);
 	color: var(--readable-text-color);
+	font-weight: var(--readable-text-weight);
 	
+	margin: 0;
+	overflow-x: hidden;
 	padding-top: 70px;
 	transition: padding var(--transition-length);
 
-	&.about-page {
+
+	&.launch-about {
 
 		.container {
 			transform: translateY(calc(-300vh - 70px));
-			transition: transform 1.4s cubic-bezier(.99, 0, 1, 1);
+			transition: transform 0.5s cubic-bezier(.99, 0, 1, 1);
 		}
 	}
 }
@@ -35,35 +40,99 @@ body {
 /* -------- ABOUT ------- */
 /* -------- ABOUT ------- */
 .about {
+	background-color: white;
+	height: 100vh;
+	position: fixed;
+	
+	top: 0;
+	transition: transform .4s cubic-bezier(.99, 0, 1, 1);
+	
+	width: 100%;
+	z-index: 999;
+
+	@at-root body.launch-about .about {
+		transform: translateX(0) !important;
+	}
 
 	&.about-left {
-		position: absolute;
-	
-		width: 100%;
-		height: calc(100vh - 70px);
-		transform: translateX(-50%);
-		
-		background: lightgrey;
+		transform: translateX(-100%);
 	}
 	
 	&.about-right {
-		position: absolute;
-	
-		width: 100%;
-		height: calc(100vh - 70px);
-		transform: translateX(50%);
-	
-		background: grey;
-	}
+		align-items: center;
+		display: flex;
 
+		transform: translateX(100%);
+		
+		.picture-matte-wrap {
+			height: 95%;
+			margin: 0 auto;
+			width: 30%;
+			
+			.picture-matte {
+				background: url("/img/hotel-wallpaper-black.png");
+				color: white;
+				display: flex;
+
+				font-family: 'Source Sans Pro', sans-serif;
+				font-size: 2.6rem;
+				flex-direction: column;
+
+				height: 100%;
+				position: relative;
+				text-align: center;
+				width: 100%;
+
+				> div {
+					align-items: center;
+					display: flex;
+					flex-direction: column;
+					flex: 1 1 0;
+					justify-content: center;
+
+					&:last-child {
+						font-size: 14px;
+					}
+				}
+
+				.description {
+					line-height: 1.2;
+
+					.description-row {
+						background-color:lightgreen;
+						background-color: rgba(0, 0, 0, 0.297);
+						padding-left: 25px; padding-right: 25px;
+						position: relative;
+					}
+				}
+				
+				.picture {
+					img {
+						width: 90%;
+						object-fit: scale-down;
+					}
+				}
+
+				.return-arrow {
+					position: absolute;
+					top: 18px;
+					left: -95px;
+					cursor: pointer;
+					transition: transform .3s;
+					transform-origin: top right;
+
+					&.returning {
+						transform: rotate(-90deg);
+					}
+				}
+			}
+		}
+	}
 }
 
-
-
 /* -------- HEADER ------- */
 /* -------- HEADER ------- */
 /* -------- HEADER ------- */
-
 
 .header__scene {
 

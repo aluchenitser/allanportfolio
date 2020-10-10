@@ -42,6 +42,9 @@ node_modules/
 jspm_packages/
 js/lib/
 
+# design files
+img/*.afdesign
+
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
 

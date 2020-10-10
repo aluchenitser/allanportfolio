@@ -16,8 +16,6 @@
 }
 
 body {
-	* {	box-sizing: border-box; }
-	
 	color: var(--readable-text-color);
 	font-weight: var(--readable-text-weight);
 	
@@ -37,11 +35,11 @@ body {
 		z-index: -1;
 		transition: opacity .5s 0.3s;
 
-		@at-root body.launch-return .white-overlay {
-			transform: rotate(-90deg);
-			z-index: 5;
-			opacity: 1;
-		}
+		// @at-root body.launch-return .white-overlay {
+		// 	transform: rotate(-90deg);
+		// 	z-index: 5;
+		// 	opacity: 1;
+		// }
 	}
 
 	&.launch-about {

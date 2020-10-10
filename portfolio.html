@@ -151,10 +151,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
 return_arrow_el.addEventListener("click", ()=> {
 	document.body.classList.add('launch-return')
+	document.body.classList.remove('launch-about')
 })
 
 nav_el.addEventListener("click", () => {
 	document.body.classList.add('launch-about')
+	document.body.classList.remove('launch-return')
 })
 
 

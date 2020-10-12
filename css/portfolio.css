@@ -71,12 +71,16 @@ body.launch-about .about {
   margin: 0 auto;
   width: 40%;
   overflow: hidden;
+  border-top-right-radius: 25px;
 }
 .about.about-right .picture-matte-wrap .picture-matte {
-  color: white;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 3fr) 1fr;
+  grid-template-areas: "left right" "bottom bottom";
+  color: white;
   column-gap: 20px;
+  row-gap: 20px;
   padding: 20px;
   font-family: "Source Sans Pro", sans-serif;
   font-size: 2.6rem;
@@ -103,19 +107,42 @@ body.launch-about .about {
     /* The image width */
   }
 }
+.about.about-right .picture-matte-wrap .picture-matte .left {
+  grid-area: left;
+}
 .about.about-right .picture-matte-wrap .picture-matte .left .description {
   display: flex;
   flex-direction: column;
   line-height: 1.1;
   align-items: flex-end;
+  justify-content: space-between;
+  height: 100%;
 }
 .about.about-right .picture-matte-wrap .picture-matte .left .description .description-row {
-  font-size: 2.2rem;
-  padding: 10px 10px 10px 25px;
+  font-size: 2.1rem;
+  padding: 12px 10px 12px 25px;
   position: relative;
   background-color: #f8f8f8;
-  color: black;
-  margin-bottom: 10px;
+  color: #333;
+}
+.about.about-right .picture-matte-wrap .picture-matte .right {
+  background-color: lightgreen;
+  grid-area: right;
+  overflow: hidden;
+  background-image: url("../img/al3.jpeg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-top-right-radius: 25px;
+}
+.about.about-right .picture-matte-wrap .picture-matte .right img {
+  max-width: 100%;
+  border-top-right-radius: 20px;
+  object-fit: cover;
+}
+.about.about-right .picture-matte-wrap .picture-matte .bottom {
+  background-color: lightblue;
+  grid-area: bottom;
 }
 .about.about-right .picture-matte-wrap .picture-matte .return-arrow {
   position: absolute;

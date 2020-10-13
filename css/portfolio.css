@@ -110,6 +110,7 @@ body.launch-about .about {
   margin-right: 20px;
   max-height: 100%;
   float: left;
+  border: 10px solid #252525;
 }
 .about.about-right .right {
   grid-area: right;
@@ -1315,50 +1316,6 @@ body.launch-about .about {
   }
   100% {
     transform: translateY(0);
-  }
-}
-@keyframes tdHingeFlipIn {
-  0% {
-    opacity: 0;
-    transform: perspective(600px) rotateX(0deg);
-    transform-origin: center top;
-    -webkit-animation-timing-function: cubic-bezier(0, 0.59, 0.375, 1);
-    animation-timing-function: cubic-bezier(0, 0.59, 0.375, 1);
-  }
-  50% {
-    transform: perspective(600px) rotateX(-10deg);
-    transform-origin: center top;
-    -webkit-animation-timing-function: ease-in;
-    animation-timing-function: ease-in;
-  }
-  100% {
-    opacity: 1;
-    transform: perspective(600px) rotateX(0deg);
-    transform-origin: center top;
-    -webkit-animation-timing-function: ease-out;
-    animation-timing-function: ease-out;
-  }
-}
-@keyframes tdHingeFlipOut {
-  0% {
-    opacity: 1;
-    transform: perspective(600px) rotateX(0deg);
-    transform-origin: center top;
-    -webkit-animation-timing-function: cubic-bezier(0, 0.59, 0.375, 1);
-    animation-timing-function: cubic-bezier(0, 0.59, 0.375, 1);
-  }
-  50% {
-    transform: perspective(600px) rotateX(-10deg);
-    transform-origin: center top;
-    -webkit-animation-timing-function: ease-in;
-    animation-timing-function: ease-in;
-  }
-  100% {
-    opacity: 0;
-    transform: perspective(600px) rotateX(0deg);
-    transform-origin: center top;
-    -webkit-animation-timing-function: ease-out;
-    animation-timing-function: ease-out;
   }
 }
 

@@ -123,7 +123,7 @@ body {
 			
 
 				&.first-name {
-					margin-top: -1px;
+					margin-top: -4px;
 				}
 
 				&.last-name {
@@ -145,6 +145,9 @@ body {
 				max-height: 100%;
 				float: left;
 				border: 10px solid #252525;
+				min-width: 260.52px;
+				min-height: 288px;
+
 
 			}
 		}

@@ -94,7 +94,7 @@ body.launch-about .about {
   letter-spacing: -1px;
 }
 .about.about-right .info h1.first-name {
-  margin-top: -1px;
+  margin-top: -4px;
 }
 .about.about-right .info h1.last-name {
   left: 30px;
@@ -111,6 +111,8 @@ body.launch-about .about {
   max-height: 100%;
   float: left;
   border: 10px solid #252525;
+  min-width: 260.52px;
+  min-height: 288px;
 }
 .about.about-right .right {
   grid-area: right;

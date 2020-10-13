@@ -62,109 +62,66 @@ body.launch-about .about {
   transform: translateX(-100%);
 }
 .about.about-right {
-  align-items: center;
-  display: flex;
-  transform: translateX(100%);
-}
-.about.about-right .picture-matte-wrap {
-  height: 60%;
-  margin: 0 auto;
-  width: 40%;
-}
-.about.about-right .picture-matte-wrap .background-scroller {
-  position: absolute;
-  overflow: hidden;
-  width: 40%;
-  height: 60%;
-  border-top-right-radius: 25px;
-}
-.about.about-right .picture-matte-wrap .background-scroller:before {
-  content: "";
-  background: url("/img/hotel-wallpaper-black.png");
-  width: 300%;
-  position: absolute;
-  height: 100%;
-  z-index: -1;
-  animation: slide 40s linear infinite;
-}
-@keyframes slide {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(-33.3%, 0, 0);
-    /* The image width */
-  }
-}
-.about.about-right .picture-matte-wrap .picture-matte {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  grid-template-rows: minmax(0, 3fr) 1fr;
-  grid-template-areas: "left right" "bottom bottom";
-  color: white;
-  column-gap: 20px;
-  row-gap: 20px;
-  padding: 20px;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 2.6rem;
-  height: 100%;
-  position: relative;
-  text-align: center;
-  width: 100%;
+  transform: translateX(100%);
+  grid-template-columns: 1fr minmax(0, 1.5fr) 1fr;
+  grid-template-rows: 1fr minmax(0, 1.5fr) 1fr;
+  grid-template-areas: "topleft top topright" "left info right" "bottomleft bottom bottomright";
 }
-.about.about-right .picture-matte-wrap .picture-matte .left {
+.about.about-right .topleft {
+  grid-area: topleft;
+}
+.about.about-right .top {
+  grid-area: top;
+}
+.about.about-right .topright {
+  grid-area: topright;
+}
+.about.about-right .left {
   grid-area: left;
 }
-.about.about-right .picture-matte-wrap .picture-matte .left .description {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-  align-items: flex-end;
-  justify-content: space-between;
-  height: 100%;
-}
-.about.about-right .picture-matte-wrap .picture-matte .left .description .description-row {
-  font-size: 2.1rem;
-  padding: 0 10px 0 25px;
-  height: 95%;
-  position: relative;
-  background-color: #f8f8f8;
-  color: #333;
+.about.about-right .info {
+  grid-area: info;
+  font-weight: 400;
+  font-family: "IBM Plex Mono", monospace;
   white-space: nowrap;
-  background-image: linear-gradient(to bottom, #e6feff, transparent);
-  border-top-left-radius: 15px;
-  border-bottom: 1px solid #787878;
-  margin-bottom: -1px;
 }
-.about.about-right .picture-matte-wrap .picture-matte .right {
-  background-color: lightgreen;
+.about.about-right .info h1 {
+  position: relative;
+  margin: 0;
+  font-size: 72px;
+  line-height: 58px;
+  letter-spacing: -1px;
+}
+.about.about-right .info h1.first-name {
+  margin-top: -1px;
+}
+.about.about-right .info h1.last-name {
+  left: 30px;
+  top: 4px;
+}
+.about.about-right .info ul {
+  position: relative;
+  left: 35px;
+  list-style: none;
+  font-size: 16px;
+}
+.about.about-right .info img {
+  margin-right: 20px;
+  max-height: 100%;
+  float: left;
+}
+.about.about-right .right {
   grid-area: right;
-  overflow: hidden;
-  background-image: url("../img/al3.jpeg");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-top-right-radius: 25px;
 }
-.about.about-right .picture-matte-wrap .picture-matte .right img {
-  max-width: 100%;
-  border-top-right-radius: 20px;
-  object-fit: cover;
+.about.about-right .bottomleft {
+  grid-area: bottomleft;
 }
-.about.about-right .picture-matte-wrap .picture-matte .bottom {
+.about.about-right .bottom {
   grid-area: bottom;
 }
-.about.about-right .picture-matte-wrap .picture-matte .return-arrow {
-  position: absolute;
-  top: 18px;
-  left: -95px;
-  cursor: pointer;
-  transition: transform 0.3s linear;
-  transform-origin: top right;
-  color: black;
-}
-body.launch-return .return-arrow {
-  transform: rotate(-90deg);
+.about.about-right .bottomright {
+  grid-area: bottomright;
 }
 
 /* -------- HEADER ------- */

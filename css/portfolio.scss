@@ -88,13 +88,42 @@ body {
 
 		transform: translateX(100%);
 
+		
 		.picture-matte-wrap {
 			height: 60%;
 			margin: 0 auto;
 			width: 40%;
-			overflow: hidden;
-			border-top-right-radius: 25px;
-
+			// border-top-right-radius: 25px;
+			
+			.background-scroller {
+				position: absolute;
+				overflow: hidden;
+				width: 40%;
+				height: 60%;
+				border-top-right-radius: 25px;
+	
+					// scrolling background
+					&:before {
+						content: '';
+						background: url("/img/hotel-wallpaper-black.png");
+						width: 300%;
+						position: absolute;
+						height: 100%;
+						z-index: -1;
+						animation: slide 40s linear infinite;  
+	
+							
+	
+						@keyframes slide {
+							0%{
+							  transform: translate3d(0, 0, 0);
+							}
+							100%{
+							  transform: translate3d(-33.3%, 0, 0); /* The image width */
+							}
+						  }
+					}
+			}
 
 			.picture-matte {
 				display: grid;
@@ -104,8 +133,6 @@ body {
 					"left right" 
 					"bottom bottom";
 
-				
-				
 				color: white;
 
 				column-gap: 20px;
@@ -120,25 +147,7 @@ body {
 				text-align: center;
 				width: 100%;
 
-				// scrolling background
-				&:before {
-					content: '';
-					background: url("/img/hotel-wallpaper-black.png");
-					width: 300%;
-					position: absolute;
-					height: 100%;
-					z-index: -1;
-					animation: slide 40s linear infinite;
 
-					@keyframes slide {
-						0%{
-						  transform: translate3d(0, 0, 0);
-						}
-						100%{
-						  transform: translate3d(-33.3%, 0, 0); /* The image width */
-						}
-					  }
-				}
 
 				.left {
 					grid-area: left;
@@ -155,11 +164,18 @@ body {
 	
 						.description-row {
 							font-size: 2.1rem;
-							padding: 12px 10px 12px 25px;
+							padding: 0 10px 0 25px;
+							height: 95%;
 							position: relative;
 							background-color: #f8f8f8;
 							color: #333;
+							white-space: nowrap;
 							// margin-bottom: 10px;
+							background-image: linear-gradient(to bottom, #e6feff, transparent);
+							border-top-left-radius: 15px;
+
+							border-bottom: 1px solid #787878;
+							margin-bottom: -1px;
 						}
 					}
 				}
@@ -185,7 +201,7 @@ body {
 				}
 
 				.bottom {
-					background-color: lightblue;
+					// background-color: lightblue;
 					grid-area: bottom;
 				}
 	

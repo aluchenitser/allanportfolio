@@ -85,7 +85,7 @@ body.launch-about .about {
   position: relative;
   margin: 0;
   font-size: 72px;
-  line-height: 58px;
+  line-height: 0.81;
   letter-spacing: -1px;
 }
 .about.about-right .info .info-right h1.first-name {
@@ -197,11 +197,9 @@ body.launch-about .about {
   overflow: hidden;
   border-radius: 5px;
   font-weight: 400;
-  line-height: 1.4;
-  font-size: 1.3rem;
+  line-height: 1.6;
   font-family: "Source Sans Pro", sans-serif;
   font-size: 21px;
-  line-height: 29.5px;
   color: #333;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -1274,6 +1272,37 @@ body.launch-about .about {
 /* --------- RESPONSIVE ------- */
 /* --------- RESPONSIVE ------- */
 /* --------- RESPONSIVE ------- */
+@media (max-width: 576px) {
+  .about.about-right .info {
+    margin: 10px auto;
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+  }
+}
+@media (max-width: 768px) {
+  .about.about-right .info {
+    flex-flow: column;
+  }
+  .about.about-right .info .info-left img {
+    float: none;
+  }
+  .about.about-right .info .info-right {
+    margin-top: 30px;
+  }
+}
+@media (max-width: 992px) {
+  .about.about-right .info .info-right h1 {
+    font-size: 60px;
+  }
+  .about.about-right .info .info-right h1.last-name {
+    margin-left: 0;
+  }
+  .about.about-right .info .info-right ul {
+    padding-left: 4px;
+  }
+}
 @media (max-width: 1500px) {
   .container .main {
     flex: 0.7 1 0 !important;

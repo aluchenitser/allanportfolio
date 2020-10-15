@@ -381,9 +381,15 @@ body {
 /* --------- RESPONSIVE ------- */
 
 
-@media (max-width: 576px) { 
+@media (max-width: 440px) { 
 	.about.about-right .info {
-		margin: 10px auto;
+		margin: 10px;
+
+		.info-left {
+			img {
+				width: 100%;
+			}
+		}
 
 		position: relative;
 		left: auto;

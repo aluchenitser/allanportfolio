@@ -1272,13 +1272,16 @@ body.launch-about .about {
 /* --------- RESPONSIVE ------- */
 /* --------- RESPONSIVE ------- */
 /* --------- RESPONSIVE ------- */
-@media (max-width: 576px) {
+@media (max-width: 440px) {
   .about.about-right .info {
-    margin: 10px auto;
+    margin: 10px;
     position: relative;
     left: auto;
     top: auto;
     transform: none;
+  }
+  .about.about-right .info .info-left img {
+    width: 100%;
   }
 }
 @media (max-width: 768px) {

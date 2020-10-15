@@ -62,69 +62,44 @@ body.launch-about .about {
   transform: translateX(-100%);
 }
 .about.about-right {
-  display: grid;
+  display: flex;
   transform: translateX(100%);
-  grid-template-columns: 1fr minmax(0, 1.5fr) 1fr;
-  grid-template-rows: 1fr minmax(0, 1.5fr) 1fr;
-  grid-template-areas: "topleft top topright" "left info right" "bottomleft bottom bottomright";
-}
-.about.about-right .topleft {
-  grid-area: topleft;
-}
-.about.about-right .top {
-  grid-area: top;
-}
-.about.about-right .topright {
-  grid-area: topright;
-}
-.about.about-right .left {
-  grid-area: left;
 }
 .about.about-right .info {
-  grid-area: info;
   font-weight: 400;
   font-family: "IBM Plex Mono", monospace;
   white-space: nowrap;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
 }
-.about.about-right .info h1 {
+.about.about-right .info .info-left img {
+  margin-right: 20px;
+  float: right;
+  border: 10px solid #252525;
+  width: 333px;
+}
+.about.about-right .info .info-right h1 {
   position: relative;
   margin: 0;
   font-size: 72px;
   line-height: 58px;
   letter-spacing: -1px;
 }
-.about.about-right .info h1.first-name {
-  margin-top: -4px;
+.about.about-right .info .info-right h1.first-name {
+  margin-top: -1px;
 }
-.about.about-right .info h1.last-name {
-  left: 30px;
+.about.about-right .info .info-right h1.last-name {
+  margin-left: 30px;
   top: 4px;
 }
-.about.about-right .info ul {
+.about.about-right .info .info-right ul {
   position: relative;
-  left: 35px;
   list-style: none;
+  padding-left: 35.4px;
   font-size: 16px;
-}
-.about.about-right .info img {
-  margin-right: 20px;
-  max-height: 100%;
-  float: left;
-  border: 10px solid #252525;
-  min-width: 260.52px;
-  min-height: 288px;
-}
-.about.about-right .right {
-  grid-area: right;
-}
-.about.about-right .bottomleft {
-  grid-area: bottomleft;
-}
-.about.about-right .bottom {
-  grid-area: bottom;
-}
-.about.about-right .bottomright {
-  grid-area: bottomright;
 }
 
 /* -------- HEADER ------- */
@@ -150,7 +125,6 @@ body.launch-about .about {
   transform: rotate3d(0, 0, 0, 0);
   position: relative;
   background: linear-gradient(135deg, #f8f8f8, #F3F3F3);
-  /* --- header accessories --- */
 }
 .header__scene .header .allan {
   flex: 5 1 0;

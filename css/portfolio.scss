@@ -17,6 +17,18 @@ html {
 	box-sizing: inherit;
 }
 
+svg {
+
+	&.linkedin {
+		
+		circle {
+			stroke: var(--readable-text-color);
+			fill: var(--readable-text-color);
+		}
+	}
+
+}
+
 // prevents initial transitions from firing (this gets removed upon page load)
 .preload * {
 	transition: none !important;
@@ -92,12 +104,22 @@ body {
             display: flex;
 
 			.info-left {
+				position: relative;
 
-				img {
+				img.allan-pic {
 					margin-right: 20px;
 					float: right;
 					border: 10px solid #252525;
 					width: 333px;
+
+					border-top-right-radius: 25px;
+				}
+
+				svg.linkedin {
+					position: absolute;
+					top: -28px;
+					right: -12px;
+					cursor: pointer;
 				}
 			}
 
@@ -121,6 +143,7 @@ body {
 				}
 
 				ul {
+					margin: 16px 0;
 					position: relative;
 					list-style: none;
 					padding-left: 35.4px;
@@ -382,11 +405,15 @@ body {
 
 
 @media (max-width: 440px) { 
+	.about.about-right {
+		// position: relative;
+	}
+
 	.about.about-right .info {
 		margin: 10px;
 
 		.info-left {
-			img {
+			img.allan-pic {
 				width: 100%;
 			}
 		}
@@ -404,7 +431,7 @@ body {
 		flex-flow: column;
 
 		.info-left {
-			img {
+			img.allan-pic {
 				float: none;
 			}
 		}
@@ -417,20 +444,31 @@ body {
 
 // Large devices (desktops, 992px and up)
 @media (max-width: 992px) { 
-	.about.about-right .info .info-right {
-		h1 {
-			font-size: 60px;
+	.about.about-right .info {
+		.info-right {
+			h1 {
+				font-size: 60px;
 
-			&.last-name {
-				margin-left: 0;
+				&.last-name {
+					position: relative;
+					margin-left: 0;
+					left: -1px;
+				}
+			}
+
+			ul {
+				padding-left: 4px;
 			}
 		}
 
-		ul {
-			padding-left: 4px;
+		.info-left {
+			svg.linkedin {
+				width: 36px;
+				top: -23px;
+				right: -8px;
+			}
 		}
 	}
-
 }
 
 // Extra large devices (large desktops, 1200px and up)

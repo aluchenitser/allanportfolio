@@ -26,16 +26,25 @@ body {
 	overflow-x: hidden;
 	padding-top: var(--top-space);
 
-
-	&:before {
-		content: 'about';
+	nav {
+		text-align: right;
 		position: absolute;
-		top: var(--top-space);
-		right: 0;
+		right: 20px;
+		z-index: 2;
 		font-family: 'IBM Plex Mono', monospace;
 		cursor: pointer;
-		z-index: 2;
+		
+
+		.navitem {
+			margin-top: 8px;
+	
+			&:hover {
+				text-decoration: underline;
+			}
+	
+		}
 	}
+
 }
 
 /* -------- HEADER ------- */
@@ -169,32 +178,49 @@ body {
 		--top-space: 40px;
 	}
 
-	.header {
-		padding: 0 15px;
+	body {
 
-		.name {
-			font-size: 30px;
+		.header {
+			padding: 0 15px;
+
+			.name {
+				font-size: 30px;
+			}
+		}
+
+		nav {
+			position: static;
+			display: flex;
+			margin: 15px;
+			right: auto;
+			justify-content: space-evenly;
+
+			.navitem {
+				margin-top: 0;
+				margin-right: 8px;
+			}
+		}
+
+		.container {
+			padding-top: 0;
+
+			.entry {
+				h1 {
+					margin: 0 -25px 0 -25px;
+					font-size: 21px;
+				}
+
+				p {
+					font-size: 18px;
+				}
+
+				hr {
+					margin: 38.5px auto 40px auto;
+				}
+			}
 		}
 	}
 
-	.container {
-		padding-top: 30px;
-
-		.entry {
-			h1 {
-				margin: 0 -25px 0 -25px;
-				font-size: 21px;
-			}
-
-			p {
-				font-size: 18px;
-			}
-
-			hr {
-				margin: 38.5px auto 40px auto;
-			}
-		}
-	}
 }
 
 // Large devices (desktops, 992px and up)

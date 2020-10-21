@@ -4,98 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script> -->
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500&family=Source+Sans+Pro&display=swap">
 
     <style>
+
+        :root {
+            --universal-color: red;
+            --space: 30px;
+        }
+
         html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        p, h1 {
+            /* min-height: 100vh; */
             padding: 0;
             margin: 0;
         }
 
-        /*
-            1876
+        .flex-wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-            847
-
-        */
-
-        .info {
+        #app {
+            border: 1px solid pink;
+            /* display: inline-block;
             position: absolute;
             left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            display: flex;
+            top: 50%; */
+            /* transform: translate(-50%, -50%); */
         }
 
-        h1 {
-            font-family: "IBM Plex Mono", monospace;
-			position: relative;
-            margin: 0;
-            font-size: 72px;
-            line-height: 58px;
-            letter-spacing: -1px;            
+        .color1 {
+            color: var(--universal-color);
         }
 
-
-        h1.first-name {
-            margin-top: -1px;
+        .color2 {
+            background-color: var(--universal-color);
         }
 
-        h1.last-name {
-            margin-left: 30px;
-            top: 4px;
-        }
-
-        ul {
-            font-family: "IBM Plex Mono", monospace;
-
-            list-style: none;
+        .color3 {
+            border: 1px solid var(--universal-color);
             position: relative;
-            list-style: none;
-            padding-left: 35.4px;
-
-            font-size: 16px;
+            top: calc(var(--space) * -1);
         }
 
-        img {
-            margin-right: 20px;
-            /* float: right; */
-            border: 10px solid #252525;
-            width: 333px;
+        body.color-change {
+            --universal-color: purple;
         }
+
 
     </style>
 </head>
-<body>
-    <div class="info">
-        <div class="info-left">
-            <img src="/img/al3.jpeg" alt=""/>
-        </div>
-        <div class="info-right">
-            <h1 class="first-name">Allan</h1>
-            <h1 class="last-name">Luchenitser</h1>
-            <ul>
-                <li>Front End Developer</li>
-                <li>Affable Chap</li>
-                <li>Many Tech Acronyms</li>
-                <li>Speaks Design</li>
-                <li>Patient Communicator</li>
-                <li>Startups & Enterprise</li>
-                <li>Framework or Vanilla</li>
-            </ul>
-        </div>
-    </div>	
+<body class="flex-wrap">
+    <!-- purpose is to be centered when there's screen space, but scrollable when not -->
+    <!-- <div id="app" class="fixed-el">
+            <p v-for="(post, index) in Array(20)">Hey man {{ index }} it's quite a day here in Circleville don't you think it?</p>
+    </div> -->
+
+    <p class="color1">This is one color</p>
+    <p class="color2">This is is another</p>
+    <p class="color3">This is a third</p>
+
+    <button onclick="document.body.classList.toggle('color-change')">color change</button>
+    <script>
+        const v = new Vue({
+            el: "#app"
+        })
+    </script>
 </body>
 </html>

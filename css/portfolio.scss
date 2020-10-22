@@ -1,14 +1,24 @@
-@use "sass:math";
+@font-face {
+    font-family: "Source Sans Pro";
+    src: url('../font/SourceSansPro-Regular.ttf');
+}
 
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500&family=Source+Sans+Pro&display=swap');
+@font-face {
+    font-family: "IBM Plex Mono";
+	src: url('../font/IBMPlexMono-Light.ttf');
+	font-weight: 400;
+}
 
+@font-face {
+    font-family: "IBM Plex Mono";
+	src: url('../font/IBMPlexMono-Medium.ttf');
+	font-weight: 500;
+}
 
 :root {
 	--readable-text-color: #333;
-	--readable-text-weight: 200;
 	--transition-length: 0.2s;
-	--top-space: 70px;
+	--top-space: 40px;
 }
 
 html {
@@ -18,33 +28,49 @@ html {
 	box-sizing: inherit;
 }
 
+
+/* -------- GENERAL -------- */ 
+
 body {
 	color: var(--readable-text-color);
-	font-weight: var(--readable-text-weight);
 	
 	margin: 0;
 	overflow-x: hidden;
+	overflow-y: scroll;
 	padding-top: var(--top-space);
 
 	nav {
-		text-align: right;
-		position: absolute;
-		right: 20px;
-		z-index: 2;
 		font-family: 'IBM Plex Mono', monospace;
-		cursor: pointer;
-		
+		font-weight: normal;
+
+		position: static;
+		display: flex;
+		right: auto;
+		justify-content: space-evenly;
+		margin: 20px 15px;
 
 		.navitem {
-			margin-top: 8px;
-	
+			cursor: pointer;
+
 			&:hover {
 				text-decoration: underline;
 			}
-	
 		}
 	}
+}
 
+.highlight {
+
+}
+
+.return {
+	display: inline-block;
+	margin-top: -50px;
+}
+
+a, a:hover, a:link {
+	color: inherit;
+	text-decoration: inherit;
 }
 
 /* -------- HEADER ------- */
@@ -55,10 +81,10 @@ body {
 	line-height: var(--top-space);
 	height: var(--top-space);
 	width: 100%;
-	padding: 0 20px;
+	padding: 0 15px;
 	z-index: 3;
-	font-size: 2.6rem;
-	font-weight: 400;
+	font-size: 28px;
+	font-weight: bold;
 	font-family: 'IBM Plex Mono', monospace;
 	background: linear-gradient(135deg, #f8f8f8, #F3F3F3);
 	white-space: nowrap;
@@ -85,43 +111,45 @@ body {
 }
 
 /* -------- BODY ------- */
-/* -------- BODY ------- */
-/* -------- BODY ------- */
 
 .container {
 	z-index: 1;
-	padding-top: 60px;
 	max-width: 720px;
 	margin: 0 auto;
 	position: relative;
 
 	.entry {
 		position: relative;
+		font-family: 'Source Sans Pro', sans-serif;
+		font-size: 18px;
 
 		h1 {
 			padding: 10px 25px 10px 50px;
-			margin: 0 -25px 15px -25px;
+			margin: 0 -25px 0 -25px;
 			left: -25px;
+			font-weight: bold;
+			letter-spacing: -0.5px;
 			
 			position: relative;
 			
 			font-family: "IBM Plex Mono", monospace;
 			font-size: 25.6px;
 			display: inline-block;
-			font-weight: normal;
 		}
 
 		p {
 			overflow: hidden;
 			border-radius: 5px;
-			font-weight: 400;
+			font-weight: normal;
 			line-height: 1.6;
-			font-family: 'Source Sans Pro', sans-serif;
-
-			font-size: 21px;
 
 			margin-top: 20px;
 			margin-bottom: 20px;
+
+		}
+		
+		ul li {
+			// font-size: 40px;
 		}
 
 		.meta {
@@ -174,44 +202,13 @@ body {
 // Medium devices (tablets, 768px and up)
 @media (max-width: 768px) { 
 
-	:root {
-		--top-space: 40px;
-	}
-
 	body {
-
-		.header {
-			padding: 0 15px;
-
-			.name {
-				font-size: 30px;
-			}
-		}
-
-		nav {
-			position: static;
-			display: flex;
-			margin: 15px;
-			right: auto;
-			justify-content: space-evenly;
-
-			.navitem {
-				margin-top: 0;
-				margin-right: 8px;
-			}
-		}
-
 		.container {
-			padding-top: 0;
 
 			.entry {
-				h1 {
-					margin: 0 -25px 0 -25px;
-					font-size: 21px;
-				}
 
-				p {
-					font-size: 18px;
+				h1 {
+					font-size: 21px;
 				}
 
 				hr {
@@ -221,7 +218,72 @@ body {
 		}
 	}
 
+	code[class*="language-"], pre[class*="language-"] {
+		font-size: 15px;
+	}
+
 }
+
+@media (min-width: 769px) {
+	:root {
+		--top-space: 70px;
+	}
+
+	.return {
+		margin-top: 15px;
+	}
+
+	code[class*="language-"], pre[class*="language-"] {
+		font-size: 18px;
+	}	
+
+	body {
+
+		.header {
+			padding: 0 20px;
+
+			.name {
+				font-size: 41.6px;
+			}
+		}
+
+		nav {
+			text-align: right;
+			position: absolute;
+			right: 20px;
+			z-index: 2;
+			display: block;
+			margin: 0;
+
+
+			.navitem {
+				margin-top: 8px;
+			}
+		}
+
+		.container {
+			padding-top: 60px;
+
+			.entry {
+				font-size: 21px;
+
+				h1 {
+					margin: 0 -25px 15px -25px;
+					font-size: 21px;
+				}
+
+				hr {
+					margin: 38.5px auto 40px auto;
+				}
+			}
+		}
+	}
+
+	code[class*="language-"], pre[class*="language-"] {
+		font-size: 15px;
+	}	
+}
+
 
 // Large devices (desktops, 992px and up)
 @media (max-width: 992px) { 
@@ -241,3 +303,10 @@ body {
 		flex: .7 1 0 !important;
 	}
 }
+
+
+/* ------- prismjs overrides ------- */
+:not(pre) > code[class*="language-"], pre[class*="language-"] {
+	background: linear-gradient(135deg, #f8f8f8, #F3F3F3);
+}
+

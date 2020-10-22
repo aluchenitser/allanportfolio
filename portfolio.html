@@ -4,36 +4,54 @@
 	<title>Luchenitser | Web Developer</title>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+	<link rel = "stylesheet" type = "text/css" href="css/prism.css" />
 	<link rel = "stylesheet" type = "text/css" href="css/portfolio.css" />
 </head>
 
 <body class="preload">
 	<div class="header">
-		<span class="name">Allan Luchenitser</span>
+		<a href="#" class="name">Allan Luchenitser</a>
 		<a href="https://www.linkedin.com/in/allanluchenitser/" target="__blank"><img src="/img/linkedin.png" /></a>
 	</div>
 	<nav>
-		<div class="navitem about">about</div>
+		<div class="navitem about"><a href="/article/about.html">about</a></div>
 		<div class="navitem archive">archive</div>
 	</nav>
 
 	<div class="container">
 		<div class="entry">
-			<h1>use case for css native variables</h1>
+			<h1>responsive header: use case for css variables</h1>
 			<p>
-				Greetings fellow soldier. Today, you're gearing up to forge a great society. I've structured this journal in a cool, distraction free style so common amongst the artisan class in the US. 
-				<br /></br />
-				Shall we begin. First off, have you acquired the correct equipment? Without it, you may as well go on facebook and waste your life.
+				Css variables reduced how much code goes into the responsive header of this blog. Cool eh? This is a typical sticky header that increases from 40px to 70px in desktop sizes:
+				<ul>
+					<li>set height for the header</li>
+					<li>add padding to <body> for stickiness</li>
+					<li>center text using line-height</li>
+				</ul>
 			</p>
+<pre><code class="language-css">
+
+	:root {
+		--top-space: 70px;
+	}
+
+	.header {
+		// ...
+		
+		margin-top: calc(var(--top-space) * -1);
+		line-height: var(--top-space);
+		height: var(--top-space);
+	}
+
+
+</code></pre>
 			<div class="meta">Sept 2, 2020</div>
 			<hr>
 		</div>
 		<div class="entry">
-			<h1>about this blog</h1>
-			<p>This is a javascript, front end, and nodejs blog. Its aim is to add to the tech milieu and to elevate my visibiliy as a programmer. You might find it useful!</p>
-			<p>The physical construction of the blog itself is simple: manually coded and updated html / js / css files hosted on an AWS S3 bucket. If a new feature gets added, I'll write an article describing how I did it.</p>
-			<p>In general, this blog will be at the level of intermediate and up. If I write about something it probably means that it was something new, intriguing, or a bit challenging to understand. Otherwise it's not too exciting to share.</p>
-			<p>For beginners, I can recommend codeacademy, w3schools, stackoverflow, and of course Google. </p>
+			<h1><a href="/article/about.html">about this blog</a></h1>
+			<p>This is a javascript, front end, web design, nodejs, vuejs, and general dev blog. Its aim is to add to the tech milieu and to elevate my visibility as a programmer. You might find it useful!</p>
+			<p>The physical blog is built with static files and no tooling (as of yet), hosted on an S3 bucket. If I add features, new articles will describe the journey.</p>
 			<div class="meta">Sept 2, 2020</div>
 			<hr>
 		</div>
@@ -59,27 +77,28 @@
 		</div>												
 	</div>
 
+	<script src="/js/lib/prism.js"></script>
 
-<script type="text/javascript">
+	<script type="text/javascript">
 
-	const constants = {
-		SCROLL_STOP: 120,
-	}
-
-	let header_el = document.querySelector(".header")
-
-	const mmWidth768 = window.matchMedia("(max-width: 768px)")
-
-	window.onscroll = function() {
-		if(mmWidth768.matches) return;
-
-		if (document.body.scrollTop > constants.SCROLL_STOP || document.documentElement.scrollTop > constants.SCROLL_STOP) {
-			header_el.classList.toggle('shrink', true)
-		} else {
-			header_el.classList.toggle('shrink', false)
+		const constants = {
+			SCROLL_STOP: 120,
 		}
-	}		
-</script>
+
+		let header_el = document.querySelector(".header")
+
+		const mmWidth768 = window.matchMedia("(max-width: 768px)")
+
+		window.onscroll = function() {
+			if(mmWidth768.matches) return;
+
+			if (document.body.scrollTop > constants.SCROLL_STOP || document.documentElement.scrollTop > constants.SCROLL_STOP) {
+				header_el.classList.toggle('shrink', true)
+			} else {
+				header_el.classList.toggle('shrink', false)
+			}
+		}		
+	</script>
 
 
 </body>

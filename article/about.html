@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Luchenitser | Web Developer</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+	<link rel = "stylesheet" type = "text/css" href="../css/portfolio.css" />
+</head>
+
+<body class="preload">
+	<div class="header">
+		<a href="/portfolio.html" class="name">Allan Luchenitser</a>
+		<a href="https://www.linkedin.com/in/allanluchenitser/" target="__blank"><img src="../img/linkedin.png" /></a>
+	</div>
+	<nav>
+		<div class="navitem about">about</div>
+		<div class="navitem archive">archive</div>
+	</nav>
+
+	<div class="container">
+		<div class="entry">
+			<h1>about this blog</h1>
+			<p>This is a javascript, front end, web design, nodejs, vuejs, and general dev blog. Its aim is to add to the tech milieu and to elevate my visibiliy as a programmer. You might find it useful!</p>
+			<p>The physical blog is built with static files and no tooling (as of yet), hosted on an S3 bucket. If I add features, new articles will describe the journey.</p>
+			<div class="meta">Sept 2, 2020</div>
+			<hr>
+        </div>
+        <a class="return" href="/portfolio.html"><img src="../img/return.png" width="50" style="margin-top: -50px" /></a>
+    </div>
+
+
+    <script type="text/javascript">
+
+        const constants = {
+            SCROLL_STOP: 120,
+        }
+
+        let header_el = document.querySelector(".header")
+
+        const mmWidth768 = window.matchMedia("(max-width: 768px)")
+
+        window.onscroll = function() {
+            if(mmWidth768.matches) return;
+
+            if (document.body.scrollTop > constants.SCROLL_STOP || document.documentElement.scrollTop > constants.SCROLL_STOP) {
+                header_el.classList.toggle('shrink', true)
+            } else {
+                header_el.classList.toggle('shrink', false)
+            }
+        }		
+    </script>
+</body>
+</html>
+
+

@@ -50,6 +50,15 @@ body nav .navitem:hover {
   text-decoration: underline;
 }
 
+code[class*=language-], pre[class*=language-] {
+  font-size: 15px;
+}
+
+.hl {
+  background-color: #F3F3F3;
+  display: inline-block;
+}
+
 .return {
   display: inline-block;
   margin-top: -50px;
@@ -99,6 +108,8 @@ a, a:hover, a:link {
   max-width: 720px;
   margin: 0 auto;
   position: relative;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .container .entry {
   position: relative;
@@ -113,7 +124,7 @@ a, a:hover, a:link {
   letter-spacing: -0.5px;
   position: relative;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 25.6px;
+  font-size: 21px;
   display: inline-block;
 }
 .container .entry p {
@@ -123,6 +134,12 @@ a, a:hover, a:link {
   line-height: 1.6;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+.container .entry ul {
+  margin: 20px 0 30px 0;
+}
+.container .entry ul li {
+  line-height: 1.6;
 }
 .container .entry .meta {
   font-family: "IBM Plex Mono", monospace;
@@ -140,7 +157,7 @@ a, a:hover, a:link {
   height: 2px;
   border: none;
   border-top: 1px dotted #d8d8d8;
-  margin: 38.5px auto 70px auto;
+  margin: 38.5px auto 40px auto;
 }
 .container .entry:nth-child(3n-2) h1 {
   background-color: #ffeefd70;
@@ -159,18 +176,6 @@ a, a:hover, a:link {
 }
 
 /* --------- RESPONSIVE ------- */
-@media (max-width: 768px) {
-  body .container .entry h1 {
-    font-size: 21px;
-  }
-  body .container .entry hr {
-    margin: 38.5px auto 40px auto;
-  }
-
-  code[class*=language-], pre[class*=language-] {
-    font-size: 15px;
-  }
-}
 @media (min-width: 769px) {
   :root {
     --top-space: 70px;
@@ -209,20 +214,20 @@ a, a:hover, a:link {
   }
   body .container .entry h1 {
     margin: 0 -25px 15px -25px;
-    font-size: 21px;
+    font-size: 25.6px;
   }
   body .container .entry hr {
-    margin: 38.5px auto 40px auto;
+    margin: 38.5px auto 70px auto;
   }
 
   code[class*=language-], pre[class*=language-] {
-    font-size: 15px;
+    font-size: 18px;
   }
 }
-@media (max-width: 992px) {
+@media (min-width: 993px) {
   .container {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 @media (max-width: 1500px) {

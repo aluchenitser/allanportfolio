@@ -22,32 +22,48 @@
 		<div class="entry">
 			<h1>responsive header: use case for css variables</h1>
 			<p>
-				Css variables reduced how much code goes into the responsive header of this blog. Cool eh? This is a typical sticky header that increases from 40px to 70px in desktop sizes:
-				<ul>
-					<li>set height for the header</li>
-					<li>add padding to <body> for stickiness</li>
-					<li>center text using line-height</li>
-				</ul>
+				The header of this blog is a great example of when to use css variables. This is a typical responsive header in a fixed position. The value 40px jumps to 70px in desktop sizes, used by a handful of properties:
 			</p>
-<pre><code class="language-css">
+			<ul>
+				<li>padding on the <span class='hl'>&lt;body&gt</span> to prevent a fixed element overlap</li>
+				<li>negative margin on the <span class='hl'>.header</span> also for overlap</li>
+				<li>height of the <span class='hl'>.header</span></li>
+				<li>vertically centering text using line-height</li>
+			</ul>
+			<pre><code class="language-css">:root {
+	--top-space: 40px;
+}
 
+/* --- mobile first --- */
+body {
+	padding-top: var(--top-space);
+}
+
+body .header {
+	margin-top: calc(var(--top-space) * -1);
+	line-height: var(--top-space);
+	height: var(--top-space);
+	position: fixed;
+
+	/* etc.. */
+}
+
+/* --- desktop --- */
+@media (min-width: 993px) {
 	:root {
-		--top-space: 70px;
+		--top-space: 70px;   /* bam! */
 	}
-
-	.header {
-		// ...
-		
-		margin-top: calc(var(--top-space) * -1);
-		line-height: var(--top-space);
-		height: var(--top-space);
-	}
-
-
-</code></pre>
-			<div class="meta">Sept 2, 2020</div>
+}</code></pre>
+			<p>Looks like a css variables is useful when the same value gets changed in multiple spots. Media queries for layout changes are ripe for this.</p>
+			
+			<p><span class='hl'>:root</span> is the same as <span class='hl'>&lt;html&gt;></span> but wins when there's a tie. It's en vogue to define css variables here.</p>
+			
+			<p>Note that the variables feature from a CSS preprocessor like SASS could not achieve this since those variables are unchangeable after page load.</p>
+				<div class="meta">Sept 2, 2020</div>
 			<hr>
 		</div>
+		
+		
 		<div class="entry">
 			<h1><a href="/article/about.html">about this blog</a></h1>
 			<p>This is a javascript, front end, web design, nodejs, vuejs, and general dev blog. Its aim is to add to the tech milieu and to elevate my visibility as a programmer. You might find it useful!</p>

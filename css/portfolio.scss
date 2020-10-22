@@ -59,8 +59,14 @@ body {
 	}
 }
 
-.highlight {
 
+code[class*="language-"], pre[class*="language-"] { // prismjs
+	font-size: 15px;
+}
+
+.hl {
+	background-color: #F3F3F3;
+	display: inline-block;
 }
 
 .return {
@@ -117,6 +123,8 @@ a, a:hover, a:link {
 	max-width: 720px;
 	margin: 0 auto;
 	position: relative;
+	padding-left: 15px;
+	padding-right: 15px;
 
 	.entry {
 		position: relative;
@@ -133,7 +141,7 @@ a, a:hover, a:link {
 			position: relative;
 			
 			font-family: "IBM Plex Mono", monospace;
-			font-size: 25.6px;
+			font-size: 21px;
 			display: inline-block;
 		}
 
@@ -148,8 +156,12 @@ a, a:hover, a:link {
 
 		}
 		
-		ul li {
-			// font-size: 40px;
+		ul {
+			margin: 20px 0 30px 0;
+
+			li {
+				line-height: 1.6;
+			}
 		}
 
 		.meta {
@@ -169,7 +181,8 @@ a, a:hover, a:link {
 			height: 2px;
 			border: none;
 			border-top: 1px dotted #d8d8d8;
-			margin: 38.5px auto 70px auto;
+			margin: 38.5px auto 40px auto;
+
 		}
 
 		&:nth-child(3n - 2) h1 {
@@ -200,30 +213,6 @@ a, a:hover, a:link {
 /* --------- RESPONSIVE ------- */
 
 // Medium devices (tablets, 768px and up)
-@media (max-width: 768px) { 
-
-	body {
-		.container {
-
-			.entry {
-
-				h1 {
-					font-size: 21px;
-				}
-
-				hr {
-					margin: 38.5px auto 40px auto;
-				}
-			}
-		}
-	}
-
-	code[class*="language-"], pre[class*="language-"] {
-		font-size: 15px;
-	}
-
-}
-
 @media (min-width: 769px) {
 	:root {
 		--top-space: 70px;
@@ -269,27 +258,27 @@ a, a:hover, a:link {
 
 				h1 {
 					margin: 0 -25px 15px -25px;
-					font-size: 21px;
+					font-size: 25.6px;
 				}
 
 				hr {
-					margin: 38.5px auto 40px auto;
+					margin: 38.5px auto 70px auto;
 				}
 			}
 		}
 	}
 
 	code[class*="language-"], pre[class*="language-"] {
-		font-size: 15px;
+		font-size: 18px;
 	}	
 }
 
 
 // Large devices (desktops, 992px and up)
-@media (max-width: 992px) { 
+@media (min-width: 993px) { 
 	.container {
-		padding-left: 15px;
-		padding-right: 15px;
+		padding-left: 0;
+		padding-right: 0;
 	}
 }
 

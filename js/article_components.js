@@ -48,9 +48,8 @@ var app = new Vue({
     el: "#container",
     data() {
         return {
-            singleArticle: false,
+            selectedArticle: false,
             articleNames: articleNames, 
-            stuff: "stuff stuff stuff stuff stuff"
         }
     },
     methods: {

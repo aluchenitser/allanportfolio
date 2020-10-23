@@ -139,6 +139,8 @@ a, a:hover, a:link {
 			font-family: "IBM Plex Mono", monospace;
 			font-size: 21px;
 			display: inline-block;
+
+			cursor: pointer;
 		}
 
 		p {
@@ -207,6 +209,7 @@ a, a:hover, a:link {
 	.return {
 		margin-top: -5px;
 		display: inline-block;
+		cursor: pointer;
 	}
 }
 

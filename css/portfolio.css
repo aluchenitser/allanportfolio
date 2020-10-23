@@ -121,6 +121,7 @@ a, a:hover, a:link {
   font-family: "IBM Plex Mono", monospace;
   font-size: 21px;
   display: inline-block;
+  cursor: pointer;
 }
 .container .entry p {
   overflow: hidden;
@@ -172,6 +173,7 @@ a, a:hover, a:link {
 .container .return {
   margin-top: -5px;
   display: inline-block;
+  cursor: pointer;
 }
 
 /* --------- RESPONSIVE ------- */

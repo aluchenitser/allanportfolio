@@ -11,14 +11,14 @@
 	<link rel = "stylesheet" type = "text/css" href="css/portfolio.css" />
 	
 	<!-- LIBRARY JS -->
-	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script> -->
+	<script src="https://vuejs.org/js/vue.js"></script>
+	
 	<script src="/js/lib/prism.js" defer></script>
 
 	<!-- CUSTOM JS -->
 	<script src="/js/general_ui.js" defer></script>
 	<script src="/js/article_components.js" defer></script>
-	<script src="/js/framework.js" defer></script>
-
 </head>
 
 <body id="portfolio">
@@ -35,12 +35,11 @@
 	<!-- BLOG DISPLAY -->
 	<div class="container" id="container">
 		<div id="single-article" v-if="singleArticle">
-			
+			<component :is="selectedArticle"></component>
 			<a class="return" href="/portfolio.html"><img src="../img/return.png" width="50" /></a>
 		</div>
 		<div id="multi-article" else>
-			<about_me_10_23_20></about_me_10_23_20>
-			<css_variables_10_23_20></css_variables_10_23_20>
+			<component v-for="(a, index) in articleNames" :is="a" :key="index" @chosen="squeak"></component>
 		</div>
 	</div>
 

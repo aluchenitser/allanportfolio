@@ -1,13 +1,40 @@
+/* ------ article names ------ */
+let articleNames = [
+    "about_me_10_23_20",
+    "css_variables_10_23_20"
+]
+
+/* ------ create article components ------ */
+articleNames.forEach(name => {
+    Vue.component(name, 
+    { 
+        name, 
+        template: `#${name}`,
+        methods: {
+            squeak() {
+                console.log("squeak!")
+            }
+        }
+    })
+})
+
+/* ------ main article components ------ */
+
+let articleNamesObj = {}
+articleNames.forEach(name => {
+    articleNamesObj[name] = name
+})
+
 Vue.component('article-entry', {
     /*
         head:           header text
         date:           date as plain text
     */
-
     props: ['head', 'date'],
+    components: articleNamesObj,
     template: `
 <div class='entry'>
-    <h1><a href="#">{{ head }}</a></h1>
+    <h1 @click="$emit('chosen')">{{ head }}</h1>
     <slot></slot>
     <div class="meta">{{ date }}</div>
     <hr>    
@@ -15,10 +42,21 @@ Vue.component('article-entry', {
 `
 })
 
-Vue.component('about_me_10_23_20', {
-    template: '#about_me_10_23_20'
-})
+/* ------ vuejs application ------ */
 
-Vue.component('css_variables_10_23_20', {
-    template: '#css_variables_10_23_20'
+var app = new Vue({
+    el: "#container",
+    data() {
+        return {
+            singleArticle: false,
+            articleNames: articleNames, 
+            stuff: "stuff stuff stuff stuff stuff"
+        }
+    },
+    methods: {
+        squeak(e) {
+            console.log("chosen!")
+            console.log(e)
+        }
+    }
 })

@@ -1,0 +1,24 @@
+{
+  "name": "port",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "sergey": "^0.0.13"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "sergey",
+    "dev": "sergey --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aluchenitser/allanportfolio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aluchenitser/allanportfolio/issues"
+  },
+  "homepage": "https://github.com/aluchenitser/allanportfolio#readme"
+}

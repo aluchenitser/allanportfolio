@@ -2,13 +2,27 @@
 <html>
 <head>
 	<title>Luchenitser | Web Developer</title>
-	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+	
+	<!-- LIBRARY CSS -->
 	<link rel = "stylesheet" type = "text/css" href="css/prism.css" />
+	
+	<!-- CUSTOM CSS -->
 	<link rel = "stylesheet" type = "text/css" href="css/portfolio.css" />
+	
+	<!-- LIBRARY JS -->
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+	<script src="/js/lib/prism.js" defer></script>
+
+	<!-- CUSTOM JS -->
+	<script src="/js/general_ui.js" defer></script>
+	<script src="/js/article_components.js" defer></script>
+	<script src="/js/framework.js" defer></script>
+
 </head>
 
-<body class="preload">
+<body id="portfolio">
+
 	<div class="header">
 		<a href="#" class="name">Allan Luchenitser</a>
 		<a href="https://www.linkedin.com/in/allanluchenitser/" target="__blank"><img src="/img/linkedin.png" /></a>
@@ -18,106 +32,21 @@
 		<div class="navitem archive">archive</div>
 	</nav>
 
-	<div class="container">
-		<div class="entry">
-			<h1><a href="/article/cssvariable_Oct_23_2020.html">responsive header: use case for native css variables</a></h1>
-			<p>
-				The header of this blog is a great example of when to use a native CSS variable. It's a typical responsive header in a fixed position. The value 40px jumps to 70px for a number of properties at the desktop screen size:
-			</p>
-			<ul>
-				<li>padding on the <span class='hl'>&lt;body&gt</span> to prevent visual overlap</li>
-				<li>negative margin on the <span class='hl'>.header</span> also to prevent visual overlap</li>
-				<li>height of the <span class='hl'>.header</span></li>
-				<li>vertically centering text using line-height</li>
-			</ul>
-			<pre><code class="language-css">:root {
-	--top-space: 40px;
-}
-
-/* --- mobile first --- */
-body {
-	padding-top: var(--top-space);
-}
-
-body .header {
-	margin-top: calc(var(--top-space) * -1);
-	line-height: var(--top-space);
-	height: var(--top-space);
-	position: fixed;
-
-	/* etc.. */
-}
-
-/* --- desktop --- */
-@media (min-width: 993px) {
-	:root {
-		--top-space: 70px;   /* slam! */
-	}
-}</code></pre>
-
-			<p>With just one property change in the media query, we've changed everything we need for desktop size. Slam!</p> 
-			<p><span class='hl'>:root</span> is the same as <span class='hl'>&lt;html&gt;</span> but wins when there's a tie. It's en vogue to define CSS variables here.</p>
+	<!-- BLOG DISPLAY -->
+	<div class="container" id="container">
+		<div id="single-article" v-if="singleArticle">
 			
-			<p>The variables feature from a CSS preprocessor like SASS could not achieve this since those variables are unchangeable after page load.</p>
-			
-				<div class="meta">Sept 2, 2020</div>
-			<hr>
+			<a class="return" href="/portfolio.html"><img src="../img/return.png" width="50" /></a>
 		</div>
-		
-		
-		<div class="entry">
-			<h1><a href="/article/about.html">about this blog</a></h1>
-			<p>This is a javascript, front end, web design, nodejs, vuejs, and general dev blog. Its aim is to add to the tech milieu and to elevate my visibility as a programmer. You might find it useful!</p>
-			<p>The physical blog is built with static files and no tooling (as of yet), hosted on an S3 bucket. If I add features, new articles will describe the journey.</p>
-			<div class="meta">Sept 2, 2020</div>
-			<hr>
+		<div id="multi-article" else>
+			<about_me_10_23_20></about_me_10_23_20>
+			<css_variables_10_23_20></css_variables_10_23_20>
 		</div>
-		<div class="entry">
-			<h1>perpsective, perspective-origin</h1>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			<hr>
-		</div>
-		<div class="entry">
-			<h1>perpsective, perspective-origin</h1>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			<hr>
-		</div>
-		<div class="entry">
-			<h1>perpsective, perspective-origin</h1>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			<hr>
-		</div>
-		<div class="entry">
-			<h1>perpsective, perspective-origin</h1>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			<hr>
-		</div>												
 	</div>
 
-	<script src="/js/lib/prism.js"></script>
-
-	<script type="text/javascript">
-
-		const constants = {
-			SCROLL_STOP: 120,
-		}
-
-		let header_el = document.querySelector(".header")
-
-		const mmWidth768 = window.matchMedia("(max-width: 768px)")
-
-		window.onscroll = function() {
-			if(mmWidth768.matches) return;
-
-			if (document.body.scrollTop > constants.SCROLL_STOP || document.documentElement.scrollTop > constants.SCROLL_STOP) {
-				header_el.classList.toggle('shrink', true)
-			} else {
-				header_el.classList.toggle('shrink', false)
-			}
-		}		
-	</script>
-
-
+	<!-- BLOG ARTICLE TEMPLATES, IMPORTED USING SERGEY STATIC SITE GENERATOR -->
+	<sergey-import src="about_me_10_23_20" />
+	<sergey-import src="css_variables_10_23_20" />
 </body>
 </html>
 

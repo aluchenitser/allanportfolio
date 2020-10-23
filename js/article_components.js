@@ -9,12 +9,7 @@ articleNames.forEach(name => {
     Vue.component(name, 
     { 
         name, 
-        template: `#${name}`,
-        methods: {
-            squeak() {
-                console.log("squeak!")
-            }
-        }
+        template: `#${name}`
     })
 })
 
@@ -34,7 +29,7 @@ Vue.component('article-entry', {
     components: articleNamesObj,
     template: `
 <div class='entry'>
-    <h1 @click="$emit('chosen')">{{ head }}</h1>
+    <h1 @click="$parent.$emit('chosen', $parent.$options.name)">{{ head }}</h1>
     <slot></slot>
     <div class="meta">{{ date }}</div>
     <hr>    
@@ -52,10 +47,17 @@ var app = new Vue({
             articleNames: articleNames, 
         }
     },
+    watch: {
+        selectedArticle: function() {
+
+            Vue.nextTick(() => {
+                Prism.highlightAll();
+            })
+        }
+    },
     methods: {
-        squeak(e) {
-            console.log("chosen!")
-            console.log(e)
+        selectArticle() {
+            
         }
     }
 })

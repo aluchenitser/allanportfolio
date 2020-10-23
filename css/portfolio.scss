@@ -69,10 +69,6 @@ code[class*="language-"], pre[class*="language-"] { // prismjs
 	display: inline-block;
 }
 
-.return {
-	display: inline-block;
-	margin-top: -50px;
-}
 
 a, a:hover, a:link {
 	color: inherit;
@@ -121,7 +117,7 @@ a, a:hover, a:link {
 .container {
 	z-index: 1;
 	max-width: 720px;
-	margin: 0 auto;
+	margin: 0 auto 35px auto;
 	position: relative;
 	padding-left: 15px;
 	padding-right: 15px;
@@ -136,7 +132,7 @@ a, a:hover, a:link {
 			margin: 0 -25px 0 -25px;
 			left: -25px;
 			font-weight: bold;
-			letter-spacing: -0.5px;
+			letter-spacing: -1px;
 			
 			position: relative;
 			
@@ -208,6 +204,10 @@ a, a:hover, a:link {
 		}
 	}
 
+	.return {
+		margin-top: -5px;
+		display: inline-block;
+	}
 }
 
 /* --------- RESPONSIVE ------- */
@@ -251,7 +251,7 @@ a, a:hover, a:link {
 		}
 
 		.container {
-			padding-top: 60px;
+			padding-top: 68px;
 
 			.entry {
 				font-size: 21px;
@@ -264,6 +264,10 @@ a, a:hover, a:link {
 				hr {
 					margin: 38.5px auto 70px auto;
 				}
+			}
+
+			.return {
+				margin-top: -50px;
 			}
 		}
 	}

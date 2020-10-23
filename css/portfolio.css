@@ -59,11 +59,6 @@ code[class*=language-], pre[class*=language-] {
   display: inline-block;
 }
 
-.return {
-  display: inline-block;
-  margin-top: -50px;
-}
-
 a, a:hover, a:link {
   color: inherit;
   text-decoration: inherit;
@@ -106,7 +101,7 @@ a, a:hover, a:link {
 .container {
   z-index: 1;
   max-width: 720px;
-  margin: 0 auto;
+  margin: 0 auto 35px auto;
   position: relative;
   padding-left: 15px;
   padding-right: 15px;
@@ -121,7 +116,7 @@ a, a:hover, a:link {
   margin: 0 -25px 0 -25px;
   left: -25px;
   font-weight: bold;
-  letter-spacing: -0.5px;
+  letter-spacing: -1px;
   position: relative;
   font-family: "IBM Plex Mono", monospace;
   font-size: 21px;
@@ -174,6 +169,10 @@ a, a:hover, a:link {
   border-bottom: 1px solid #d4cdbe94;
   border-right: 1px solid #d4cdbe94;
 }
+.container .return {
+  margin-top: -5px;
+  display: inline-block;
+}
 
 /* --------- RESPONSIVE ------- */
 @media (min-width: 769px) {
@@ -207,7 +206,7 @@ a, a:hover, a:link {
     margin-top: 8px;
   }
   body .container {
-    padding-top: 60px;
+    padding-top: 68px;
   }
   body .container .entry {
     font-size: 21px;
@@ -218,6 +217,9 @@ a, a:hover, a:link {
   }
   body .container .entry hr {
     margin: 38.5px auto 70px auto;
+  }
+  body .container .return {
+    margin-top: -50px;
   }
 
   code[class*=language-], pre[class*=language-] {

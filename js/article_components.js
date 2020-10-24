@@ -50,11 +50,13 @@ var app = new Vue({
     },
     watch: {
         selectedArticle: function(articleName) {
-            let hashRoute = articleName === undefined
+            let hashRoute = [false, undefined].includes(articleName)
                 ? '' 
                 : '#' + articleName
                 
             history.pushState("", "", location.origin + location.pathname + hashRoute)
+
+            scrollTo(0, 0)
 
             Vue.nextTick(() => {
                 Prism.highlightAll();
@@ -67,13 +69,25 @@ var app = new Vue({
         }
     },
     mounted() {
-        let route = location.hash.substring(1)
 
-        if(location.hash && articleNames.includes(route)) {
-            this.selectedArticle = route
+        /* --- ROUTING FUNCTION --- */
+
+        let loadRoute = () => {
+            let route = location.hash.substring(1)
+            if(route && articleNames.includes(route)) {
+                this.selectedArticle = route
+            }
+            else {
+                this.selectedArticle = false
+                history.replaceState("", "", location.origin + location.pathname)
+            }
         }
-        else {
-            history.replaceState("", "", location.origin + location.pathname)
-        }
+
+        loadRoute();
+        
+        window.addEventListener('hashchange',() => {
+            console.log("hash change!")
+            loadRoute();
+        })
     }
 })

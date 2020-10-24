@@ -17,3 +17,4 @@ window.onscroll = function() {
         header_el.classList.toggle('shrink', false)
     }
 }
+

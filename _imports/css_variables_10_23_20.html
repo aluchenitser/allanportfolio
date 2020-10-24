@@ -35,59 +35,12 @@ body .header {
 	:root {
 		--top-space: 70px;   /* slam! */
 	}
-	}</code></pre>
+}</code></pre>
 	
 		<p>With just one property change in the media query, we've changed everything we need for desktop size. Slam!</p> 
 		<p><span class='hl'>:root</span> is the same as <span class='hl'>&lt;html&gt;</span> but wins when there's a tie. It's en vogue to define CSS variables here.</p>
 		
 		<p>The variables feature from a CSS preprocessor like SASS could not achieve this since those variables are unchangeable after page load.</p>
 	
-
-
     </article-entry>
-
-
-
-<div class="entry">
-	<h1><a href="/article/cssvariable_Oct_23_2020.html">responsive header: use case for native css variables</a></h1>
-	<p>
-		The header of this blog is a great example of when to use a native CSS variable. It's a typical responsive header in a fixed position. The value 40px jumps to 70px for a number of properties at the desktop screen size:
-	</p>
-	<ul>
-		<li>padding on the <span class='hl'>&lt;body&gt</span> to prevent visual overlap</li>
-		<li>negative margin on the <span class='hl'>.header</span> also to prevent visual overlap</li>
-		<li>height of the <span class='hl'>.header</span></li>
-		<li>vertically centering text using line-height</li>
-	</ul>
-	<pre><code class="language-css">:root {
-	--top-space: 40px;
-}
-
-/* --- mobile first --- */
-body {
-	padding-top: var(--top-space);
-}
-
-body .header {
-	margin-top: calc(var(--top-space) * -1);
-	line-height: var(--top-space);
-	height: var(--top-space);
-	position: fixed;
-
-	/* etc.. */
-}
-
-/* --- desktop --- */
-@media (min-width: 993px) {
-	:root {
-		--top-space: 70px;   /* slam! */
-	}
-}</code></pre>
-
-	<p>With just one property change in the media query, we've changed everything we need for desktop size. Slam!</p> 
-	<p><span class='hl'>:root</span> is the same as <span class='hl'>&lt;html&gt;</span> but wins when there's a tie. It's en vogue to define CSS variables here.</p>
-	
-	<p>The variables feature from a CSS preprocessor like SASS could not achieve this since those variables are unchangeable after page load.</p>
-
-</div>
 </script>

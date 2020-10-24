@@ -39,6 +39,9 @@ body {
 	overflow-y: scroll;
 	padding-top: var(--top-space);
 
+	text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+
 	nav {
 		font-family: 'IBM Plex Mono', monospace;
 		font-weight: normal;

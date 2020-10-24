@@ -45,10 +45,16 @@ var app = new Vue({
         return {
             selectedArticle: false,
             articleNames: articleNames, 
+            currentRoute: window.location.href
         }
     },
     watch: {
-        selectedArticle: function() {
+        selectedArticle: function(articleName) {
+            let hashRoute = articleName === undefined
+                ? '' 
+                : '#' + articleName
+                
+            history.pushState("", "", location.origin + location.pathname + hashRoute)
 
             Vue.nextTick(() => {
                 Prism.highlightAll();
@@ -58,6 +64,16 @@ var app = new Vue({
     methods: {
         selectArticle() {
             
+        }
+    },
+    mounted() {
+        let route = location.hash.substring(1)
+
+        if(location.hash && articleNames.includes(route)) {
+            this.selectedArticle = route
+        }
+        else {
+            history.replaceState("", "", location.origin + location.pathname)
         }
     }
 })

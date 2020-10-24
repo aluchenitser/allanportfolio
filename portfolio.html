@@ -36,10 +36,15 @@
 	<div class="container" id="container">
 		<div id="single-article" v-if="selectedArticle">
 			<component :is="selectedArticle"></component>
-			<img @click="selectedArticle = false" class="return" src="../img/return.png" width="50" /></a>
+			<img @click="selectedArticle = undefined" class="return" src="../img/return.png" width="50" /></a>
 		</div>
 		<div id="multi-article" v-else>
-			<component v-for="(a, index) in articleNames" :is="a" :key="index" @chosen="value => selectedArticle = value"></component>
+			<component 
+				v-for="(article, index) in articleNames" 
+				:is="article" 
+				:key="index" 
+				@chosen="value => selectedArticle = value">
+			</component>
 		</div>
 	</div>
 

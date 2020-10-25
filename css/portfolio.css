@@ -65,6 +65,9 @@ a, a:hover, a:link {
   color: inherit;
   text-decoration: inherit;
 }
+a.link, a:hover.link, a:link.link {
+  text-decoration: underline;
+}
 
 /* -------- HEADER ------- */
 .header {

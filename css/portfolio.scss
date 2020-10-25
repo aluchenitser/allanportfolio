@@ -76,6 +76,10 @@ code[class*="language-"], pre[class*="language-"] { // prismjs
 a, a:hover, a:link {
 	color: inherit;
 	text-decoration: inherit;
+
+	&.link {
+		text-decoration: underline;
+	}
 }
 
 /* -------- HEADER ------- */

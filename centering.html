@@ -11,67 +11,36 @@
 
     <style>
 
-        :root {
-            --universal-color: red;
-            --space: 30px;
-        }
-
-        html, body {
-            /* min-height: 100vh; */
-            padding: 0;
-            margin: 0;
-        }
-
-        .flex-wrap {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        #app {
-            border: 1px solid pink;
-            /* display: inline-block;
-            position: absolute;
-            left: 50%;
-            top: 50%; */
-            /* transform: translate(-50%, -50%); */
-        }
-
-        .color1 {
-            color: var(--universal-color);
-        }
-
-        .color2 {
-            background-color: var(--universal-color);
-        }
-
-        .color3 {
-            border: 1px solid var(--universal-color);
-            position: relative;
-            top: calc(var(--space) * -1);
-        }
-
-        body.color-change {
-            --universal-color: purple;
-        }
-
 
     </style>
 </head>
-<body class="flex-wrap">
-    <!-- purpose is to be centered when there's screen space, but scrollable when not -->
-    <!-- <div id="app" class="fixed-el">
-            <p v-for="(post, index) in Array(20)">Hey man {{ index }} it's quite a day here in Circleville don't you think it?</p>
-    </div> -->
+<body>
+   
+    <div><button id="push">pushState</button></div>
+    <div><button id="replace">replaceState</button></div>
 
-    <p class="color1">This is one color</p>
-    <p class="color2">This is is another</p>
-    <p class="color3">This is a third</p>
 
-    <button onclick="document.body.classList.toggle('color-change')">color change</button>
+
     <script>
-        const v = new Vue({
-            el: "#app"
+        document.getElementById('push').addEventListener("click", function() {
+            history.pushState("", "", location.origin + location.pathname + "#pushed")
+        })
+
+        document.getElementById('replace').addEventListener("click", function() {
+            history.pushState("", "", location.origin + location.pathname + "#replaced")
+        })
+        
+        
+        
+        
+        window.addEventListener('popstate', e => {
+            console.log("popstate!")
+            console.log(e)
+        })
+
+        window.addEventListener('hashchange', e => {
+            console.log("hashchange!")
+            console.log(e)
         })
     </script>
 </body>

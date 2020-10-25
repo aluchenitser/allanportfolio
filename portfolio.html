@@ -28,7 +28,7 @@
 		<a href="https://www.linkedin.com/in/allanluchenitser/" target="__blank"><img src="/img/linkedin.png" /></a>
 	</div>
 	<nav>
-		<div class="navitem about"><a href="/article/about.html">about</a></div>
+		<div class="navitem about"><a href="/portfolio.html#about_me_10_23_20">about</a></div>
 		<div class="navitem archive">archive</div>
 	</nav>
 
@@ -36,14 +36,14 @@
 	<div class="container" id="container">
 		<div id="single-article" v-if="selectedArticle">
 			<component :is="selectedArticle"></component>
-			<img @click="selectedArticle = undefined" class="return" src="../img/return.png" width="50" /></a>
+			<img @click="goHome()" class="return" src="../img/return.png" width="50" /></a>
 		</div>
 		<div id="multi-article" v-else>
 			<component 
 				v-for="(article, index) in articleNames" 
 				:is="article" 
 				:key="index" 
-				@chosen="value => selectedArticle = value">
+				@chosen="value => selectArticle(value)">
 			</component>
 		</div>
 	</div>

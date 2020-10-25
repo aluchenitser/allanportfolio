@@ -1,7 +1,7 @@
 /* ------ article names ------ */
 let articleNames = [
+    "css_variables_10_23_20",
     "about_me_10_23_20",
-    "css_variables_10_23_20"
 ]
 
 /* ------ create article components ------ */
@@ -48,46 +48,53 @@ var app = new Vue({
             currentRoute: window.location.href
         }
     },
-    watch: {
-        selectedArticle: function(articleName) {
-            let hashRoute = [false, undefined].includes(articleName)
-                ? '' 
-                : '#' + articleName
-                
-            history.pushState("", "", location.origin + location.pathname + hashRoute)
+    methods: {
+        selectArticle(articleName, option) {
 
-            scrollTo(0, 0)
+            this.selectedArticle = articleNames.includes(articleName)
+                ? articleName
+                : false
 
+            let route = [false, undefined].includes(this.selectedArticle)
+                ? ''
+                : '#' + this.selectedArticle
+
+            switch(option) {
+                case "pageload": 
+                case "popstate":
+                    history.replaceState("", "", `${location.origin}${location.pathname}${route}`)
+                    break;
+                default: 
+                    history.pushState("", "", `${location.origin}${location.pathname}${route}`)
+            }
+
+            scrollTo(0,0)
+
+            // updates syntax highlighting for code in html
             Vue.nextTick(() => {
                 Prism.highlightAll();
             })
-        }
-    },
-    methods: {
-        selectArticle() {
-            
+        },
+        goHome() {
+            this.selectArticle(false)
         }
     },
     mounted() {
 
         /* --- ROUTING FUNCTION --- */
-
-        let loadRoute = () => {
+        let loadRoute = option => {
             let route = location.hash.substring(1)
-            if(route && articleNames.includes(route)) {
-                this.selectedArticle = route
-            }
-            else {
-                this.selectedArticle = false
-                history.replaceState("", "", location.origin + location.pathname)
-            }
+            this.selectArticle(route, option)
         }
 
-        loadRoute();
+        loadRoute("pageload");
         
-        window.addEventListener('hashchange',() => {
-            console.log("hash change!")
-            loadRoute();
+        window.addEventListener('popstate', e => {
+
+            // setTimout is deliberate, see: https://developer.mozilla.org/en-US/docs/Web/API/Window/popstate_event
+            setTimeout(() => {
+                loadRoute("popstate");
+            }, 0)
         })
     }
 })

@@ -5,32 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 	<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script> -->
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500&family=Source+Sans+Pro&display=swap">
-
-    <style>
-        .outer {
-            background-color: green;
-        }
-
-        .outer .inner {
-            background-color: pink;
-        }
-
-        
-
-    </style>
+    
+    <link rel="stylesheet" href="z_indexing.css">
 </head>
 <body>
    
-    <div class="outer">
-        <div class="inner"></div>
+    <div class="entry-container">
+        <div class="display-item">
+           <z-box ></z-box>
+
+            <div class="box adjacent-outer">
+                <div class="box adjacent-inner">
+                
+                </div>
+            </div>
+        </div>
+        <div class="display-item">
+            <h2>parent / child</h2>
+
+            <div class="box parent-outer">
+                <div class="box parent-inner"></div>
+            </div>
+
+            <div class="box adjacent-outer">
+                <div class="box adjacent-inner">
+                
+                </div>
+            </div>
+        </div>
+        <div class="display-item">
+            <div class="box parent-outer">
+                <div class="box parent-inner"></div>
+            </div>
+
+            <div class="box adjacent-outer">
+                <div class="box adjacent-inner">
+                
+                </div>
+            </div>
+        </div>
+        <div class="display-item">
+            <div class="box parent-outer">
+                <div class="box parent-inner"></div>
+            </div>
+
+            <div class="box adjacent-outer">
+                <div class="box adjacent-inner">
+                
+                </div>
+            </div>
+        </div>
     </div>
 
-
-    <script>
-
-    </script>
 </body>
 </html>

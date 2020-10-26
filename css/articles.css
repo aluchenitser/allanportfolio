@@ -1,0 +1,19 @@
+#z_indexing_10_25_20 .entry-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 20px;
+}
+#z_indexing_10_25_20 .entry-container .z-box {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+#z_indexing_10_25_20 .entry-container .display-item {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  position: relative;
+  border: 1px dotted lightgrey;
+}
+
+/*# sourceMappingURL=articles.css.map */

@@ -29,11 +29,25 @@ Vue.component('article-entry', {
     props: ['head', 'date'],
     components: articleNamesObj,
     template: `
-<div class='entry'>
+<div class='entry' :id="$parent.$options.name">
     <h1 @click="$parent.$emit('chosen', $parent.$options.name)">{{ head }}</h1>
     <slot></slot>
     <div class="meta">{{ date }}</div>
     <hr>    
+</div>
+`
+})
+
+Vue.component('z-box', {
+    props: {
+        'position': String, 
+        'index': Number 
+    },
+    components: articleNamesObj,
+    template: `
+<div class='z-box' :style="{ 'z-index': index, position: position }">
+    <span class="z-value">{{ index || "no z-index"}}</span>
+    <span class="position""></span>
 </div>
 `
 })
@@ -71,7 +85,7 @@ var app = new Vue({
 
             scrollTo(0,0)
 
-            // updates syntax highlighting for code in html
+            // updates syntax highlighting for code shown in html
             Vue.nextTick(() => {
                 Prism.highlightAll();
             })
@@ -82,7 +96,8 @@ var app = new Vue({
     },
     mounted() {
 
-        /* --- ROUTING FUNCTION --- */
+        /* --- ROUTER --- */
+
         let loadRoute = option => {
             let route = location.hash.substring(1)
             this.selectArticle(route, option)

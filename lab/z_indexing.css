@@ -1,0 +1,43 @@
+.entry-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 20px;
+}
+.entry-container .z-box {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+.entry-container .display-item {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  position: relative;
+  border: 1px dotted lightgrey;
+}
+
+[class$=outer] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+[class$=inner] {
+  width: 80px;
+  height: 80px;
+}
+
+.adjacent-outer {
+  background-color: lightblue;
+}
+
+.adjacent-outer:before {
+  content: "outer";
+  position: absolute;
+}
+
+.adjacent-inner {
+  background-color: brown;
+}
+
+/*# sourceMappingURL=z_indexing.css.map */

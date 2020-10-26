@@ -26,6 +26,10 @@ html {
   box-sizing: inherit;
 }
 
+.derp {
+  color: red;
+}
+
 /* -------- GENERAL -------- */
 body {
   color: var(--readable-text-color);
@@ -127,6 +131,9 @@ a.link, a:hover.link, a:link.link {
   font-size: 21px;
   display: inline-block;
   cursor: pointer;
+}
+.container .entry h2 {
+  font-size: 18px;
 }
 .container .entry p {
   overflow: hidden;

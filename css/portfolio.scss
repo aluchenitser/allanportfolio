@@ -28,7 +28,9 @@ html {
 	box-sizing: inherit;
 }
 
-
+.derp {
+	color: red;
+}
 /* -------- GENERAL -------- */ 
 
 body {
@@ -148,6 +150,10 @@ a, a:hover, a:link {
 			display: inline-block;
 
 			cursor: pointer;
+		}
+
+		h2 {
+			font-size: 18px;
 		}
 
 		p {

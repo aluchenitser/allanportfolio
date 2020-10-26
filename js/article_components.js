@@ -2,6 +2,7 @@
 let articleNames = [
     "css_variables_10_23_20",
     "about_me_10_23_20",
+    "z_indexing_10_25_20"
 ]
 
 /* ------ create article components ------ */

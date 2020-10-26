@@ -57,7 +57,7 @@ code[class*=language-], pre[class*=language-] {
 }
 
 .hl {
-  background-color: #F3F3F3;
+  font-weight: bold;
   display: inline-block;
 }
 

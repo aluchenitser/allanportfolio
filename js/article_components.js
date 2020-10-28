@@ -14,8 +14,7 @@ articleNames.forEach(name => {
     })
 })
 
-/* ------ main article components ------ */
-
+/* ------ major page components ------ */
 let articleNamesObj = {}
 articleNames.forEach(name => {
     articleNamesObj[name] = name
@@ -41,19 +40,28 @@ Vue.component('article-entry', {
 Vue.component('z-box', {
     props: {
         'position': String, 
-        'index': Number 
+        'index': Number,
+        'color': String,
+        'child': Boolean
     },
-    components: articleNamesObj,
+    computed: {
+        childClass() {
+            return this.child == true ? "child" : null
+        }
+    },
     template: `
-<div class='z-box' :style="{ 'z-index': index, position: position }">
-    <span class="z-value">{{ index || "no z-index"}}</span>
-    <span class="position""></span>
+<div class='z-box' :class="childClass" :style="{ 'z-index': index, position: position, 'background-color': color }">
+    <div class="wrap">
+        <span class="z-value">z-index: {{ index || "auto"}}</span><br />
+        <span class="position"">pos: {{ position }}</span>
+    </div>
+    <slot></slot>
 </div>
 `
 })
 
-/* ------ vuejs application ------ */
 
+/* ------ vuejs application ------ */
 var app = new Vue({
     el: "#container",
     data() {
@@ -96,8 +104,7 @@ var app = new Vue({
     },
     mounted() {
 
-        /* --- ROUTER --- */
-
+        /* --- front end router --- */
         let loadRoute = option => {
             let route = location.hash.substring(1)
             this.selectArticle(route, option)

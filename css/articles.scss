@@ -2,23 +2,27 @@
 
 #z_indexing_10_25_20 {
 
-    .entry-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        row-gap: 20px;
-        
-        .z-box {
-            width: 100px;
-            height: 100px;
-            position: relative;
-        }
+    .figure {
+        position: relative;
+        border: 1px dotted lightgrey;
+        min-height: 300px;
 
-        .display-item {
-            display: flex;
-            flex-flow: column;
-            align-items: center;
-            position: relative;
-            border: 1px dotted lightgrey;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .centering-wrap {
+
+            .boxes {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .controls {
+                text-align: center;
+                margin-top: 15px;
+            }
         }
     }
 }

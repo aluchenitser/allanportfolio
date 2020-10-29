@@ -2,27 +2,5 @@
 
 #z_indexing_10_25_20 {
 
-    .figure {
-        position: relative;
-        border: 1px dotted lightgrey;
-        min-height: 300px;
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        .centering-wrap {
-
-            .boxes {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .controls {
-                text-align: center;
-                margin-top: 15px;
-            }
-        }
-    }
 }

@@ -37,12 +37,18 @@ Vue.component('article-entry', {
 `
 })
 
+
+
+
+
+/* ------ autonomous components ------ */
 Vue.component('z-box', {
     props: {
         'position': String, 
         'index': Number,
         'color': String,
-        'child': Boolean
+        'child': Boolean,
+        'marginLeft': String
     },
     computed: {
         childClass() {
@@ -50,12 +56,50 @@ Vue.component('z-box', {
         }
     },
     template: `
-<div class='z-box' :class="childClass" :style="{ 'z-index': index, position: position, 'background-color': color }">
+<div class='z-box' :class="childClass" :style="{ 'z-index': index, position: position, 'background-color': color, 'margin-left': marginLeft }">
     <div class="wrap">
         <span class="z-value">z-index: {{ index || "auto"}}</span><br />
         <span class="position"">pos: {{ position }}</span>
     </div>
     <slot></slot>
+</div>
+`
+})
+
+Vue.component('z-box-display', {
+    props: {
+        "sliderStart": Number
+    },
+    data() {
+        return {
+            slider: this.sliderStart || 0
+        }
+    },
+    mounted() {
+        this.$on("slider", emit => {
+            console.log(emit)
+        })
+    },
+    template: `
+<div class='z-box-display'>
+    <div class="centering-wrap">
+        <div class="boxes">
+            <z-box class="box-1" position="relative" color="pink">
+                <z-box class="box-2-child" :child="true" position="relative" color="#C0FFF4"></z-box>
+            </z-box>
+            <z-box
+                class="box-2"
+                position="relative"
+                color="lightgreen"
+                :margin-left="slider + 'px'"
+            >
+                <z-box class="box-2-child" :child="true" position="relative" color="#feffc6"></z-box>
+            </z-box>
+        </div>
+        <div class="controls">
+            <input type="range" min="-150" max="50" v-model="slider">
+        </div>
+    </div>
 </div>
 `
 })

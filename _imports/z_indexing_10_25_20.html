@@ -23,7 +23,7 @@
     &lt;div class=&quot;element-4&quot;&gt; .. &lt;/div&gt;
 &lt;/div&gt;</code></pre>
 
-<p>Now let's demonstrate a scenario where z-indexes cause a winner with child to sit on top of a loser with child:</p>
+<p class="mt-30">Now let's demonstrate a scenario where z-indexes cause a winner with child to sit on top of a loser with child:</p>
 
 <pre><code class="language-html">&lt;!-- 
     1. assume the z-index classes match their css value
@@ -38,23 +38,7 @@
     &lt;div class=&quot;child-b z-index-unset&quot;&gt; .. &lt;/div&gt;
 &lt;/div&gt;</code></pre>
 
-        <div class="figure">
-            <div class="centering-wrap">
-                <div class="boxes">
-                    <z-box class="box1" position="relative" color="pink">
-                        <z-box class="box1-child" :child="true" position="relative" color="yellow"></z-box>
-                    </z-box>
-                    <z-box
-                        class="box2"
-                        position="relative"
-                        color="lightgreen"
-                    ></z-box>
-                </div>
-                <div class="controls">
-                    <input type="range" min="1" max="100" value="0">
-                </div>
-            </div>
-        </div>                
+        <z-box-display></z-box-display>                
 
            
     </article-entry>

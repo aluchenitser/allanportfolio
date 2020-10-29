@@ -334,18 +334,14 @@ a, a:hover, a:link {
 
 /* COMPONENT styling */
 
-
 .z-box {
 	width: 180px;
 	height: 180px;
 	outline: 1px dotted black;
 	font-size: 13px;
-	// text-shadow: 1px 1px white;
 	display: inline-block;
 	position: relative;
 	font-weight: bold;
-	// text-rendering: optimizeLegibility;
-	// -webkit-font-smoothing: antialiased;
 	padding: 5px;
 
 	&.child {
@@ -372,11 +368,49 @@ a, a:hover, a:link {
 	}
 }
 
+.z-box-display {
+	position: relative;
+	border: 1px dotted lightgrey;
+	min-height: 300px;
 
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
+	.centering-wrap {
+
+		.boxes {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			.box-2 {
+				margin-top: 50px;
+			}
+		}
+
+		.controls {
+			text-align: center;
+			margin-top: 25px;
+		}
+	}
+}
 
 /* ------- prismjs overrides ------- */
 :not(pre) > code[class*="language-"], pre[class*="language-"] {
 	background: linear-gradient(135deg, #f8f8f8, #F3F3F3);
+}
+
+/* ------- socially acceptable inline margins ------- */
+.mt-0 { margin-top: 0 !important}
+.mr-0 { margin-right: 0 !important}
+.mb-0 { margin-bottom: 0 !important}
+.ml-0 { margin-left: 0 !important}
+
+@for $i from 1 through 50 {
+	.mt-#{$i} { margin-top: #{$i}px !important; }
+	.mr-#{$i} { margin-right: #{$i}px !important; }
+	.mb-#{$i} { margin-bottom: #{$i}px !important; }
+	.ml-#{$i} { margin-left: #{$i}px ; }
 }
 

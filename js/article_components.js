@@ -38,9 +38,6 @@ Vue.component('article-entry', {
 })
 
 
-
-
-
 /* ------ autonomous components ------ */
 Vue.component('z-box', {
     props: {
@@ -48,7 +45,7 @@ Vue.component('z-box', {
         'index': Number,
         'color': String,
         'child': Boolean,
-        'marginLeft': String
+        'offset': String
     },
     computed: {
         childClass() {
@@ -56,7 +53,7 @@ Vue.component('z-box', {
         }
     },
     template: `
-<div class='z-box' :class="childClass" :style="{ 'z-index': index, position: position, 'background-color': color, 'margin-left': marginLeft }">
+<div class='z-box' :class="childClass" :style="{ 'z-index': index, position: position, 'background-color': color, 'left': offset }">
     <div class="wrap">
         <span class="z-value">z-index: {{ index || "auto"}}</span><br />
         <span class="position"">pos: {{ position }}</span>
@@ -83,21 +80,36 @@ Vue.component('z-box-display', {
     template: `
 <div class='z-box-display'>
     <div class="centering-wrap">
-        <div class="boxes">
-            <z-box class="box-1" position="relative" color="pink">
-                <z-box class="box-2-child" :child="true" position="relative" color="#C0FFF4"></z-box>
-            </z-box>
-            <z-box
+        <div class="top">
+            <div class="z-controls left-controls">
+                <label class="box-1-parent-z">z-index<br /><input type="number" /> </label>
+                <label class="box-1-child-z">z-index<br /><input type="number" /> </label>
+            </div>
+            
+            <div class="center">
+                <z-box class="box-1" position="relative" color="pink">
+                    <z-box class="box-2-child" :child="true" position="relative" color="#C0FFF4"></z-box>
+                </z-box>
+                <z-box
                 class="box-2"
                 position="relative"
                 color="lightgreen"
-                :margin-left="slider + 'px'"
-            >
-                <z-box class="box-2-child" :child="true" position="relative" color="#feffc6"></z-box>
-            </z-box>
+                :offset="slider + 'px'"
+                style="margin-top: 25px;"
+                >
+                    <z-box class="box-2-child" :child="true" position="relative" color="#feffc6"></z-box>
+                </z-box>
+            </div>
+
+            <div class="z-controls right-controls">
+                <label class="box-2-parent-z">z-index<br /><input type="number" /> </label>
+                <label class="box-2-child-z">z-index<br /><input type="number" /> </label>
+            </div>
         </div>
-        <div class="controls">
-            <input type="range" min="-150" max="50" v-model="slider">
+        <div class="bottom">
+            <div class="slider">
+                    <input type="range" min="-150" max="50" v-model="slider">
+            </div>
         </div>
     </div>
 </div>

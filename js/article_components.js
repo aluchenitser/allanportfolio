@@ -42,8 +42,7 @@ Vue.component('article-entry', {
 Vue.component('z-box', {
     props: {
         'position': String, 
-        'index': Number,
-        'color': String,
+        'index': String,
         'child': Boolean,
         'offset': String
     },
@@ -53,7 +52,7 @@ Vue.component('z-box', {
         }
     },
     template: `
-<div class='z-box' :class="childClass" :style="{ 'z-index': index, position: position, 'background-color': color, 'left': offset }">
+<div class='z-box' :class="childClass" :style="{ 'z-index': index, position: position, 'left': offset }">
     <div class="wrap">
         <span class="z-value">z-index: {{ index || "auto"}}</span><br />
         <span class="position"">pos: {{ position }}</span>
@@ -69,46 +68,42 @@ Vue.component('z-box-display', {
     },
     data() {
         return {
-            slider: this.sliderStart || 0
+            slider: this.sliderStart || 0,
+            zparent1: null,
+            zchild1: null,
+            zparent2: null,
+            zchild2: null,
         }
-    },
-    mounted() {
-        this.$on("slider", emit => {
-            console.log(emit)
-        })
     },
     template: `
 <div class='z-box-display'>
     <div class="centering-wrap">
         <div class="top">
-            <div class="z-controls left-controls">
-                <label class="box-1-parent-z">z-index<br /><input type="number" /> </label>
-                <label class="box-1-child-z">z-index<br /><input type="number" /> </label>
+            <div class="z-controls">
+            <div class="box-1-child-z">z-index <div class="wrap"><input type="number" v-model="zchild1" /> <button @click="zchild1 = null">⦰</button></div></div>
+                <div class="box-1-parent-z mb-20">z-index <div class="wrap"><input type="number" v-model="zparent1" /> <button @click="zparent1 = null">⦰</button></div></div>
+                <div class="box-2-child-z">z-index <div class="wrap"><input type="number" v-model="zchild2" /> <button @click="zchild2 = null">⦰</button></div></div>                
+                <div class="box-2-parent-z">z-index <div class="wrap"><input type="number" v-model="zparent2" /> <button @click="zparent2 = null">⦰</button></div></div>
             </div>
             
-            <div class="center">
-                <z-box class="box-1" position="relative" color="pink">
-                    <z-box class="box-2-child" :child="true" position="relative" color="#C0FFF4"></z-box>
-                </z-box>
-                <z-box
-                class="box-2"
-                position="relative"
-                color="lightgreen"
-                :offset="slider + 'px'"
-                style="margin-top: 25px;"
-                >
-                    <z-box class="box-2-child" :child="true" position="relative" color="#feffc6"></z-box>
-                </z-box>
-            </div>
-
-            <div class="z-controls right-controls">
-                <label class="box-2-parent-z">z-index<br /><input type="number" /> </label>
-                <label class="box-2-child-z">z-index<br /><input type="number" /> </label>
-            </div>
-        </div>
-        <div class="bottom">
-            <div class="slider">
-                    <input type="range" min="-150" max="50" v-model="slider">
+            <div class="figure">
+                <div class="boxes">
+                    <z-box class="box-1" position="relative" :index="zparent1" >
+                        <z-box class="box-1-child" :child="true" position="relative" :index="zchild1" ></z-box>
+                    </z-box>
+                    <z-box
+                    class="box-2"
+                    position="relative"
+                    :index="zparent2"
+                    :offset="slider + 'px'"
+                    style="margin-top: 25px;"
+                    >
+                        <z-box class="box-2-child" :child="true" position="relative" :index="zchild2" ></z-box>
+                    </z-box>
+                </div>
+                <div class="slider">
+                        <input type="range" min="-150" max="50" v-model="slider">
+                </div>
             </div>
         </div>
     </div>

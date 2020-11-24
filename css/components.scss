@@ -2,8 +2,8 @@
 /* COMPONENT styling */
 
 .z-box {
-	width: 180px;
-	height: 180px;
+	width: 200px;
+	height: 200px;
 	outline: 1px dotted black;
 	font-size: 13px;
 	display: inline-block;
@@ -36,9 +36,10 @@
 }
 
 .z-box-display {
+    margin-top: 30px;
 	position: relative;
 	border: 1px dotted lightgrey;
-    min-height: 300px;
+    min-height: 330px;
     display: flex;
     justify-content: center;
 
@@ -46,6 +47,18 @@
     --box-1-child-color: #C0FFF4;
     --box-2-color: lightgreen;
     --box-2-child-color: #feffc6;
+
+    .uber-parent {
+        color: grey;
+        position: absolute;
+        top: -10px; left: 17px;
+        font-style: italic;
+        font-size: 14px;
+        background-color: white;
+        padding: 0 6px 0 5px;
+
+    }
+
 
     .centering-wrap {
         align-self: center;
@@ -92,6 +105,10 @@
                 }
             }
 
+            .html-z {
+
+            }
+
             .box-1-parent-z {
                 background-color: var(--box-1-color);
             }
@@ -114,9 +131,11 @@
             .boxes {
                 display: flex;
                 justify-content: center;
+                margin-top: 20px;
 
                 .box-1 {
                     background-color: pink;
+                    // opacity: 0.5;
                     
                     .box-1-child {
                         background-color: #C0FFF4;
@@ -124,7 +143,7 @@
                 }
                 
                 .box-2 {
-                    margin-top: 50px;
+                    margin-top: 40px;
                     background-color: lightgreen;
                     .box-2-child {
                         
@@ -139,5 +158,4 @@
             }
         }
     }
-
 }

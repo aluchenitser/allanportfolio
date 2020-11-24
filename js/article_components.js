@@ -37,7 +37,6 @@ Vue.component('article-entry', {
 `
 })
 
-
 /* ------ autonomous components ------ */
 Vue.component('z-box', {
     props: {
@@ -69,36 +68,36 @@ Vue.component('z-box-display', {
     data() {
         return {
             slider: this.sliderStart || 0,
-            zparent1: null,
-            zchild1: null,
-            zparent2: null,
-            zchild2: null,
+            z_parent_1: null,
+            z_child_1: null,
+            z_parent_2: null,
+            z_child_2: null,
         }
     },
     template: `
 <div class='z-box-display'>
+    <span class="uber-parent">&lt;body&gt;</span>
     <div class="centering-wrap">
         <div class="top">
             <div class="z-controls">
-            <div class="box-1-child-z">z-index <div class="wrap"><input type="number" v-model="zchild1" /> <button @click="zchild1 = null">⦰</button></div></div>
-                <div class="box-1-parent-z mb-20">z-index <div class="wrap"><input type="number" v-model="zparent1" /> <button @click="zparent1 = null">⦰</button></div></div>
-                <div class="box-2-child-z">z-index <div class="wrap"><input type="number" v-model="zchild2" /> <button @click="zchild2 = null">⦰</button></div></div>                
-                <div class="box-2-parent-z">z-index <div class="wrap"><input type="number" v-model="zparent2" /> <button @click="zparent2 = null">⦰</button></div></div>
+                <div class="box-1-child-z">z-index <div class="wrap"><input type="number" v-model="z_child_1" /> <button @click="z_child_1 = null">⦰</button></div></div>
+                <div class="box-1-parent-z mb-20">z-index <div class="wrap"><input type="number" v-model="z_parent_1" /> <button @click="z_parent_1 = null">⦰</button></div></div>
+                <div class="box-2-child-z">z-index <div class="wrap"><input type="number" v-model="z_child_2" /> <button @click="z_child_2 = null">⦰</button></div></div>                
+                <div class="box-2-parent-z">z-index <div class="wrap"><input type="number" v-model="z_parent_2" /> <button @click="z_parent_2 = null">⦰</button></div></div>
             </div>
             
             <div class="figure">
                 <div class="boxes">
-                    <z-box class="box-1" position="relative" :index="zparent1" >
-                        <z-box class="box-1-child" :child="true" position="relative" :index="zchild1" ></z-box>
+                    <z-box class="box-1" position="relative" :index="z_parent_1" >
+                        <z-box class="box-1-child" :child="true" position="relative" :index="z_child_1" ></z-box>
                     </z-box>
                     <z-box
                     class="box-2"
                     position="relative"
-                    :index="zparent2"
+                    :index="z_parent_2"
                     :offset="slider + 'px'"
-                    style="margin-top: 25px;"
                     >
-                        <z-box class="box-2-child" :child="true" position="relative" :index="zchild2" ></z-box>
+                        <z-box class="box-2-child" :child="true" position="relative" :index="z_child_2" ></z-box>
                     </z-box>
                 </div>
                 <div class="slider">
@@ -110,7 +109,6 @@ Vue.component('z-box-display', {
 </div>
 `
 })
-
 
 /* ------ vuejs application ------ */
 var app = new Vue({
@@ -144,7 +142,7 @@ var app = new Vue({
 
             scrollTo(0,0)
 
-            // updates syntax highlighting for code shown in html
+            // updates syntax highlighting upon component / route change (Prism seems to require this)
             Vue.nextTick(() => {
                 Prism.highlightAll();
             })

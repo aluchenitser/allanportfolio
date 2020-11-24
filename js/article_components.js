@@ -2,7 +2,7 @@
 let articleNames = [
     "css_variables_10_23_20",
     "about_me_10_23_20",
-    "z_indexing_10_25_20"
+    "magnetic_mobile_11_24_20"
 ]
 
 /* ------ create article components ------ */
@@ -33,79 +33,6 @@ Vue.component('article-entry', {
     <slot></slot>
     <div class="meta">{{ date }}</div>
     <hr>    
-</div>
-`
-})
-
-/* ------ autonomous components ------ */
-Vue.component('z-box', {
-    props: {
-        'position': String, 
-        'index': String,
-        'child': Boolean,
-        'offset': String
-    },
-    computed: {
-        childClass() {
-            return this.child == true ? "child" : null
-        }
-    },
-    template: `
-<div class='z-box' :class="childClass" :style="{ 'z-index': index, position: position, 'left': offset }">
-    <div class="wrap">
-        <span class="z-value">z-index: {{ index || "auto"}}</span><br />
-        <span class="position"">pos: {{ position }}</span>
-    </div>
-    <slot></slot>
-</div>
-`
-})
-
-Vue.component('z-box-display', {
-    props: {
-        "sliderStart": Number
-    },
-    data() {
-        return {
-            slider: this.sliderStart || 0,
-            z_parent_1: null,
-            z_child_1: null,
-            z_parent_2: null,
-            z_child_2: null,
-        }
-    },
-    template: `
-<div class='z-box-display'>
-    <span class="uber-parent">&lt;body&gt;</span>
-    <div class="centering-wrap">
-        <div class="top">
-            <div class="z-controls">
-                <div class="box-1-child-z">z-index <div class="wrap"><input type="number" v-model="z_child_1" /> <button @click="z_child_1 = null">⦰</button></div></div>
-                <div class="box-1-parent-z mb-20">z-index <div class="wrap"><input type="number" v-model="z_parent_1" /> <button @click="z_parent_1 = null">⦰</button></div></div>
-                <div class="box-2-child-z">z-index <div class="wrap"><input type="number" v-model="z_child_2" /> <button @click="z_child_2 = null">⦰</button></div></div>                
-                <div class="box-2-parent-z">z-index <div class="wrap"><input type="number" v-model="z_parent_2" /> <button @click="z_parent_2 = null">⦰</button></div></div>
-            </div>
-            
-            <div class="figure">
-                <div class="boxes">
-                    <z-box class="box-1" position="relative" :index="z_parent_1" >
-                        <z-box class="box-1-child" :child="true" position="relative" :index="z_child_1" ></z-box>
-                    </z-box>
-                    <z-box
-                    class="box-2"
-                    position="relative"
-                    :index="z_parent_2"
-                    :offset="slider + 'px'"
-                    >
-                        <z-box class="box-2-child" :child="true" position="relative" :index="z_child_2" ></z-box>
-                    </z-box>
-                </div>
-                <div class="slider">
-                        <input type="range" min="-150" max="50" v-model="slider">
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 `
 })

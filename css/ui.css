@@ -75,6 +75,10 @@ a.link, a:hover.link, a:link.link {
   text-decoration: underline;
 }
 
+em {
+  color: #001eff;
+}
+
 /* -------- HEADER ------- */
 .header {
   position: fixed;

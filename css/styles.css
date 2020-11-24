@@ -75,6 +75,10 @@ a.link, a:hover.link, a:link.link {
   text-decoration: underline;
 }
 
+em {
+  color: #001eff;
+}
+
 /* -------- HEADER ------- */
 .header {
   position: fixed;
@@ -1084,130 +1088,12 @@ a.link, a:hover.link, a:link.link {
 }
 
 /* COMPONENT styling */
-.z-box {
-  width: 200px;
-  height: 200px;
-  outline: 1px dotted black;
-  font-size: 13px;
-  display: inline-block;
+#magnetic_mobile_11_24_20 .game {
+  cursor: url(mallot_small.png), pointer;
+  margin: 0 0 0 -50px;
+  min-height: 500px;
+  background-color: #ffffc5;
   position: relative;
-  font-weight: bold;
-  padding: 5px;
-}
-.z-box.child {
-  width: 110px;
-  height: 110px;
-}
-.z-box.centered {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.z-box .wrap {
-  position: absolute;
-  bottom: 5px;
-  left: 5px;
-}
-.z-box .wrap span {
-  display: inline-block;
-  padding: 2px;
-  line-height: 1;
-}
-
-.z-box-display {
-  margin-top: 30px;
-  position: relative;
-  border: 1px dotted lightgrey;
-  min-height: 330px;
-  display: flex;
-  justify-content: center;
-  --box-1-color: pink;
-  --box-1-child-color: #C0FFF4;
-  --box-2-color: lightgreen;
-  --box-2-child-color: #feffc6;
-}
-.z-box-display .uber-parent {
-  color: grey;
-  position: absolute;
-  top: -10px;
-  left: 17px;
-  font-style: italic;
-  font-size: 14px;
-  background-color: white;
-  padding: 0 6px 0 5px;
-}
-.z-box-display .centering-wrap {
-  align-self: center;
-  width: 100%;
-}
-.z-box-display .top {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-}
-.z-box-display .top .z-controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: column;
-  text-align: center;
-  font-size: 18px;
-}
-.z-box-display .top .z-controls > div {
-  padding: 2px 5px 2px 10px;
-  margin-bottom: 10px;
-  border: 1px dotted lightgrey;
-  border-radius: 0 5px 5px 0;
-}
-.z-box-display .top .z-controls > div .wrap {
-  display: inline-flex;
-  height: 22px;
-  position: relative;
-  top: -1px;
-  margin-left: 10px;
-}
-.z-box-display .top .z-controls > div .wrap input[type=number] {
-  position: relative;
-  max-width: 50px;
-  border: 1px solid lightgray;
-  margin-right: -1px;
-}
-.z-box-display .top .z-controls > div .wrap button {
-  border: 1px solid lightgray;
-  border-radius: 0 5px 5px 0;
-}
-.z-box-display .top .z-controls .box-1-parent-z {
-  background-color: var(--box-1-color);
-}
-.z-box-display .top .z-controls .box-1-child-z {
-  background-color: var(--box-1-child-color);
-}
-.z-box-display .top .z-controls .box-2-parent-z {
-  background-color: var(--box-2-color);
-}
-.z-box-display .top .z-controls .box-2-child-z {
-  background-color: var(--box-2-child-color);
-}
-.z-box-display .top .figure .boxes {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-.z-box-display .top .figure .boxes .box-1 {
-  background-color: pink;
-}
-.z-box-display .top .figure .boxes .box-1 .box-1-child {
-  background-color: #C0FFF4;
-}
-.z-box-display .top .figure .boxes .box-2 {
-  margin-top: 40px;
-  background-color: lightgreen;
-}
-.z-box-display .top .figure .boxes .box-2 .box-2-child {
-  background-color: #feffc6;
-}
-.z-box-display .top .figure .slider {
-  text-align: center;
-  margin-top: 25px;
 }
 
 /*# sourceMappingURL=styles.css.map */

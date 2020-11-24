@@ -1089,11 +1089,52 @@ em {
 
 /* COMPONENT styling */
 #magnetic_mobile_11_24_20 .game {
-  cursor: url(mallot_small.png), pointer;
+  display: flex;
   margin: 0 0 0 -50px;
   min-height: 500px;
   background-color: #ffffc5;
   position: relative;
+}
+#magnetic_mobile_11_24_20 .game .holes {
+  flex: 3 0 0;
+  cursor: url(mallot.png), pointer;
+}
+#magnetic_mobile_11_24_20 .game .holes.down-mallot {
+  cursor: url(mallot_down.png), pointer;
+}
+#magnetic_mobile_11_24_20 .game .holes .row {
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#magnetic_mobile_11_24_20 .game .holes .row .rod {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #fcdbe0;
+  outline: 1px solid lightpink;
+}
+#magnetic_mobile_11_24_20 .game .holes .row .rod .high-ellipse {
+  position: absolute;
+  bottom: 0;
+  background-color: lightgreen;
+  height: 110%;
+  width: 240%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 100%;
+}
+#magnetic_mobile_11_24_20 .game .holes .row .rod .low-ellipse {
+  width: 100%;
+  height: 50px;
+  background-color: black;
+  position: absolute;
+  bottom: 0;
+}
+#magnetic_mobile_11_24_20 .game .etc {
+  flex: 2 0 0;
 }
 
 /*# sourceMappingURL=styles.css.map */

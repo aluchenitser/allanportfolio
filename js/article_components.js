@@ -95,5 +95,11 @@ var app = new Vue({
                 loadRoute("popstate");
             }, 0)
         })
+
+        // for magnetic_mobile article
+        if(document.getElementById("magnetic_mobile_11_24_20")) {
+            console.log("magneticMobile.run()")
+            magneticMobile.run()
+        }
     }
 })

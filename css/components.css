@@ -24,6 +24,14 @@
   height: 100%;
   position: relative;
   overflow: hidden;
+  position: relative;
+  bottom: 25%;
+}
+#magnetic_mobile_11_24_20 .game .holes .row .rod.rod-1 .image {
+  background: url(trumpHead.png) no-repeat;
+}
+#magnetic_mobile_11_24_20 .game .holes .row .rod.rod-2 .image {
+  background: url(linkedin_transparent.png) no-repeat;
 }
 #magnetic_mobile_11_24_20 .game .holes .row .rod .high-ellipse {
   position: absolute;
@@ -43,8 +51,38 @@
   bottom: -260px;
   border-radius: 100%;
 }
+#magnetic_mobile_11_24_20 .game .holes .row .rod .high-ellipse .image {
+  height: 100%;
+  width: 20%;
+  margin: 0 auto;
+  position: relative;
+  image-rendering: -webkit-optimize-contrast;
+  background-position: bottom;
+  background-size: 100%;
+  height: 55%;
+  bottom: -140px;
+}
 #magnetic_mobile_11_24_20 .game .etc {
   flex: 2 0 0;
+}
+#magnetic_mobile_11_24_20 .game .etc .etc-wrap {
+  padding: 30px 70px;
+}
+#magnetic_mobile_11_24_20 .game .etc .start-stop {
+  text-align: center;
+  text-align: center;
+}
+#magnetic_mobile_11_24_20 .game .etc .start-stop button {
+  cursor: pointer;
+}
+#magnetic_mobile_11_24_20 .game .etc .friendly span {
+  float: right;
+}
+#magnetic_mobile_11_24_20 .game .etc .foe span {
+  float: right;
+}
+#magnetic_mobile_11_24_20 .game .etc .timer span {
+  float: right;
 }
 
 /*# sourceMappingURL=components.css.map */

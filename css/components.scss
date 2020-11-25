@@ -1,4 +1,3 @@
-
 /* COMPONENT styling */
 
 #magnetic_mobile_11_24_20 {
@@ -32,9 +31,25 @@
                     height: 100%;
                     position: relative;
                     overflow: hidden;
-                    // background-color: rgb(252, 219, 224);
-                    // outline: 1px solid lightpink;
+                    position: relative;
+                    bottom: 25%;
+                    
+                    &.rod-1 {
+                        .image {
+                            background: url(trumpHead.png) no-repeat;
+                        }
+                    }
+                    &.rod-2 {
+                        .image {
+                            background: url(linkedin_transparent.png) no-repeat;
+                        }
+                    }
+                    &.rod-3 {
 
+                    }
+                    &.rod-4 {
+
+                    }
 
                     .high-ellipse {
                         position: absolute;
@@ -57,6 +72,18 @@
                             border-radius: 100%;                        
 
                         }
+
+                        .image {
+                            height: 100%;
+                            width: 20%;
+                            margin: 0 auto;
+                            position: relative;
+                            image-rendering: -webkit-optimize-contrast;
+                            background-position: bottom;
+                            background-size: 100%;
+                            height: 55%;
+                            bottom: -140px;
+                        }
                     }
 
                 }
@@ -66,6 +93,38 @@
 
         .etc {
             flex: 2 0 0;
+
+            .etc-wrap {
+                padding: 30px 70px;;
+            }
+
+            .start-stop {
+                text-align: center;
+                // margin: 15px 0;
+                text-align: center;
+
+                button {
+                    cursor: pointer;
+                }
+            }
+
+            .friendly {
+                span {
+                    float: right;
+                }
+            }
+
+            .foe {
+                span {
+                    float: right;
+                }
+            }
+
+            .timer {
+                span {
+                    float: right;
+                }
+            }
         }
     }
 }

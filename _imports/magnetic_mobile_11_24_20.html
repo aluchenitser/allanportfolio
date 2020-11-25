@@ -14,25 +14,26 @@
 		<div class="game">
 			<div class="holes">
 				<div class="row">
-					<div class="rod">
+					<div class="rod rod-1">
 						<div class="high-ellipse">
 							<div class="low-ellipse"></div>
+							<div class="image"></div>
 						</div>
 					</div>
-					<div class="rod">
+					<div class="rod rod-2">
 						<div class="high-ellipse">
 							<div class="low-ellipse"></div>
+							<div class="image"></div>
 						</div>
-						<!-- <img src="img/linkedin.png" /> -->
 					</div>
 				</div>
 				<div class="row">
-					<div class="rod">
+					<div class="rod rod-3">
 						<div class="high-ellipse">
 							<div class="low-ellipse"></div>
 						</div>
 					</div>
-					<div class="rod">
+					<div class="rod rod-4">
 						<div class="high-ellipse">
 							<div class="low-ellipse"></div>
 						</div>
@@ -40,12 +41,22 @@
 				</div>
 			</div>
 			<div class="etc">
-				<div class="start-stop">START</div>
-
-				<div class="friendly"></div>
-				<div class="foe"></div>
+				<div class="etc-wrap">
+					<div class="start-stop">
+						<button>START</button>
+					</div>
+					
+					<div class="friendly mt-30">
+						<label>Friendly</label> <span id="friendly_score">10</span>
+					</div>
+					<div class="foe">
+						<label>Foe</label> <span id="foe_score">20</span>
+					</div>
+					<div class="timer mt-30">
+						<label>Time</label> <span id="timer_value">20</span>
+					</div>
+				</div>
 			</div>
-
 		</div>
     </article-entry>
 </script>

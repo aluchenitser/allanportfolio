@@ -3,6 +3,8 @@ magneticMobile = {
         const gameElement = document.querySelector(".game .holes");
         const holesElement = document.querySelector(".holes")
         
+        console.log("mobile m")
+
         gameElement.addEventListener("mousedown", e => {
             this.isMallotDown = true;
             

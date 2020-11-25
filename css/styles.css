@@ -1092,7 +1092,7 @@ em {
   display: flex;
   margin: 0 0 0 -50px;
   min-height: 500px;
-  background-color: #ffffc5;
+  background: linear-gradient(-90deg, #fcf7ee, transparent);
   position: relative;
 }
 #magnetic_mobile_11_24_20 .game .holes {

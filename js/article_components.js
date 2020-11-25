@@ -69,9 +69,19 @@ var app = new Vue({
 
             scrollTo(0,0)
 
+            console.log("route", route)
+
             // updates syntax highlighting upon component / route change (Prism seems to require this)
             Vue.nextTick(() => {
+
+                // refresh syntax highlighting
                 Prism.highlightAll();
+
+                // run whackamole
+                if(route === "#magnetic_mobile_11_24_20" || route === '') {
+                    magneticMobile.run()
+                }
+
             })
         },
         goHome() {
@@ -97,8 +107,7 @@ var app = new Vue({
         })
 
         // for magnetic_mobile article
-        if(document.getElementById("magnetic_mobile_11_24_20")) {
-            console.log("magneticMobile.run()")
+        if(window.location.hash === "" || window.location.hash === "#magnetic_mobile_11_24_20") {
             magneticMobile.run()
         }
     }

@@ -16,7 +16,11 @@ magneticMobile = {
 
         holesElement.addEventListener("click", e => {
             if(e.target.className.includes("image")) {
-                console.log("boink!")
+                e.target.classList.add("down")
+
+                setTimeout(() => {
+                    e.target.classList.remove("down")
+                }, 1000)
             }
         })
 

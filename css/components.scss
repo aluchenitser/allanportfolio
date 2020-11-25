@@ -83,6 +83,12 @@
                             background-size: 100%;
                             height: 55%;
                             bottom: -140px;
+                            transition: transform 0.2s;
+
+                            &.down {
+                                // bottom: -250px;
+                                transform: translateY(110px);
+                            }
                         }
                     }
 

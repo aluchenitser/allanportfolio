@@ -56,6 +56,13 @@ body nav .navitem:hover {
   text-decoration: underline;
 }
 
+button {
+  color: var(--readable-text-color);
+  background-color: transparent;
+  border: 2px dashed var(--readable-text-color);
+  font-family: "IBM Plex Mono", monospace;
+}
+
 code[class*=language-], pre[class*=language-] {
   font-size: 15px;
 }

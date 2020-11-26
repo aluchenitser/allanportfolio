@@ -6,7 +6,7 @@
 
         margin: 0 0 0 -50px;
         min-height: 500px;
-        background: linear-gradient(-90deg, #fcf7ee, transparent);
+        background: linear-gradient(180deg, #fcf7ee, transparent);
         position: relative;
 
         .holes {
@@ -115,6 +115,14 @@
 
                 button {
                     cursor: pointer;
+                    width: 100%;
+                    padding: 10px;
+                    font-size: 40px;
+                    font-weight: bold;
+
+                    &:focus {
+                        outline: none;
+                    }
                 }
             }
 

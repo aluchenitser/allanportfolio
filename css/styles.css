@@ -56,6 +56,13 @@ body nav .navitem:hover {
   text-decoration: underline;
 }
 
+button {
+  color: var(--readable-text-color);
+  background-color: transparent;
+  border: 2px dashed var(--readable-text-color);
+  font-family: "IBM Plex Mono", monospace;
+}
+
 code[class*=language-], pre[class*=language-] {
   font-size: 15px;
 }
@@ -1092,7 +1099,7 @@ em {
   display: flex;
   margin: 0 0 0 -50px;
   min-height: 500px;
-  background: linear-gradient(-90deg, #fcf7ee, transparent);
+  background: linear-gradient(180deg, #fcf7ee, transparent);
   position: relative;
 }
 #magnetic_mobile_11_24_20 .game .holes {
@@ -1173,6 +1180,13 @@ em {
 }
 #magnetic_mobile_11_24_20 .game .etc .start-stop button {
   cursor: pointer;
+  width: 100%;
+  padding: 10px;
+  font-size: 40px;
+  font-weight: bold;
+}
+#magnetic_mobile_11_24_20 .game .etc .start-stop button:focus {
+  outline: none;
 }
 #magnetic_mobile_11_24_20 .game .etc .friendly span {
   float: right;

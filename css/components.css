@@ -28,10 +28,16 @@
   bottom: 25%;
 }
 #magnetic_mobile_11_24_20 .game .holes .row .rod.rod-1 .image {
-  background: url(trumpHead.png) no-repeat;
+  background: url(trump2.png) no-repeat;
 }
 #magnetic_mobile_11_24_20 .game .holes .row .rod.rod-2 .image {
   background: url(linkedin_transparent.png) no-repeat;
+}
+#magnetic_mobile_11_24_20 .game .holes .row .rod.rod-3 .image {
+  background: url(JP.png) no-repeat;
+}
+#magnetic_mobile_11_24_20 .game .holes .row .rod.rod-4 .image {
+  background: url(shapiro.png) no-repeat;
 }
 #magnetic_mobile_11_24_20 .game .holes .row .rod .high-ellipse {
   position: absolute;

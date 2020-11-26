@@ -9,7 +9,6 @@
         background: linear-gradient(-90deg, #fcf7ee, transparent);
         position: relative;
 
-        
         .holes {
             // padding: 50px;
             flex: 3 0 0;
@@ -36,7 +35,7 @@
                     
                     &.rod-1 {
                         .image {
-                            background: url(trumpHead.png) no-repeat;
+                            background: url(trump2.png) no-repeat;
                         }
                     }
                     &.rod-2 {
@@ -45,10 +44,15 @@
                         }
                     }
                     &.rod-3 {
-
+                        .image {
+                            background: url(JP.png) no-repeat;
+                        }
                     }
                     &.rod-4 {
-
+                        
+                        .image {
+                            background: url(shapiro.png) no-repeat;
+                        }
                     }
 
                     .high-ellipse {

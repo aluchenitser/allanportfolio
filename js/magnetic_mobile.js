@@ -1,21 +1,28 @@
 magneticMobile = {
-    run: function() {
-        const gameElement = document.querySelector(".game .holes");
-        const holesElement = document.querySelector(".holes")
-        
-        console.log("mobile m")
+    isMallotDown: false,
+    gameInterval: null,
+    startButtonElement: null,
 
-        gameElement.addEventListener("mousedown", e => {
+    load: function() {
+        /* --- elements --- */
+        const holesElement          = document.querySelector("#magnetic_mobile_11_24_20 .holes")
+        this.startButtonElement     = document.querySelector("#magnetic_mobile_11_24_20 .start-stop button")
+        
+        /* --- logic --- */
+
+        // stylized, animated mouse pointer
+        holesElement.addEventListener("mousedown", e => {
             this.isMallotDown = true;
             
-            gameElement.classList.add("down-mallot")
+            holesElement.classList.add("down-mallot")
             setTimeout(() => {
                 this.isMallotDown = false
-                gameElement.classList.remove("down-mallot")
+                holesElement.classList.remove("down-mallot")
             }, 300)
 
         })
 
+        // bonk when clicking on image surface
         holesElement.addEventListener("click", e => {
             if(e.target.className.includes("image")) {
                 e.target.classList.add("down")
@@ -26,6 +33,43 @@ magneticMobile = {
             }
         })
 
+        // start game
+        this.startButtonElement.addEventListener("click", el => {
+            this.start(); 
+        })
+
     },
-    isMallotDown: false
+    start() {
+        clearInterval(this.gameInterval)
+        this.startButtonElement.classList.add("started")
+
+        /* --- elements --- */
+        const gameElement       = document.getElementById("magnetic_mobile_11_24_20")
+        
+        const friendlyElement   = gameElement.querySelector("#friendly_score")
+        const foeElement        = gameElement.querySelector("#foe_score")
+        const timerElement      = gameElement.querySelector("#timer_value")
+        const heads_elements    = gameElement.querySelectorAll(".rod .image")
+
+
+        /* --- logic --- */
+        heads_elements.forEach(el => el.classList.add("down"))
+
+        let timer = 45
+        timerElement.innerHTML = timer
+
+        this.gameInterval = setInterval(() => {
+            timerElement.innerHTML = --timer
+
+            if(timer === 0) {
+                clearInterval(this.gameInterval)
+                this.end();
+            }
+
+        }, 1000)
+        
+    },
+    end() {
+
+    }
 }

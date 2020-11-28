@@ -106,43 +106,81 @@
 
             .etc-wrap {
                 padding: 30px 70px;;
-            }
+                display: flex;
+                flex-flow: column;
 
-            .start-stop {
-                text-align: center;
-                // margin: 15px 0;
-                text-align: center;
+                .start-stop {
+                    text-align: center;
+                    // margin: 15px 0;
+                    text-align: center;
 
-                button {
-                    cursor: pointer;
-                    width: 100%;
-                    padding: 10px;
-                    font-size: 40px;
-                    font-weight: bold;
+                    button {
+                        cursor: pointer;
+                        width: 100%;
+                        padding: 10px;
+                        font-size: 30px;
+                        font-weight: bold;
+                        border: none;
+                        outline: 2px dashed var(--readable-text-color);
 
-                    &:focus {
-                        outline: none;
+                        &:focus {
+                            outline: 2px dashed var(--readable-text-color);
+                        }
+
+                        &.started {
+                            outline-color: lightgray;
+                            color: lightgray;
+                        }
+                    }
+
+                    &.started {
+                        button {
+                            color: lightgray;
+                            border-color: lightgray;
+                        }
                     }
                 }
-            }
 
-            .friendly {
-                span {
-                    float: right;
+                .friendly {
+                    span {
+                        float: right;
+                    }
                 }
-            }
 
-            .foe {
-                span {
-                    float: right;
+                .foe {
+                    span {
+                        float: right;
+                    }
                 }
-            }
 
-            .timer {
-                span {
-                    float: right;
+                .timer {
+                    span {
+                        float: right;
+                    }
                 }
-            }
-        }
+
+                .you-win {
+                    font-size: 30px;
+                    font-weight: bold;
+                    // border: 2px dashed #4032ff;
+                    padding: 10px;
+                    text-align: center;
+
+                    color: #4032ff;
+                    font-family: 'IBM Plex Mono', monospace;
+
+                    &.hidden {
+                        visibility: hidden;
+                    }
+                }
+
+                  
+                @keyframes blink {
+                    50% {
+                        font-size: 20px;
+                    }
+                }
+            }  // end .etc-wrap
+        } // end .etc
     }
 }

@@ -77,12 +77,20 @@ var app = new Vue({
                 // refresh syntax highlighting
                 Prism.highlightAll();
 
-                // run whackamole
+                // setup JS
                 if(route === "#magnetic_mobile_11_24_20" || route === '') {
-                    magneticMobile.run()
+                    this.setupJavascript("#magnetic_mobile_11_24_20 .start-stop button", () => {
+                        console.log("pre load")
+                        magneticMobile.load()
+                    })
                 }
-
             })
+        },
+        setupJavascript(selector, callback) {
+            let articleEl = document.querySelector(selector)
+            if(articleEl) {
+                callback()
+            }
         },
         goHome() {
             this.selectArticle(false)
@@ -105,10 +113,5 @@ var app = new Vue({
                 loadRoute("popstate");
             }, 0)
         })
-
-        // for magnetic_mobile article
-        if(window.location.hash === "" || window.location.hash === "#magnetic_mobile_11_24_20") {
-            magneticMobile.run()
-        }
     }
 })

@@ -59,7 +59,6 @@ body nav .navitem:hover {
 button {
   color: var(--readable-text-color);
   background-color: transparent;
-  border: 2px dashed var(--readable-text-color);
   font-family: "IBM Plex Mono", monospace;
 }
 
@@ -1173,29 +1172,57 @@ em {
 }
 #magnetic_mobile_11_24_20 .game .etc .etc-wrap {
   padding: 30px 70px;
+  display: flex;
+  flex-flow: column;
 }
-#magnetic_mobile_11_24_20 .game .etc .start-stop {
+#magnetic_mobile_11_24_20 .game .etc .etc-wrap .start-stop {
   text-align: center;
   text-align: center;
 }
-#magnetic_mobile_11_24_20 .game .etc .start-stop button {
+#magnetic_mobile_11_24_20 .game .etc .etc-wrap .start-stop button {
   cursor: pointer;
   width: 100%;
   padding: 10px;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: bold;
+  border: none;
+  outline: 2px dashed var(--readable-text-color);
 }
-#magnetic_mobile_11_24_20 .game .etc .start-stop button:focus {
-  outline: none;
+#magnetic_mobile_11_24_20 .game .etc .etc-wrap .start-stop button:focus {
+  outline: 2px dashed var(--readable-text-color);
 }
-#magnetic_mobile_11_24_20 .game .etc .friendly span {
+#magnetic_mobile_11_24_20 .game .etc .etc-wrap .start-stop button.started {
+  outline-color: lightgray;
+  color: lightgray;
+}
+#magnetic_mobile_11_24_20 .game .etc .etc-wrap .start-stop.started button {
+  color: lightgray;
+  border-color: lightgray;
+}
+#magnetic_mobile_11_24_20 .game .etc .etc-wrap .friendly span {
   float: right;
 }
-#magnetic_mobile_11_24_20 .game .etc .foe span {
+#magnetic_mobile_11_24_20 .game .etc .etc-wrap .foe span {
   float: right;
 }
-#magnetic_mobile_11_24_20 .game .etc .timer span {
+#magnetic_mobile_11_24_20 .game .etc .etc-wrap .timer span {
   float: right;
+}
+#magnetic_mobile_11_24_20 .game .etc .etc-wrap .you-win {
+  font-size: 30px;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+  color: #4032ff;
+  font-family: "IBM Plex Mono", monospace;
+}
+#magnetic_mobile_11_24_20 .game .etc .etc-wrap .you-win.hidden {
+  visibility: hidden;
+}
+@keyframes blink {
+  50% {
+    font-size: 20px;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

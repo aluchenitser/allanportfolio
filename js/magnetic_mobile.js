@@ -1,11 +1,17 @@
 magneticMobile = {
     isMallotDown: false,
     gameInterval: null,
+
     startButtonElement: null,
+    
+    rodElements: null,
+    rodArray: ['trump', 'peterson', 'allan', 'shapiro'],
 
     load: function() {
         /* --- elements --- */
         const holesElement          = document.querySelector("#magnetic_mobile_11_24_20 .holes")
+        this.rodElements         = holesElement.querySelectorAll(".image")
+
         this.startButtonElement     = document.querySelector("#magnetic_mobile_11_24_20 .start-stop button")
         
         /* --- logic --- */
@@ -39,7 +45,7 @@ magneticMobile = {
         })
 
     },
-    start() {
+    start: function() {
         clearInterval(this.gameInterval)
         this.startButtonElement.classList.add("started")
 
@@ -66,10 +72,24 @@ magneticMobile = {
                 this.end();
             }
 
+            this.shuffle()
         }, 1000)
         
     },
     end() {
+
+    },
+    shuffle: function() {
+
+        // shuffle the image array with Fisher-Yates
+        const getRandomValue = (i, N) => Math.floor(Math.random() * (N - i) + i);
+        this.rodArray.forEach( (elem, i, arr, j = getRandomValue(i, arr.length)) => [arr[i], arr[j]] = [arr[j], arr[i]] );
+
+        this.rodElements.forEach((el, idx) => {
+            el.className = el.classList.contains("down")
+                ? "image " + this.rodArray[idx]
+                : "image " + this.rodArray[idx]
+        })
 
     }
 }

@@ -32,28 +32,6 @@
                     overflow: hidden;
                     position: relative;
                     bottom: 25%;
-                    
-                    &.rod-1 {
-                        .image {
-                            background: url(trump2.png) no-repeat;
-                        }
-                    }
-                    &.rod-2 {
-                        .image {
-                            background: url(linkedin_transparent.png) no-repeat;
-                        }
-                    }
-                    &.rod-3 {
-                        .image {
-                            background: url(JP.png) no-repeat;
-                        }
-                    }
-                    &.rod-4 {
-                        
-                        .image {
-                            background: url(shapiro.png) no-repeat;
-                        }
-                    }
 
                     .high-ellipse {
                         position: absolute;
@@ -78,21 +56,38 @@
                         }
 
                         .image {
-                            height: 100%;
-                            width: 20%;
-                            margin: 0 auto;
-                            position: relative;
-                            image-rendering: -webkit-optimize-contrast;
-                            background-position: bottom;
-                            background-size: 100%;
-                            height: 55%;
-                            bottom: -140px;
-                            transition: transform 0.2s;
+
 
                             &.down {
                                 // bottom: -250px;
                                 transform: translateY(110px);
                             }
+
+                            &.trump {
+                                background: url(trump2.png) no-repeat;
+                            }
+        
+                            &.peterson {
+                                background: url(linkedin_transparent.png) no-repeat;
+                            }
+        
+                            &.allan {
+                                background: url(JP.png) no-repeat;
+                            }
+        
+                            &.shapiro {
+                                background: url(shapiro.png) no-repeat;
+                            }
+
+                            width: 20%;
+                            margin: 0 auto;
+                            position: relative;
+                            image-rendering: -webkit-optimize-contrast;
+                            background-position: bottom;
+                            background-size: 100% !important;
+                            height: 55%;
+                            bottom: -140px;
+                            transition: transform 0.2s;
                         }
                     }
 

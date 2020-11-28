@@ -1122,18 +1122,6 @@ em {
   position: relative;
   bottom: 25%;
 }
-#magnetic_mobile_11_24_20 .game .holes .row .rod.rod-1 .image {
-  background: url(trump2.png) no-repeat;
-}
-#magnetic_mobile_11_24_20 .game .holes .row .rod.rod-2 .image {
-  background: url(linkedin_transparent.png) no-repeat;
-}
-#magnetic_mobile_11_24_20 .game .holes .row .rod.rod-3 .image {
-  background: url(JP.png) no-repeat;
-}
-#magnetic_mobile_11_24_20 .game .holes .row .rod.rod-4 .image {
-  background: url(shapiro.png) no-repeat;
-}
 #magnetic_mobile_11_24_20 .game .holes .row .rod .high-ellipse {
   position: absolute;
   bottom: 0;
@@ -1153,19 +1141,30 @@ em {
   border-radius: 100%;
 }
 #magnetic_mobile_11_24_20 .game .holes .row .rod .high-ellipse .image {
-  height: 100%;
   width: 20%;
   margin: 0 auto;
   position: relative;
   image-rendering: -webkit-optimize-contrast;
   background-position: bottom;
-  background-size: 100%;
+  background-size: 100% !important;
   height: 55%;
   bottom: -140px;
   transition: transform 0.2s;
 }
 #magnetic_mobile_11_24_20 .game .holes .row .rod .high-ellipse .image.down {
   transform: translateY(110px);
+}
+#magnetic_mobile_11_24_20 .game .holes .row .rod .high-ellipse .image.trump {
+  background: url(trump2.png) no-repeat;
+}
+#magnetic_mobile_11_24_20 .game .holes .row .rod .high-ellipse .image.peterson {
+  background: url(linkedin_transparent.png) no-repeat;
+}
+#magnetic_mobile_11_24_20 .game .holes .row .rod .high-ellipse .image.allan {
+  background: url(JP.png) no-repeat;
+}
+#magnetic_mobile_11_24_20 .game .holes .row .rod .high-ellipse .image.shapiro {
+  background: url(shapiro.png) no-repeat;
 }
 #magnetic_mobile_11_24_20 .game .etc {
   flex: 2 0 0;

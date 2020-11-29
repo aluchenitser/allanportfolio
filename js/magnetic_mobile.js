@@ -1,15 +1,11 @@
 magneticMobile = {
+    foe: 0,
+    friend: 0,
+    gameInterval: null,
     isMallotDown: false,
     isStarted: false,
-    gameInterval: null,
-    timer: 0,
-
-    scores: {
-        friend: 0,
-        foe: 0
-    },
-
     rodArray: ['trump', 'peterson', 'allan', 'shapiro'],
+    timer: 0,
 
     load() {
         this.loadElements()
@@ -23,10 +19,11 @@ magneticMobile = {
     start() {
 
         // ready and clear the game
+        let level = 1                       // levels 1 through 3, higher level means quicker and more pop-ups
         this.isStarted = true
         clearInterval(this.gameInterval)
 
-        // dim start button and lower all the heads
+        // visually dim the start button and lower all the heads
         this.startButtonElement.classList.add("started")
         this.imageElements.forEach(el => el.classList.add("down"))
 
@@ -43,20 +40,21 @@ magneticMobile = {
             }
         }, 1000)
 
-        let level = 1                       // higher level means faster pop-ups and more simultaneous heads
-
-
-        console.log("pre - loop")
-
+        
         let self = this
-
         setTimeout(function loop() {
-            console.log("loop")
-
             if(self.isStarted === false) return;
 
             self.getRandom(self.rodElements, Math.ceil(Math.random() * level)).forEach(el => {
-                el.classList.remove("down")
+                if(el.classList.contains("down")) {
+
+                    el.classList.remove("down")
+
+                    setTimeout(() => { 
+                        console.log("inner", el)
+                        el.classList.add("down") 
+                    }, Math.ceil(Math.random()) * (4 - level) * 1000)
+                }
             })
 
             setTimeout(loop, Math.ceil(Math.random() * (4 - level) * 1000))
@@ -76,11 +74,10 @@ magneticMobile = {
     },
 
     addPointFoe() {
-        this.scores.friend++
-
+        this.foeElement.innerHTML = ++this.foe
     },
     addPointFriend() {
-
+        this.friendElement.innerHTML = ++this.friend
     },
     animateCursor() {
         // stylized, animated mouse pointer
@@ -107,21 +104,23 @@ magneticMobile = {
             // hit a dimwit
             if(this.isStarted && classList.contains("allan") === false) {
                 console.log("bonked dimwit")
-                this.addPointFriend()
+                this.addPointFoe()
                 classList.add("down")
             }
             
             // hit Allan
             else if(this.isStarted) {
                 console.log("bonked Allan")
-                this.addPointFoe()
+                this.addPointFriend()
             }
 
             // pre-game bonk for funsies
             else {
+                classList.add("down")
+
                 setTimeout(() => {
                     classList.remove("down")
-                }, 1000)
+                }, 500)
             }
         })
     },
@@ -159,8 +158,8 @@ magneticMobile = {
 
         this.startButtonElement     = this.gameElement.querySelector(".start-stop button")
        
-        this.friendlyElement        = this.gameElement.querySelector("#friendly_score")
+        this.friendElement        = this.gameElement.querySelector("#friendly_score")
         this.foeElement             = this.gameElement.querySelector("#foe_score")
         this.timerElement           = this.gameElement.querySelector("#timer_value")
-    },    
+    }, 
 }

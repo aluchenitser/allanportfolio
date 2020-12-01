@@ -1093,7 +1093,7 @@ em {
   margin-left: 50px;
 }
 
-#bonk {
+[id^=bonk] {
   display: none;
   position: absolute;
   width: 100px;

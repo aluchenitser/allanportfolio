@@ -1,5 +1,5 @@
 magneticMobile = {
-    level: 1,
+    level: 0,
     foe: 0,
     friend: 0,
     gameInterval: null,
@@ -7,6 +7,7 @@ magneticMobile = {
     isStarted: false,
     rodArray: ['trump', 'peterson', 'allan', 'shapiro'],
     timer: 0,
+    bonkIncrementor: 1,
 
     load() {
         this.loadElements()
@@ -124,15 +125,18 @@ magneticMobile = {
     },
     bonk(event) {
         let e = event
-        console.log(e.pageX, e.clientX, e.screenX, e.target.offsetLeft)
+        
+        let element = this.bonkArray[this.bonkIncrementor++]
+        if(this.bonkIncrementor == 3) this.bonkIncrementor = 0
 
-        this.bonkElement.style.left = e.pageX + "px"
-        this.bonkElement.style.top = e.pageY + "px"
+        console.log(element)
 
-        this.bonkElement.style.display = "block"
+        element.style.left = e.pageX + "px"
+        element.style.top = e.pageY + "px"
+        element.style.display = "block"
 
         setTimeout(() => {
-            this.bonkElement.style.display = "none"
+            element.style.display = "none"
         }, 300)
         
     },
@@ -174,6 +178,6 @@ magneticMobile = {
         this.foeElement             = this.gameElement.querySelector("#foe_score")
         this.timerElement           = this.gameElement.querySelector("#timer_value")
 
-        this.bonkElement            = document.getElementById("bonk")
+        this.bonkArray = document.querySelectorAll("[id^=bonk]")
     }, 
 }

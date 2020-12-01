@@ -228,6 +228,9 @@
                         height: 140%;
                     }
 
+                    &:first-of-type {
+                        z-index: 1;
+                    }
                 }
             }
 

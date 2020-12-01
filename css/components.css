@@ -169,6 +169,9 @@
   #magnetic_mobile_11_24_20 .game .holes .row .rod {
     height: 140%;
   }
+  #magnetic_mobile_11_24_20 .game .holes .row:first-of-type {
+    z-index: 1;
+  }
   #magnetic_mobile_11_24_20 .game + p {
     margin: 25px 0;
   }

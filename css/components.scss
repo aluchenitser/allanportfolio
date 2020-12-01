@@ -19,6 +19,8 @@
         position: relative;
 
 
+
+
         .holes {
 
             // padding: 50px;
@@ -92,7 +94,7 @@
                             }
 
 
-                            width: 20%;
+                            width: 110px;
                             margin: 0 auto;
                             position: relative;
                             image-rendering: -webkit-optimize-contrast;
@@ -178,7 +180,7 @@
                     font-family: 'IBM Plex Mono', monospace;
 
                     &.hidden {
-                        visibility: hidden;
+                        display: none;
                     }
                 }
 
@@ -190,5 +192,29 @@
                 }
             }  // end .etc-wrap
         } // end .etc
+    }
+
+    @media (max-width: 768px) {
+        .game {
+            margin: 0;
+            flex-direction: column-reverse;
+            min-height: auto;
+
+            .etc {
+
+            }
+
+            .holes {
+                display: flex;
+                flex-direction: column;
+                // background-color: yellow;
+                height: 500px;
+
+
+                .row {
+                    // background-color: pink;
+                }
+            }
+        }
     }
 }

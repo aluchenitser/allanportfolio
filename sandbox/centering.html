@@ -10,32 +10,24 @@
 
     <style>
 
+        .outer {
+            display: flex;
+            flex-direction: column;
+            outline: 1px dotted red;
+        }
 
+        .inner {
+            outline: 1px dotted pink;
+            height: 100%;
+        }
     </style>
 </head>
 <body>
    
-    <div><button id="push">pushState</button></div>
-    <div><button id="replace">replaceState</button></div>
+    <div class="outer">
+        <div class="inner">that is some shit</div>
+        <div class="inner">and that is some other shit</div>
+    </div>
 
-    <script>
-        document.getElementById('push').addEventListener("click", function() {
-            history.pushState("", "", location.origin + location.pathname + "#pushed")
-        })
-
-        document.getElementById('replace').addEventListener("click", function() {
-            history.pushState("", "", location.origin + location.pathname + "#replaced")
-        })
-        
-        window.addEventListener('popstate', e => {
-            console.log("popstate!")
-            console.log(e)
-        })
-
-        window.addEventListener('hashchange', e => {
-            console.log("hashchange!")
-            console.log(e)
-        })
-    </script>
 </body>
 </html>

@@ -1150,7 +1150,7 @@ em {
   border-radius: 100%;
 }
 #magnetic_mobile_11_24_20 .game .holes .row .rod .high-ellipse .image {
-  width: 20%;
+  width: 110px;
   margin: 0 auto;
   position: relative;
   image-rendering: -webkit-optimize-contrast;
@@ -1225,11 +1225,23 @@ em {
   font-family: "IBM Plex Mono", monospace;
 }
 #magnetic_mobile_11_24_20 .game .etc .etc-wrap .you-win.hidden {
-  visibility: hidden;
+  display: none;
 }
 @keyframes blink {
   50% {
     font-size: 20px;
+  }
+}
+@media (max-width: 768px) {
+  #magnetic_mobile_11_24_20 .game {
+    margin: 0;
+    flex-direction: column-reverse;
+    min-height: auto;
+  }
+  #magnetic_mobile_11_24_20 .game .holes {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
   }
 }
 

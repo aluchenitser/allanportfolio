@@ -4,6 +4,7 @@
   width: 100px;
   transform: translate(-50%, -50%);
   z-index: 2;
+  cursor: url(mallot_down.png) 0 25, pointer;
 }
 
 /* COMPONENT styling */
@@ -17,10 +18,10 @@
 #magnetic_mobile_11_24_20 .game .holes {
   flex: 3 0 0;
   position: relative;
-  cursor: url(mallot.png), pointer;
+  cursor: url(mallot.png) 0 25, pointer;
 }
 #magnetic_mobile_11_24_20 .game .holes.down-mallot {
-  cursor: url(mallot_down.png), pointer;
+  cursor: url(mallot_down.png) 0 25, pointer;
 }
 #magnetic_mobile_11_24_20 .game .holes .row {
   height: 50%;

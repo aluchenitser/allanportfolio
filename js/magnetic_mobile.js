@@ -136,7 +136,7 @@ magneticMobile = {
         // console.log(element)
 
         element.style.left = e.pageX + "px"
-        element.style.top = e.pageY + "px"
+        element.style.top = e.pageY + 30 + "px"
         element.style.display = "block"
 
         setTimeout(() => {

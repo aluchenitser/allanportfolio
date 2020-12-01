@@ -4,6 +4,8 @@
     width: 100px;
     transform: translate(-50%, -50%);
     z-index: 2;
+    cursor: url(mallot_down.png) 0 25, pointer;
+
 }
 
 /* COMPONENT styling */
@@ -23,10 +25,10 @@
             flex: 3 0 0;
             position: relative;
    
-            cursor: url(mallot.png), pointer;
+            cursor: url(mallot.png) 0 25, pointer;
     
             &.down-mallot {
-                cursor: url(mallot_down.png), pointer;
+                cursor: url(mallot_down.png) 0 25, pointer;
             }
 
             .row {

@@ -1,3 +1,11 @@
+#bonk {
+  display: none;
+  position: absolute;
+  width: 100px;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
 /* COMPONENT styling */
 #magnetic_mobile_11_24_20 .game {
   display: flex;
@@ -8,6 +16,7 @@
 }
 #magnetic_mobile_11_24_20 .game .holes {
   flex: 3 0 0;
+  position: relative;
   cursor: url(mallot.png), pointer;
 }
 #magnetic_mobile_11_24_20 .game .holes.down-mallot {

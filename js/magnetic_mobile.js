@@ -1,4 +1,5 @@
 magneticMobile = {
+    level: 1,
     foe: 0,
     friend: 0,
     gameInterval: null,
@@ -17,20 +18,19 @@ magneticMobile = {
         })
     },
     start() {
-
         // ready and clear the game
-        let level = 1                       // levels 1 through 3, higher level means quicker and more pop-ups
+        this.level = 1                       // higher lever speeds the rods
         this.isStarted = true
         clearInterval(this.gameInterval)
 
         // visually dim the start button and lower all the heads
         this.startButtonElement.classList.add("started")
         this.imageElements.forEach(el => el.classList.add("down"))
-
+        
         // game loop
         this.timer = 45
         this.timerElement.innerHTML = this.timer
-
+        
         this.gameInterval = setInterval(() => {
             this.timerElement.innerHTML = --this.timer
 
@@ -40,39 +40,34 @@ magneticMobile = {
             }
         }, 1000)
 
-        
+        // randomly pop heads
         let self = this
         setTimeout(function loop() {
             if(self.isStarted === false) return;
+            if(self.timer < 15) { self.level = 2 }
 
-            self.getRandom(self.rodElements, Math.ceil(Math.random() * level)).forEach(el => {
+            self.getRandom(self.rodElements, Math.ceil(Math.random() * self.level)).forEach(el => {
                 if(el.classList.contains("down")) {
-
                     el.classList.remove("down")
 
                     setTimeout(() => { 
                         console.log("inner", el)
                         el.classList.add("down") 
-                    }, Math.ceil(Math.random()) * (4 - level) * 1000)
+                    }, randomTime())
                 }
             })
 
-            setTimeout(loop, Math.ceil(Math.random() * (4 - level) * 1000))
+            setTimeout(loop, randomTime())
 
-        }, Math.ceil(Math.random() * (4 - level) * 1000))
+        }, randomTime())
         
+        function randomTime() {
+            return Math.ceil(Math.random() * (4 - self.level) * 1000)
+        }
     },
     end() {
-
+        this.isStarted = false
     },
-    popRods(num) {
-        this.rodElements.forEach((el, idx) => {
-            el.className = el.classList.contains("down")
-                ? "image down" + this.rodArray[idx]
-                : "image " + this.rodArray[idx]
-        })
-    },
-
     addPointFoe() {
         this.foeElement.innerHTML = ++this.foe
     },
@@ -105,6 +100,7 @@ magneticMobile = {
             if(this.isStarted && classList.contains("allan") === false) {
                 console.log("bonked dimwit")
                 this.addPointFoe()
+                this.bonk(e)
                 classList.add("down")
             }
             
@@ -116,6 +112,8 @@ magneticMobile = {
 
             // pre-game bonk for funsies
             else {
+                this.bonk(e)
+
                 classList.add("down")
 
                 setTimeout(() => {
@@ -123,6 +121,20 @@ magneticMobile = {
                 }, 500)
             }
         })
+    },
+    bonk(event) {
+        let e = event
+        console.log(e.pageX, e.clientX, e.screenX, e.target.offsetLeft)
+
+        this.bonkElement.style.left = e.pageX + "px"
+        this.bonkElement.style.top = e.pageY + "px"
+
+        this.bonkElement.style.display = "block"
+
+        setTimeout(() => {
+            this.bonkElement.style.display = "none"
+        }, 300)
+        
     },
     shuffleRods() {
         // shuffle the image array with Fisher-Yates
@@ -158,8 +170,10 @@ magneticMobile = {
 
         this.startButtonElement     = this.gameElement.querySelector(".start-stop button")
        
-        this.friendElement        = this.gameElement.querySelector("#friendly_score")
+        this.friendElement          = this.gameElement.querySelector("#friendly_score")
         this.foeElement             = this.gameElement.querySelector("#foe_score")
         this.timerElement           = this.gameElement.querySelector("#timer_value")
+
+        this.bonkElement            = document.getElementById("bonk")
     }, 
 }

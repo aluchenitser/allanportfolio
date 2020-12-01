@@ -1,6 +1,15 @@
-/* COMPONENT styling */
+#bonk {
+    display: none;
+    position: absolute;
+    width: 100px;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
 
+
+/* COMPONENT styling */
 #magnetic_mobile_11_24_20 {
+
     .game {
         display: flex;
 
@@ -9,9 +18,12 @@
         background: linear-gradient(180deg, #fcf7ee, transparent);
         position: relative;
 
+
         .holes {
+
             // padding: 50px;
             flex: 3 0 0;
+            position: relative;
    
             cursor: url(mallot.png), pointer;
     
@@ -78,6 +90,7 @@
                             &.shapiro {
                                 background: url(shapiro.png) no-repeat;
                             }
+
 
                             width: 20%;
                             margin: 0 auto;

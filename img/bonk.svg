@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 62 58" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g id="Artboard1" transform="matrix(0.769958,0,0,0.803103,-179.12,-269.216)">
+        <rect x="232.636" y="335.22" width="79.265" height="70.978" style="fill:none;"/>
+        <g transform="matrix(1.17513,-0.530228,0.553053,1.12664,-246.822,97.0959)">
+            <path d="M270.779,339.551L276.117,353.912L286.401,349.474L284.752,359.397L302.023,359.397L288.051,368.272L296.056,375.452L284.752,377.147L290.089,391.507L276.117,382.632L270.779,391.507L265.442,382.632L251.47,391.507L256.807,377.147L245.503,375.452L253.508,368.272L239.536,359.397L256.807,359.397L255.158,349.474L265.442,353.912L270.779,339.551Z" style="fill:rgb(255,253,0);stroke:rgb(255,0,0);stroke-width:0.6px;"/>
+        </g>
+        <g transform="matrix(1.22857,-0.403845,0.42123,1.17786,-210.611,49.7904)">
+            <text x="259.035px" y="366.285px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:11px;fill:rgb(255,0,0);">bonk</text>
+        </g>
+    </g>
+</svg>

@@ -6,20 +6,16 @@
     z-index: 2;
 }
 
-
 /* COMPONENT styling */
 #magnetic_mobile_11_24_20 {
 
     .game {
         display: flex;
 
-        margin: 0 0 0 -50px;
+        margin: 30px 0 0 -50px;
         min-height: 500px;
         background: linear-gradient(180deg, #fcf7ee, transparent);
         position: relative;
-
-
-
 
         .holes {
 
@@ -158,12 +154,15 @@
                 }
 
                 .foe {
+                    margin-top: 30px;
+
                     span {
                         float: right;
                     }
                 }
 
                 .timer {
+                    margin-top: 30px;
                     span {
                         float: right;
                     }
@@ -196,24 +195,44 @@
 
     @media (max-width: 768px) {
         .game {
-            margin: 0;
+            margin: 30px 0 0 0;
             flex-direction: column-reverse;
             min-height: auto;
 
             .etc {
+                .etc-wrap {
+                    padding: 15px 15px 0 15px;
 
+                    .foe, .timer {
+                        margin-top: 15px;
+                    }
+                }
+
+                .stats {
+                    font-size: 21px;
+                }
+
+             
             }
 
             .holes {
                 display: flex;
                 flex-direction: column;
-                // background-color: yellow;
                 height: 500px;
 
 
                 .row {
-                    // background-color: pink;
+                    height: 180px;
+                    
+                    .rod {
+                        height: 140%;
+                    }
+
                 }
+            }
+
+            + p {
+                margin: 25px 0;
             }
         }
     }

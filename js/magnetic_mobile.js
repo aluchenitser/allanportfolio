@@ -91,6 +91,8 @@ magneticMobile = {
     // consequences of bonks
     bonkMechanics() {
         this.holesElement.addEventListener("click", e => {
+            console.log(e.target)
+
             let classList = e.target.classList
 
             // register if the element is an image and is upright
@@ -125,11 +127,13 @@ magneticMobile = {
     },
     bonk(event) {
         let e = event
+        // console.log(e.target)
         
+
         let element = this.bonkArray[this.bonkIncrementor++]
         if(this.bonkIncrementor == 3) this.bonkIncrementor = 0
 
-        console.log(element)
+        // console.log(element)
 
         element.style.left = e.pageX + "px"
         element.style.top = e.pageY + "px"

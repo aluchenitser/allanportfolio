@@ -9,7 +9,7 @@
 /* COMPONENT styling */
 #magnetic_mobile_11_24_20 .game {
   display: flex;
-  margin: 0 0 0 -50px;
+  margin: 30px 0 0 -50px;
   min-height: 500px;
   background: linear-gradient(180deg, #fcf7ee, transparent);
   position: relative;
@@ -115,8 +115,14 @@
 #magnetic_mobile_11_24_20 .game .etc .etc-wrap .friendly span {
   float: right;
 }
+#magnetic_mobile_11_24_20 .game .etc .etc-wrap .foe {
+  margin-top: 30px;
+}
 #magnetic_mobile_11_24_20 .game .etc .etc-wrap .foe span {
   float: right;
+}
+#magnetic_mobile_11_24_20 .game .etc .etc-wrap .timer {
+  margin-top: 30px;
 }
 #magnetic_mobile_11_24_20 .game .etc .etc-wrap .timer span {
   float: right;
@@ -139,14 +145,32 @@
 }
 @media (max-width: 768px) {
   #magnetic_mobile_11_24_20 .game {
-    margin: 0;
+    margin: 30px 0 0 0;
     flex-direction: column-reverse;
     min-height: auto;
+  }
+  #magnetic_mobile_11_24_20 .game .etc .etc-wrap {
+    padding: 15px 15px 0 15px;
+  }
+  #magnetic_mobile_11_24_20 .game .etc .etc-wrap .foe, #magnetic_mobile_11_24_20 .game .etc .etc-wrap .timer {
+    margin-top: 15px;
+  }
+  #magnetic_mobile_11_24_20 .game .etc .stats {
+    font-size: 21px;
   }
   #magnetic_mobile_11_24_20 .game .holes {
     display: flex;
     flex-direction: column;
     height: 500px;
+  }
+  #magnetic_mobile_11_24_20 .game .holes .row {
+    height: 180px;
+  }
+  #magnetic_mobile_11_24_20 .game .holes .row .rod {
+    height: 140%;
+  }
+  #magnetic_mobile_11_24_20 .game + p {
+    margin: 25px 0;
   }
 }
 

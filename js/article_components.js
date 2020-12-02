@@ -79,7 +79,7 @@ var app = new Vue({
 
                 // setup JS
                 if(route === "#magnetic_mobile_11_24_20" || route === '') {
-                    this.setupJavascript("#magnetic_mobile_11_24_20 .start-stop button", () => {
+                    this.setupJavascript("#magnetic_mobile_11_24_20 .game", () => {
                         console.log("pre load")
                         magneticMobile.load()
                     })

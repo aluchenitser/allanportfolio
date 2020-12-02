@@ -4,24 +4,26 @@
   width: 100px;
   transform: translate(-50%, -50%);
   z-index: 2;
-  cursor: url(mallot_down.png) 0 25, pointer;
+  cursor: url(css_img/mallot_down.png) 0 25, pointer;
 }
 
 /* COMPONENT styling */
 #magnetic_mobile_11_24_20 .game {
   display: flex;
-  margin: 30px 0 0 -50px;
+  margin: 30px auto 0;
+  width: 65%;
   min-height: 500px;
   background: linear-gradient(180deg, #fcf7ee, transparent);
   position: relative;
 }
 #magnetic_mobile_11_24_20 .game .holes {
+  color: purple;
   flex: 3 0 0;
   position: relative;
-  cursor: url(mallot.png) 0 25, pointer;
+  cursor: url(css_img/mallot.png) 0 25, pointer;
 }
 #magnetic_mobile_11_24_20 .game .holes.down-mallot {
-  cursor: url(mallot_down.png) 0 25, pointer;
+  cursor: url(css_img/mallot_down.png) 0 25, pointer;
 }
 #magnetic_mobile_11_24_20 .game .holes .row {
   height: 50%;
@@ -70,94 +72,26 @@
   transform: translateY(110px);
 }
 #magnetic_mobile_11_24_20 .game .holes .row .rod .high-ellipse .image.trump {
-  background: url(trump2.png) no-repeat;
+  background: url(css_img/trump2.png) no-repeat;
 }
 #magnetic_mobile_11_24_20 .game .holes .row .rod .high-ellipse .image.peterson {
-  background: url(JP.png) no-repeat;
+  background: url(css_img/JP.png) no-repeat;
 }
-#magnetic_mobile_11_24_20 .game .holes .row .rod .high-ellipse .image.allan {
-  background: url(linkedin_transparent.png) no-repeat;
+#magnetic_mobile_11_24_20 .game .holes .row .rod .high-ellipse .image.alex {
+  background: url(css_img/alexjones.png) no-repeat;
 }
 #magnetic_mobile_11_24_20 .game .holes .row .rod .high-ellipse .image.shapiro {
-  background: url(shapiro.png) no-repeat;
+  background: url(css_img/shapiro.png) no-repeat;
 }
-#magnetic_mobile_11_24_20 .game .etc {
-  flex: 2 0 0;
+#magnetic_mobile_11_24_20 .bottom-text {
+  margin-top: 0;
 }
-#magnetic_mobile_11_24_20 .game .etc .etc-wrap {
-  padding: 30px 70px;
-  display: flex;
-  flex-flow: column;
-}
-#magnetic_mobile_11_24_20 .game .etc .etc-wrap .start-stop {
-  text-align: center;
-  text-align: center;
-}
-#magnetic_mobile_11_24_20 .game .etc .etc-wrap .start-stop button {
-  cursor: pointer;
-  width: 100%;
-  padding: 10px;
-  font-size: 30px;
-  font-weight: bold;
-  border: none;
-  outline: 2px dashed var(--readable-text-color);
-}
-#magnetic_mobile_11_24_20 .game .etc .etc-wrap .start-stop button:focus {
-  outline: 2px dashed var(--readable-text-color);
-}
-#magnetic_mobile_11_24_20 .game .etc .etc-wrap .start-stop button.started {
-  outline-color: lightgray;
-  color: lightgray;
-}
-#magnetic_mobile_11_24_20 .game .etc .etc-wrap .start-stop.started button {
-  color: lightgray;
-  border-color: lightgray;
-}
-#magnetic_mobile_11_24_20 .game .etc .etc-wrap .friendly span {
-  float: right;
-}
-#magnetic_mobile_11_24_20 .game .etc .etc-wrap .foe {
-  margin-top: 30px;
-}
-#magnetic_mobile_11_24_20 .game .etc .etc-wrap .foe span {
-  float: right;
-}
-#magnetic_mobile_11_24_20 .game .etc .etc-wrap .timer {
-  margin-top: 30px;
-}
-#magnetic_mobile_11_24_20 .game .etc .etc-wrap .timer span {
-  float: right;
-}
-#magnetic_mobile_11_24_20 .game .etc .etc-wrap .you-win {
-  font-size: 30px;
-  font-weight: bold;
-  padding: 10px;
-  text-align: center;
-  color: #4032ff;
-  font-family: "IBM Plex Mono", monospace;
-}
-#magnetic_mobile_11_24_20 .game .etc .etc-wrap .you-win.hidden {
-  display: none;
-}
-@keyframes blink {
-  50% {
-    font-size: 20px;
-  }
-}
-@media (max-width: 768px) {
+@media (max-width: 650px) {
   #magnetic_mobile_11_24_20 .game {
-    margin: 30px 0 0 0;
+    margin: 30px 0 0;
+    width: 100%;
     flex-direction: column-reverse;
     min-height: auto;
-  }
-  #magnetic_mobile_11_24_20 .game .etc .etc-wrap {
-    padding: 15px 15px 0 15px;
-  }
-  #magnetic_mobile_11_24_20 .game .etc .etc-wrap .foe, #magnetic_mobile_11_24_20 .game .etc .etc-wrap .timer {
-    margin-top: 15px;
-  }
-  #magnetic_mobile_11_24_20 .game .etc .stats {
-    font-size: 21px;
   }
   #magnetic_mobile_11_24_20 .game .holes {
     display: flex;
@@ -173,8 +107,8 @@
   #magnetic_mobile_11_24_20 .game .holes .row:first-of-type {
     z-index: 1;
   }
-  #magnetic_mobile_11_24_20 .game + p {
-    margin: 25px 0;
+  #magnetic_mobile_11_24_20 .bottom-text {
+    margin: 40px 0;
   }
 }
 

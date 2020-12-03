@@ -2,7 +2,8 @@
 let articleNames = [
     "css_variables_10_23_20",
     "about_me_10_23_20",
-    "magnetic_mobile_11_24_20"
+    "magnetic_mobile_11_24_20",
+    "z_index_12_03_20"
 ]
 
 /* ------ create article components ------ */

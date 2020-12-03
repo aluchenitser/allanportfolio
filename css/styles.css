@@ -26,10 +26,6 @@ html {
   box-sizing: inherit;
 }
 
-.derp {
-  color: red;
-}
-
 /* -------- GENERAL -------- */
 body {
   color: var(--readable-text-color);
@@ -81,8 +77,11 @@ a.link, a:hover.link, a:link.link {
   text-decoration: underline;
 }
 
-em {
-  color: #001eff;
+.code {
+  display: inline-block;
+  background-color: #f3f3f3;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 /* -------- HEADER ------- */
@@ -126,6 +125,7 @@ em {
   position: relative;
   padding-left: 15px;
   padding-right: 15px;
+  margin-bottom: 150px;
 }
 .container .entry {
   position: relative;
@@ -1178,9 +1178,6 @@ em {
 #magnetic_mobile_11_24_20 .game .holes .row .rod .high-ellipse .image.shapiro {
   background: url(css_img/shapiro.png) no-repeat;
 }
-#magnetic_mobile_11_24_20 .bottom-text {
-  margin-top: 0;
-}
 @media (max-width: 650px) {
   #magnetic_mobile_11_24_20 .game {
     margin: 30px 0 0;
@@ -1202,8 +1199,10 @@ em {
   #magnetic_mobile_11_24_20 .game .holes .row:first-of-type {
     z-index: 1;
   }
-  #magnetic_mobile_11_24_20 .bottom-text {
-    margin: 40px 0;
+}
+@media (min-width: 769px) {
+  #magnetic_mobile_11_24_20.entry hr {
+    margin-top: 0;
   }
 }
 

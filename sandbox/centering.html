@@ -10,23 +10,75 @@
 
     <style>
 
+        div {
+        }
+
         .outer {
-            display: flex;
-            flex-direction: column;
-            outline: 1px dotted red;
+            background: red;
+            height: 500px;
+            position: relative;
+        }
+
+        [class^=inner] {
+            width: 100px;
+            height: 100px;
+        }
+
+        .wrap {
+            background-color: lightgreen;
+            z-index: 0;
+            position: relative;
+        }
+
+        .adjacent-wrap {
+            background-color: orange;
+            width: 300px;
+            height: 200px;
+            position: absolute;
         }
 
         .inner {
-            outline: 1px dotted pink;
-            height: 100%;
+            position: relative;
+            background: pink;
+            z-index: 1;
+        }
+
+        .inner2 {
+            background: yellow;
+            top: -30px;
+            left: 30px;
+            position: relative;
+            z-index: -1;
+        }
+
+        .parent {
+            background-color: purple;
+        }
+
+        .child {
+            background-color: cyan;
+            position: relative;
+            top: 10px;
+            z-index: 0;
         }
     </style>
 </head>
 <body>
    
     <div class="outer">
-        <div class="inner">that is some shit</div>
-        <div class="inner">and that is some other shit</div>
+        <div class="wrap">
+            <div class="inner">that is some shit</div>
+            <div class="inner2">and that is some other shit</div>
+        </div>
+        <div class="adjacent-wrap">
+
+        </div>
+    </div>
+
+    <div class="parent">
+        <div class="child">
+            zup
+        </div>
     </div>
 
 </body>

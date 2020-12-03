@@ -83,9 +83,6 @@
 #magnetic_mobile_11_24_20 .game .holes .row .rod .high-ellipse .image.shapiro {
   background: url(css_img/shapiro.png) no-repeat;
 }
-#magnetic_mobile_11_24_20 .bottom-text {
-  margin-top: 0;
-}
 @media (max-width: 650px) {
   #magnetic_mobile_11_24_20 .game {
     margin: 30px 0 0;
@@ -107,8 +104,10 @@
   #magnetic_mobile_11_24_20 .game .holes .row:first-of-type {
     z-index: 1;
   }
-  #magnetic_mobile_11_24_20 .bottom-text {
-    margin: 40px 0;
+}
+@media (min-width: 769px) {
+  #magnetic_mobile_11_24_20.entry hr {
+    margin-top: 0;
   }
 }
 

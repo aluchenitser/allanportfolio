@@ -28,9 +28,6 @@ html {
 	box-sizing: inherit;
 }
 
-.derp {
-	color: red;
-}
 /* -------- GENERAL -------- */ 
 
 body {
@@ -92,10 +89,12 @@ a, a:hover, a:link {
 	}
 }
 
-em {
-	color: #001eff;
+.code {
+	display: inline-block;
+	background-color: #f3f3f3;
+	padding-left: 5px;
+	padding-right: 5px;
 }
-
 /* -------- HEADER ------- */
 
 .header {
@@ -142,6 +141,7 @@ em {
 	position: relative;
 	padding-left: 15px;
 	padding-right: 15px;
+	margin-bottom: 150px;
 
 	.entry {
 		position: relative;

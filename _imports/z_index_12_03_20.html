@@ -1,0 +1,26 @@
+<script type="text/x-template" id="z_index_12_03_20">
+    <article-entry
+        head="z-index: you'll never understand"
+        date="Dec. 3, 2020">
+        <p><span class="code">z-index</span>, the css attribute that nobody gets. <em>It's easy</em> they say. Hours later, you slathered z-index: 99999 onto ten different elements and hate yourself.</p>
+        <p>My advice is to read a bunch of explanations until they start to congeal. Here's a dirty take:</p>
+        <ul>
+            <li>z-index helps decide who's on top if elements are overlapping.</li>
+            <li>The z-index only takes effect when the element also has a <span class="code">position</span> of any value except for <span class="code">static</span>.</li>
+            <li>For sibling elements where both have a z-index value set, the higher z-index is on top, and all the winner's children sit on top of all the loser's children.</li>
+        </ul>
+        <p>Pay extra attention for elements with a parent / child relationship:</p>
+        <ul>
+            <li>An element <em>with</em> a z-index value will always sit behind all its children. This is true even for values of 0 or negative.</li>
+            <li>An element <em>without</em> a z-index value could find itself behind its own child, should that child be given its own z-index setting.</li>
+        </ul>
+        <p>CHALLENGE ROUND: Here's what I call pseudo siblings. If you can get this well then heck you've got it.</p>
+        <img src="img/pseudo_siblings.svg" />
+        <p>Here we have siblings. One has a z-index value of 1, and the other has z-index property at all. An unset is generally equivalend to z-index: 0 but with 
+        <p>Some tips:</p>
+        <ul>
+            <li>Make a little html file and experiment with z-index settings</li>
+            <li>An element <em>without</em> a z-index value could find itself behind its own child, should that child be given its own z-index setting.</li>
+        </ul>
+    </article-entry>
+</script>

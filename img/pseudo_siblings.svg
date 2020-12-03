@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 229 187" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g id="Artboard1" transform="matrix(0.71582,0,0,0.648182,-178.212,-104.64)">
+        <rect x="248.962" y="161.436" width="318.979" height="287.589" style="fill:none;"/>
+        <g transform="matrix(1.397,0,0,1.54278,-160.717,-153.525)">
+            <g transform="matrix(1.3933,0,0,1.3933,-14.0583,-67.4833)">
+                <rect x="259.992" y="203.683" width="120.449" height="112.829" style="fill:rgb(230,242,250);"/>
+            </g>
+            <g transform="matrix(1,0,0,1,53.2886,135.353)">
+                <text x="370.308px" y="236.21px" style="font-family:'CambayDevanagari-Regular', 'Cambay Devanagari';font-size:12px;">z</text>
+                <text x="375.408px" y="236.21px" style="font-family:'CambayDevanagari-Regular', 'Cambay Devanagari';font-size:12px;">-index: auto</text>
+            </g>
+        </g>
+        <g transform="matrix(1.397,0,0,1.54278,-114.571,-188.294)">
+            <g transform="matrix(1,0,0,1,84.6711,51.1773)">
+                <rect x="178.776" y="230.156" width="124.977" height="129.259" style="fill:rgb(248,222,222);"/>
+            </g>
+            <g transform="matrix(1,0,0,1,75.4261,118.512)">
+                <text x="270.605px" y="289.677px" style="font-family:'CambayDevanagari-Regular', 'Cambay Devanagari';font-size:12px;">z-index: 1</text>
+            </g>
+        </g>
+        <g transform="matrix(1.397,0,0,1.54278,-165.465,-160.797)">
+            <g transform="matrix(1,0,0,1,-199.894,-28.3508)">
+                <rect x="577.354" y="274.003" width="116.875" height="116.875" style="fill:rgb(252,247,238);"/>
+            </g>
+            <g transform="matrix(1,0,0,1,-2.03167,28.8092)">
+                <text x="383.937px" y="330.742px" style="font-family:'CambayDevanagari-Regular', 'Cambay Devanagari';font-size:12px;">z-index: 2</text>
+            </g>
+        </g>
+        <g transform="matrix(1.397,0,0,1.54278,-45.4217,-128.251)">
+            <text x="409.71px" y="196.877px" style="font-family:'CambayDevanagari-Regular', 'Cambay Devanagari';font-size:11.969px;">p<tspan x="414.378px 418.483px 421.392px 425.629px 430.141px " y="196.877px 196.877px 196.877px 196.877px 196.877px ">arent</tspan></text>
+        </g>
+        <g transform="matrix(1.397,0,0,1.54278,-247.262,-128.288)">
+            <text x="409.71px" y="196.877px" style="font-family:'CambayDevanagari-Regular', 'Cambay Devanagari';font-size:11.969px;">s<tspan x="413.54px 415.108px 419.764px 421.798px 423.366px 427.879px " y="196.877px 196.877px 196.877px 196.877px 196.877px 196.877px ">ibling</tspan></text>
+        </g>
+        <g transform="matrix(1.397,0,0,1.54278,-187.147,5.31609)">
+            <text x="409.71px" y="196.877px" style="font-family:'CambayDevanagari-Oblique', 'Cambay Devanagari';font-style:italic;font-size:11.969px;">p<tspan x="414.378px 418.196px 422.409px 426.921px 431.577px " y="196.877px 196.877px 196.877px 196.877px 196.877px ">seudo</tspan></text>
+            <text x="411.295px" y="208.846px" style="font-family:'CambayDevanagari-Oblique', 'Cambay Devanagari';font-style:italic;font-size:11.969px;">s<tspan x="415.114px 416.682px 421.338px 423.42px 424.988px " y="208.846px 208.846px 208.846px 208.846px 208.846px ">iblin</tspan></text>
+            <text x="429.501px" y="208.846px" style="font-family:'CambayDevanagari-Oblique', 'Cambay Devanagari';font-style:italic;font-size:11.969px;">g</text>
+        </g>
+        <g transform="matrix(1.397,0,0,1.54278,-272.818,5.31609)">
+            <text x="409.71px" y="196.877px" style="font-family:'CambayDevanagari-Oblique', 'Cambay Devanagari';font-style:italic;font-size:11.969px;">p<tspan x="414.378px 418.196px 422.409px 426.921px 431.577px " y="196.877px 196.877px 196.877px 196.877px 196.877px ">seudo</tspan></text>
+            <text x="411.295px" y="208.846px" style="font-family:'CambayDevanagari-Oblique', 'Cambay Devanagari';font-style:italic;font-size:11.969px;">s<tspan x="415.114px 416.682px 421.338px 423.42px 424.988px " y="208.846px 208.846px 208.846px 208.846px 208.846px ">iblin</tspan></text>
+            <text x="429.501px" y="208.846px" style="font-family:'CambayDevanagari-Oblique', 'Cambay Devanagari';font-style:italic;font-size:11.969px;">g</text>
+        </g>
+        <g transform="matrix(1.397,0,0,1.54278,-319.502,-60.5847)">
+            <text x="409.71px" y="196.877px" style="font-family:'CambayDevanagari-Regular', 'Cambay Devanagari';font-size:11.969px;">s<tspan x="413.54px 415.108px 419.764px 421.798px 423.366px 427.879px " y="196.877px 196.877px 196.877px 196.877px 196.877px 196.877px ">ibling</tspan></text>
+        </g>
+        <g transform="matrix(1.397,0,0,1.54278,-70.3513,-88.8594)">
+            <text x="409.71px" y="196.877px" style="font-family:'CambayDevanagari-Regular', 'Cambay Devanagari';font-size:11.969px;">c<tspan x="413.456px 418.004px 419.572px 421.607px " y="196.877px 196.877px 196.877px 196.877px ">hild</tspan></text>
+        </g>
+        <g transform="matrix(0.904465,-0.262703,0.307658,1.29184,16.474,27.7824)">
+            <path d="M501.487,219.683L479.495,232.501" style="fill:none;stroke:black;stroke-width:1.03px;stroke-dasharray:0.62,3.1,0,0;"/>
+        </g>
+        <g transform="matrix(1.50107,0.101334,-0.0685441,1.23831,-172.706,-124.774)">
+            <path d="M339.241,215.233L306.844,260.34" style="fill:none;stroke:black;stroke-width:0.84px;stroke-dasharray:0.51,2.53,0,0;"/>
+        </g>
+        <g transform="matrix(1.397,0,0,1.54278,250.949,154.367)">
+            <path d="M64.672,98.202L94.302,98.202" style="fill:none;stroke:black;stroke-width:0.8px;stroke-dasharray:0.48,2.4,0,0;"/>
+        </g>
+    </g>
+</svg>
